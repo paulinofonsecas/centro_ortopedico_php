@@ -15,7 +15,9 @@ return new class extends Migration
             $table->id();
             $table->string('nome');
             $table->string('email');
+            $table->string('telefone');
             $table->foreignId('user_id')->constrained();
+            $table->foreignId('endereco_id')->constrained();
             $table->foreignId('estado_da_conta_id')->constrained();
             $table->timestamps();
         });
