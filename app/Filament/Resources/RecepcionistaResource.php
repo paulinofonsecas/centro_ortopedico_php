@@ -8,19 +8,18 @@ use App\Filament\Resources\RecepcionistaResource\Pages\ListRecepcionistas;
 use App\Models\Municipio;
 use App\Models\Provincia;
 use App\Models\Recepcionista;
-use Closure;
 use Filament\Forms\Components\Card;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
-use Filament\Resources\Form;
+use Filament\Forms\Form;
 use Filament\Resources\Resource;
-use Filament\Resources\Table;
+use Filament\Tables\Table;
 
 class RecepcionistaResource extends Resource
 {
     protected static ?string $model = Recepcionista::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-collection';
+    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
     public static function form(Form $form): Form
     {
@@ -53,7 +52,7 @@ class RecepcionistaResource extends Resource
 
                         Select::make('endereco.municipio_id')
                             ->label('Municipio')
-                            ->options(function (Closure $get) {
+                            ->options(function (\Filament\Forms\Get $get) {
                                 $provincia_id = $get('funcionario.endereco.provincia_id'); // Store the value of the `email` field in the `$email` variable.
 
                                 if (!$provincia_id) {

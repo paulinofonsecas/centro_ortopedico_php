@@ -10,7 +10,7 @@ class ListRecepcionistas extends ListRecords
 {
     protected static string $resource = RecepcionistaResource::class;
 
-    protected function getActions(): array
+    protected function getHeaderActions(): array
     {
         return [
             Actions\CreateAction::make(),
