@@ -14,7 +14,7 @@ class EstadoDaContaSeeder extends Seeder
     public function run(): void
     {
         EstadoDaConta::create(['nome' => 'Activa']);
-        EstadoDaConta::create(['nome' => 'Cancelada']);
+        EstadoDaConta::create(['nome' => 'inativa']);
         EstadoDaConta::create(['nome' => 'Desactivada']);
     }
 }

@@ -13,8 +13,6 @@ return new class extends Migration
     {
         Schema::create('funcionarios', function (Blueprint $table) {
             $table->id();
-            $table->string('nome');
-            $table->string('email');
             $table->string('telefone');
             $table->foreignId('user_id')->constrained();
             $table->foreignId('endereco_id')->constrained();

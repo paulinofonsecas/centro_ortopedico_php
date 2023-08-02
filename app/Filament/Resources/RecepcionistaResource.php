@@ -1,0 +1,130 @@
+<?php
+
+namespace App\Filament\Resources;
+
+use App\Filament\Resources\RecepcionistaResource\Pages\CreateRecepcionista;
+use App\Filament\Resources\RecepcionistaResource\Pages\EditRecepcionista;
+use App\Filament\Resources\RecepcionistaResource\Pages\ListRecepcionistas;
+use App\Models\Municipio;
+use App\Models\Provincia;
+use App\Models\Recepcionista;
+use Closure;
+use Filament\Forms\Components\Card;
+use Filament\Forms\Components\Select;
+use Filament\Forms\Components\TextInput;
+use Filament\Resources\Form;
+use Filament\Resources\Resource;
+use Filament\Resources\Table;
+
+class RecepcionistaResource extends Resource
+{
+    protected static ?string $model = Recepcionista::class;
+
+    protected static ?string $navigationIcon = 'heroicon-o-collection';
+
+    public static function form(Form $form): Form
+    {
+        return $form
+            ->schema([
+                Card::make()
+                    ->schema([
+                        TextInput::make('user.name')
+                            ->label('Nome completo'),
+                        TextInput::make('user.email')
+                            ->required()
+                            ->label('Email'),
+                        TextInput::make('user.password')
+                            ->password()
+                            ->label('Senha')
+                            ->minLength(8)
+                            ->required(),
+                    ]),
+
+                Card::make()
+                    ->schema([
+                        TextInput::make('funcionario.telefone')
+                            ->label('Telefone')
+                            ->required(),
+
+                        Select::make('endereco.provincia_id')
+                            ->label('Provincia')
+                            ->options(Provincia::all()->pluck('nome', 'id'))
+                            ->searchable(),
+
+                        Select::make('endereco.municipio_id')
+                            ->label('Municipio')
+                            ->options(function (Closure $get) {
+                                $provincia_id = $get('funcionario.endereco.provincia_id'); // Store the value of the `email` field in the `$email` variable.
+
+                                if (!$provincia_id) {
+                                    return Municipio::all()->pluck('nome', 'id');
+                                }
+
+                                $munis = Municipio::where('provincia_id', '=', $provincia_id)->pluck('nome', 'id');
+                                return $munis;
+                            })
+                            ->searchable(),
+
+                        TextInput::make('endereco.rua')
+                            ->label('Rua'),
+
+                    ]),
+            ]);
+    }
+
+    public static function table(Table $table): Table
+    {
+        /*
+         * nome
+         * email
+         * telefone
+         * Estado da conta
+         * data de criacao
+         */
+        return $table
+            ->columns([
+                \Filament\Tables\Columns\TextColumn::make('id')
+                    ->label('ID'),
+                \Filament\Tables\Columns\TextColumn::make('funcionario.user.name')
+                    ->label('Nome completo'),
+                \Filament\Tables\Columns\TextColumn::make('funcionario.user.email')
+                    ->label('Email'),
+                \Filament\Tables\Columns\TextColumn::make('funcionario.telefone')
+                    ->label('Telefone'),
+                \Filament\Tables\Columns\BadgeColumn::make('funcionario.estadoDaConta.nome')
+                    ->label('Estado da conta')
+                    ->colors([
+                        'success' => 'Activa',
+                        'danger' => 'Inativa',
+                        'warning' => 'Desactivada',
+                    ]),
+                \Filament\Tables\Columns\TextColumn::make('created_at')
+                    ->sortable()
+                    ->dateTime(),
+            ])
+            ->filters([
+                //
+            ])
+            ->actions([
+                \Filament\Tables\Actions\EditAction::make(),
+            ])
+            ->bulkActions([
+                \Filament\Tables\Actions\DeleteBulkAction::make(),
+            ]);
+    }
+
+    public static function getRelations(): array
+    {
+        return [
+        ];
+    }
+
+    public static function getPages(): array
+    {
+        return [
+            'index' => ListRecepcionistas::route('/'),
+            'create' => CreateRecepcionista::route('/create'),
+            'edit' => EditRecepcionista::route('/{record}/edit'),
+        ];
+    }
+}

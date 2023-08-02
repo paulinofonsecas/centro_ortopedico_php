@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class EstadoDaConta extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'nome',
+    ];
 }
