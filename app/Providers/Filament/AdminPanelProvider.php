@@ -3,6 +3,7 @@
 namespace App\Providers\Filament;
 
 use App\Filament\Pages\Dashboard;
+use App\Filament\Resources\AdministradorResource;
 use App\Filament\Resources\EspecialidadeResource;
 use App\Filament\Resources\MedicoResource;
 use App\Filament\Resources\RecepcionistaResource;
@@ -50,6 +51,7 @@ class AdminPanelProvider extends PanelProvider
                             ->items([
                                 ...RecepcionistaResource::getNavigationItems(),
                                 ...MedicoResource::getNavigationItems(),
+                                ...AdministradorResource::getNavigationItems(),
                             ]),
                     ])
                     ->groups([
