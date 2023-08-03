@@ -3,8 +3,8 @@
 namespace App\Filament\Resources\RecepcionistaResource\Pages;
 
 use App\Filament\Resources\RecepcionistaResource;
-use Filament\Pages\Actions;
 use Filament\Resources\Pages\ListRecords;
+use Filament\Actions\CreateAction;
 
 class ListRecepcionistas extends ListRecords
 {
@@ -13,7 +13,7 @@ class ListRecepcionistas extends ListRecords
     protected function getHeaderActions(): array
     {
         return [
-            Actions\CreateAction::make(),
+            CreateAction::make(),
         ];
     }
 }

@@ -6,7 +6,6 @@ use App\Filament\Resources\RecepcionistaResource;
 use App\Models\Endereco;
 use App\Models\Funcionario;
 use App\Models\User;
-use Filament\Pages\Actions;
 use Filament\Resources\Pages\CreateRecord;
 use Illuminate\Support\Facades\Hash;
 

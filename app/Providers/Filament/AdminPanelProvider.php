@@ -2,10 +2,16 @@
 
 namespace App\Providers\Filament;
 
+use App\Filament\Pages\Dashboard;
+use App\Filament\Resources\EspecialidadeResource;
+use App\Filament\Resources\MedicoResource;
+use App\Filament\Resources\RecepcionistaResource;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\DisableBladeIconComponents;
 use Filament\Http\Middleware\DispatchServingFilamentEvent;
+use Filament\Navigation\NavigationBuilder;
 use Filament\Navigation\NavigationGroup;
+use Filament\Navigation\NavigationItem;
 use Filament\Pages;
 use Filament\Panel;
 use Filament\PanelProvider;
@@ -31,6 +37,32 @@ class AdminPanelProvider extends PanelProvider
             ->colors([
                 'primary' => Color::Amber,
             ])
+            ->navigation(function (NavigationBuilder $builder): NavigationBuilder {
+                return $builder
+                    ->items([
+                        NavigationItem::make('Dashboard')
+                            ->icon('heroicon-o-home')
+                            ->url('/admin')
+                            ->isActiveWhen(fn (): bool => request()->fullUrlIs(Dashboard::getUrl())),
+                    ])
+                    ->groups([
+                        NavigationGroup::make('Contas')
+                            ->items([
+                                ...RecepcionistaResource::getNavigationItems(),
+                                ...MedicoResource::getNavigationItems(),
+                            ]),
+                    ])
+                    ->groups([
+                        NavigationGroup::make('Outros')
+                            ->items([
+                                ...EspecialidadeResource::getNavigationItems(),
+                            ]),
+                    ]);
+            })
+            // ->navigation(function (NavigationBuilder $builder): NavigationBuilder {
+            //     return $builder->items([
+            //     ]);
+            // })
             ->discoverResources(in: app_path('Filament/Resources'), for: 'App\\Filament\\Resources')
             ->discoverPages(in: app_path('Filament/Pages'), for: 'App\\Filament\\Pages')
             ->pages([
@@ -41,7 +73,6 @@ class AdminPanelProvider extends PanelProvider
                 Widgets\AccountWidget::class,
                 Widgets\FilamentInfoWidget::class,
             ])
-            ->databaseNotifications()
             ->middleware([
                 EncryptCookies::class,
                 AddQueuedCookiesToResponse::class,
@@ -55,6 +86,7 @@ class AdminPanelProvider extends PanelProvider
             ])
             ->authMiddleware([
                 Authenticate::class,
-            ]);
+            ])
+            ->sidebarCollapsibleOnDesktop();
     }
 }

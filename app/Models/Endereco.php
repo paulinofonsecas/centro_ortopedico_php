@@ -14,4 +14,14 @@ class Endereco extends Model
         'municipio_id',
         'rua',
     ];
+
+    public function provincia()
+    {
+        return $this->belongsTo(Provincia::class, 'provincia_id', 'id');
+    }
+
+    public function municipio()
+    {
+        return $this->belongsTo(Municipio::class, 'municipio_id', 'id');
+    }
 }

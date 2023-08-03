@@ -25,4 +25,9 @@ class Funcionario extends Model
     {
         return $this->belongsTo(EstadoDaConta::class, 'estado_da_conta_id', 'id');
     }
+
+    public function endereco()
+    {
+        return $this->belongsTo(Endereco::class, 'endereco_id', 'id');
+    }
 }

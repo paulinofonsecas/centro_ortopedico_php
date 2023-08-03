@@ -8,24 +8,28 @@ use App\Filament\Resources\RecepcionistaResource\Pages\ListRecepcionistas;
 use App\Models\Municipio;
 use App\Models\Provincia;
 use App\Models\Recepcionista;
-use Filament\Forms\Components\Card;
+use App\Models\EstadoDaConta;
+use Filament\Forms\Components\Section;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
+use Filament\Tables\Columns\BadgeColumn;
 use Filament\Tables\Table;
 
 class RecepcionistaResource extends Resource
 {
     protected static ?string $model = Recepcionista::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'healthicons-f-i-exam-multiple-choice';
+
+    protected static ?string $navigationGroup = 'contas';
 
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
-                Card::make()
+                Section::make()
                     ->schema([
                         TextInput::make('user.name')
                             ->label('Nome completo'),
@@ -36,10 +40,11 @@ class RecepcionistaResource extends Resource
                             ->password()
                             ->label('Senha')
                             ->minLength(8)
-                            ->required(),
+                            ->required()
+                            ->visibleOn('create'),
                     ]),
 
-                Card::make()
+                Section::make()
                     ->schema([
                         TextInput::make('funcionario.telefone')
                             ->label('Telefone')
@@ -53,7 +58,7 @@ class RecepcionistaResource extends Resource
                         Select::make('endereco.municipio_id')
                             ->label('Municipio')
                             ->options(function (\Filament\Forms\Get $get) {
-                                $provincia_id = $get('funcionario.endereco.provincia_id'); // Store the value of the `email` field in the `$email` variable.
+                                $provincia_id = $get('endereco.provincia_id'); // Store the value of the `email` field in the `$email` variable.
 
                                 if (!$provincia_id) {
                                     return Municipio::all()->pluck('nome', 'id');
@@ -68,6 +73,14 @@ class RecepcionistaResource extends Resource
                             ->label('Rua'),
 
                     ]),
+
+                Section::make()
+                    ->schema([
+                        Select::make('funcionario.estadoDaConta.id')
+                            ->label('Estado da conta')
+                            ->options(EstadoDaConta::all()->pluck('nome', 'id'))
+                            ->searchable(),
+                    ])
             ]);
     }
 
@@ -85,12 +98,18 @@ class RecepcionistaResource extends Resource
                 \Filament\Tables\Columns\TextColumn::make('id')
                     ->label('ID'),
                 \Filament\Tables\Columns\TextColumn::make('funcionario.user.name')
-                    ->label('Nome completo'),
+                    ->label('Nome completo')
+                    ->searchable()
+                    ->sortable(),
                 \Filament\Tables\Columns\TextColumn::make('funcionario.user.email')
-                    ->label('Email'),
+                    ->label('Email')
+                    ->searchable()
+                    ->sortable(),
                 \Filament\Tables\Columns\TextColumn::make('funcionario.telefone')
-                    ->label('Telefone'),
-                \Filament\Tables\Columns\BadgeColumn::make('funcionario.estadoDaConta.nome')
+                    ->label('Telefone')
+                    ->searchable()
+                    ->sortable(),
+                BadgeColumn::make('funcionario.estadoDaConta.nome')
                     ->label('Estado da conta')
                     ->colors([
                         'success' => 'Activa',
@@ -114,8 +133,7 @@ class RecepcionistaResource extends Resource
 
     public static function getRelations(): array
     {
-        return [
-        ];
+        return [];
     }
 
     public static function getPages(): array

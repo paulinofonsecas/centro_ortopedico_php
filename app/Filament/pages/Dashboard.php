@@ -10,4 +10,5 @@ class Dashboard extends BasePage {
         return 2;
     }
 
+
 }
