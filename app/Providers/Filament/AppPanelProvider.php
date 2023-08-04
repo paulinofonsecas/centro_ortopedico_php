@@ -24,7 +24,8 @@ class AppPanelProvider extends PanelProvider
     {
         return $panel
             ->id('app')
-            ->path('')
+            ->login()
+            ->path('app')
             ->colors([
                 'primary' => Color::Amber,
             ])
@@ -51,6 +52,8 @@ class AppPanelProvider extends PanelProvider
             ])
             ->authMiddleware([
                 Authenticate::class,
-            ]);
+            ])
+            ->sidebarCollapsibleOnDesktop();
+
     }
 }
