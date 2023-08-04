@@ -13,5 +13,10 @@ class Sintoma extends Model
         'sintoma',
         'gravidade_id',
     ];
-    
+
+    public function gravidade()
+    {
+        return $this->belongsTo(Gravidade::class);
+    }
+
 }

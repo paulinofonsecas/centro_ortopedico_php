@@ -28,6 +28,6 @@ class Consulta extends Model
 
     public function sintomas()
     {
-        return $this->belongsToMany(Sintoma::class);
+        return $this->belongsToMany(Sintoma::class, 'r_consulta_sintomas', 'consulta_id', 'sintoma_id');
     }
 }

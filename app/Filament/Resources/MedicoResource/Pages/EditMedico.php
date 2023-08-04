@@ -4,7 +4,6 @@ namespace App\Filament\Resources\MedicoResource\Pages;
 
 use App\Filament\Resources\MedicoResource;
 use App\Models\Medico;
-use App\Models\Recepcionista;
 use Filament\Actions;
 use Filament\Resources\Pages\EditRecord;
 use Illuminate\Database\Eloquent\Model;

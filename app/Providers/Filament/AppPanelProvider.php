@@ -2,6 +2,7 @@
 
 namespace App\Providers\Filament;
 
+use App\Filament\App\Resources\ConsultaResource;
 use App\Filament\App\Resources\ConsultorioResource;
 use App\Filament\App\Resources\PacienteResource;
 use Filament\Http\Middleware\Authenticate;
@@ -45,6 +46,7 @@ class AppPanelProvider extends PanelProvider
                     ->groups([
                         NavigationGroup::make('Produção')
                             ->items([
+                                ...ConsultaResource::getNavigationItems(),
                             ]),
                         NavigationGroup::make('Administração')
                             ->items([
