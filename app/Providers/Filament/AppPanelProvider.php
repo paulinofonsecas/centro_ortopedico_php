@@ -2,9 +2,14 @@
 
 namespace App\Providers\Filament;
 
+use App\Filament\App\Resources\ConsultorioResource;
+use App\Filament\App\Resources\PacienteResource;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\DisableBladeIconComponents;
 use Filament\Http\Middleware\DispatchServingFilamentEvent;
+use Filament\Navigation\NavigationBuilder;
+use Filament\Navigation\NavigationGroup;
+use Filament\Navigation\NavigationItem;
 use Filament\Pages;
 use Filament\Panel;
 use Filament\PanelProvider;
@@ -29,6 +34,25 @@ class AppPanelProvider extends PanelProvider
             ->colors([
                 'primary' => Color::Amber,
             ])
+            ->navigation(function (NavigationBuilder $builder): NavigationBuilder {
+                return $builder
+                    ->items([
+                        NavigationItem::make('Dashboard')
+                            ->icon('heroicon-o-home')
+                            ->url('/app')
+                            ->isActiveWhen(fn (): bool => request()->fullUrlIs(Pages\Dashboard::getUrl())),
+                    ])
+                    ->groups([
+                        NavigationGroup::make('Produção')
+                            ->items([
+                            ]),
+                        NavigationGroup::make('Administração')
+                            ->items([
+                                ...PacienteResource::getNavigationItems(),
+                                ...ConsultorioResource::getNavigationItems(),
+                            ]),
+                    ]);
+            })
             ->discoverResources(in: app_path('Filament/App/Resources'), for: 'App\\Filament\\App\\Resources')
             ->discoverPages(in: app_path('Filament/App/Pages'), for: 'App\\Filament\\App\\Pages')
             ->pages([
