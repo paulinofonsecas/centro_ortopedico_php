@@ -8,6 +8,7 @@ use App\Filament\Resources\ConsultorioResource;
 use App\Filament\Resources\EspecialidadeResource;
 use App\Filament\Resources\MedicoResource;
 use App\Filament\Resources\RecepcionistaResource;
+use App\Filament\Resources\PacienteResource;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\DisableBladeIconComponents;
 use Filament\Http\Middleware\DispatchServingFilamentEvent;
@@ -51,6 +52,7 @@ class AdminPanelProvider extends PanelProvider
                         NavigationGroup::make('Administração')
                             ->items([
                                 ...ConsultorioResource::getNavigationItems(),
+                                ...PacienteResource::getNavigationItems(),
                             ]),
                         NavigationGroup::make('Usuarios')
                             ->items([
