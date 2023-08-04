@@ -11,5 +11,6 @@ class Municipio extends Model
 
     protected $fillable = [
         'nome',
+        'provincia_id',
     ];
 }
