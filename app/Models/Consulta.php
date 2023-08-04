@@ -15,4 +15,19 @@ class Consulta extends Model
         'data_consulta',
         'observacao',
     ];
+
+    public function paciente()
+    {
+        return $this->belongsTo(Paciente::class);
+    }
+
+    public function medico()
+    {
+        return $this->belongsTo(Medico::class);
+    }
+
+    public function sintomas()
+    {
+        return $this->belongsToMany(Sintoma::class);
+    }
 }
