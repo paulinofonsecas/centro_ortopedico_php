@@ -4,6 +4,7 @@ namespace App\Providers\Filament;
 
 use App\Filament\Pages\Dashboard;
 use App\Filament\Resources\AdministradorResource;
+use App\Filament\Resources\ConsultorioResource;
 use App\Filament\Resources\EspecialidadeResource;
 use App\Filament\Resources\MedicoResource;
 use App\Filament\Resources\RecepcionistaResource;
@@ -34,7 +35,7 @@ class AdminPanelProvider extends PanelProvider
             ->default()
             ->id('admin')
             ->path('admin')
-            // ->login()
+            ->login()
             ->colors([
                 'primary' => Color::Amber,
             ])
@@ -47,7 +48,11 @@ class AdminPanelProvider extends PanelProvider
                             ->isActiveWhen(fn (): bool => request()->fullUrlIs(Dashboard::getUrl())),
                     ])
                     ->groups([
-                        NavigationGroup::make('Contas')
+                        NavigationGroup::make('Administração')
+                            ->items([
+                                ...ConsultorioResource::getNavigationItems(),
+                            ]),
+                        NavigationGroup::make('Usuarios')
                             ->items([
                                 ...RecepcionistaResource::getNavigationItems(),
                                 ...MedicoResource::getNavigationItems(),
