@@ -33,27 +33,24 @@ class PacienteResource extends Resource
                     ->required()
                     ->maxLength(255),
                 Forms\Components\TextInput::make('bi')
-                    ->required()
                     ->maxLength(255),
                 Forms\Components\DatePicker::make('nascimento')
                     ->required(),
                 Forms\Components\TextInput::make('telefone')
                     ->tel()
-                    ->required()
                     ->maxLength(255),
                 Forms\Components\TextInput::make('profissao')
-                    ->required()
                     ->maxLength(255),
                 Forms\Components\TextInput::make('endereco')
                     ->required()
                     ->maxLength(255),
-
                 Select::make('provincia_id')
                     ->label('Provincia')
                     ->options(Provincia::query()->pluck('nome', 'id'))
                     ->searchable(),
                 Select::make('genero_id')
                     ->label('Gênero')
+                    ->required()
                     ->options(Genero::query()->pluck('name', 'id'))
                     ->searchable(),
                 Select::make('municipio_id')
