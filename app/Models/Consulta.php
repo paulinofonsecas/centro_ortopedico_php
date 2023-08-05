@@ -14,6 +14,7 @@ class Consulta extends Model
         'medico_id',
         'data_consulta',
         'observacao',
+        'estado_consulta_id',
     ];
 
     public function paciente()
@@ -29,5 +30,10 @@ class Consulta extends Model
     public function sintomas()
     {
         return $this->belongsToMany(Sintoma::class, 'r_consulta_sintomas', 'consulta_id', 'sintoma_id');
+    }
+
+    public function estadoConsulta()
+    {
+        return $this->belongsTo(EstadoConsulta::class);
     }
 }

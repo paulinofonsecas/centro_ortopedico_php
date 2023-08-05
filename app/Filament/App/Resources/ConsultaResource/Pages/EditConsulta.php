@@ -24,9 +24,9 @@ class EditConsulta extends EditRecord
         $consulta = Consulta::find($record->id);
         $sintomas = $consulta->sintomas;
 
-        $sintoma1 = $sintomas[0];
-        $sintoma2 = $sintomas[1];
-        $sintoma3 = $sintomas[2];
+        $sintoma1 = $sintomas[0] ?? null;
+        $sintoma2 = $sintomas[1] ?? null;
+        $sintoma3 = $sintomas[2] ?? null;
 
         if ($sintoma1 && $data['sintoma1']) {
             $sintoma1->update([
@@ -51,6 +51,7 @@ class EditConsulta extends EditRecord
             'paciente_id' => $data['paciente_id'],
             'medico_id' => $data['medico_id'],
             'data_consulta' => $data['data_consulta'],
+            'estado_consulta_id' => $data['estado_consulta_id'],
             'observacao' => $data['observacao'],
         ]);
 
@@ -62,22 +63,27 @@ class EditConsulta extends EditRecord
         $consulta = Consulta::find($data['id']);
         $sintomas = $consulta->sintomas;
 
-        $sintoma1 = $sintomas[0];
-        $sintoma2 = $sintomas[1];
-        $sintoma3 = $sintomas[2];
+        $sintoma1 = $sintomas[0] ?? null;
+        $sintoma2 = $sintomas[1] ?? null;
+        $sintoma3 = $sintomas[2] ?? null;
 
-        return [
+        $saida = [
             'paciente_id' => $consulta->paciente_id,
             'medico_id' => $consulta->medico_id,
             'data_consulta' => $consulta->data_consulta,
+            'estado_consulta_id' => $consulta->estado_consulta_id,
             'observacao' => $consulta->observacao,
-            'sintoma1' => $sintoma1->sintoma,
-            'sintoma2' => $sintoma2->sintoma,
-            'sintoma3' => $sintoma3->sintoma,
-            'gravidade1' => $sintoma1->gravidade->id,
-            'gravidade2' => $sintoma2->gravidade->id,
-            'gravidade3' => $sintoma3->gravidade->id,
         ];
+
+        if (!empty($sintoma1)) $saida['sintoma1'] = $sintoma1->sintoma;
+        if (!empty($sintoma2)) $saida['sintoma2'] = $sintoma2->sintoma;
+        if (!empty($sintoma3)) $saida['sintoma3'] = $sintoma3->sintoma;
+
+        if (!empty($sintoma1->gravidade)) $saida['gravidade1'] = $sintoma1->gravidade->id;
+        if (!empty($sintoma2->gravidade)) $saida['gravidade2'] = $sintoma2->gravidade->id;
+        if (!empty($sintoma3->gravidade)) $saida['gravidade3'] = $sintoma3->gravidade->id;
+
+        return $saida;
     }
 
 }

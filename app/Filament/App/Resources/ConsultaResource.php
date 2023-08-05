@@ -4,22 +4,100 @@ namespace App\Filament\App\Resources;
 
 use App\Filament\App\Resources\ConsultaResource\Pages;
 use App\Models\Consulta;
+use App\Models\EstadoConsulta;
 use App\Models\Gravidade;
 use App\Models\Medico;
 use App\Models\Paciente;
 use Filament\Forms;
-use Filament\Forms\Components\Section;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Form;
+use Filament\Infolists\Components\Fieldset;
+use Filament\Infolists\Components\TextEntry;
+use Filament\Infolists\Infolist;
 use Filament\Resources\Resource;
 use Filament\Tables;
+use Filament\Tables\Enums\FiltersLayout;
+use Filament\Tables\Filters\Filter;
 use Filament\Tables\Table;
+use Illuminate\Database\Eloquent\Builder;
 
 class ConsultaResource extends Resource
 {
     protected static ?string $model = Consulta::class;
 
     protected static ?string $navigationIcon = 'healthicons-o-cardiogram-e';
+
+    public static function infolist(Infolist $infolist): Infolist
+    {
+        return $infolist
+            ->schema([
+                \Filament\Infolists\Components\Section::make('Informações da consulta')
+                    ->collapsible()
+                    ->schema([
+                        TextEntry::make('data_consulta')
+                            ->dateTime('d/m/Y')
+                            ->size(TextEntry\TextEntrySize::Large)
+                            ->label('Data da consulta'),
+                        TextEntry::make('estadoConsulta.name')
+                            ->size(TextEntry\TextEntrySize::Large)
+                            ->label('Estado da consulta')
+                            ->badge()
+                            ->color(fn ($state): string => match ($state) {
+                                'Pendente' => 'warning',
+                                'Em andamento' => 'info',
+                                'Concluido' => 'success',
+                                'Cancelado' => 'danger',
+                            }),
+                        TextEntry::make('medico.funcionario.user.name')
+                            ->size(TextEntry\TextEntrySize::Large)
+                            ->columnSpanFull()
+                            ->label('Médico responsável'),
+                        TextEntry::make('created_at')
+                            ->dateTime('d/m/Y H:i:s')
+                            ->size(TextEntry\TextEntrySize::Large)
+                            ->label('Data de cadastro'),
+                        TextEntry::make('updated_at')
+                            ->dateTime('d/m/Y H:i:s')
+                            ->size(TextEntry\TextEntrySize::Large)
+                            ->label('Data da ultima atualização'),
+                    ])->columns(2),
+                \Filament\Infolists\Components\Section::make('Informações do paciente')
+                    ->collapsible()
+                    ->schema([
+                        TextEntry::make('paciente.nome_completo')
+                            ->size(TextEntry\TextEntrySize::Large)
+                            ->label('Nome completo'),
+                        TextEntry::make('paciente.bi')
+                            ->size(TextEntry\TextEntrySize::Large)
+                            ->label('BI'),
+                        TextEntry::make('paciente.nascimento')
+                            ->size(TextEntry\TextEntrySize::Large)
+                            ->dateTime('d/m/Y')
+                            ->label('Data de nascimento'),
+                        TextEntry::make('paciente.telefone')
+                            ->size(TextEntry\TextEntrySize::Large)
+                            ->numeric(thousandsSeparator: ' ')
+                            ->label('Telefone'),
+                        TextEntry::make('paciente.profissao')
+                            ->size(TextEntry\TextEntrySize::Large)
+                            ->label('Profissão'),
+                        TextEntry::make('paciente.genero.name')
+                            ->size(TextEntry\TextEntrySize::Large)
+                            ->label('Genero'),
+                        Fieldset::make('Localização')
+                            ->schema([
+                                TextEntry::make('paciente.provincia.nome')
+                                    ->label('Provincia')
+                                    ->size(TextEntry\TextEntrySize::Large),
+                                TextEntry::make('paciente.municipio.nome')
+                                    ->label('Municipio')
+                                    ->size(TextEntry\TextEntrySize::Large),
+                                TextEntry::make('paciente.endereco')
+                                    ->size(TextEntry\TextEntrySize::Large)
+                            ])->columns(2)
+                    ])->columns(2),
+            ]);
+    }
 
     public static function form(Form $form): Form
     {
@@ -45,14 +123,18 @@ class ConsultaResource extends Resource
                     ->searchable(),
                 Forms\Components\DateTimePicker::make('data_consulta')
                     ->required(),
-                Section::make('sintomas')
+                Forms\Components\Select::make('estado_consulta_id')
+                    ->label('Estado da consulta')
+                    ->searchable()
+                    ->options(EstadoConsulta::all()->pluck('name', 'id')),
+                \Filament\Forms\Components\Section::make('Endereço')
                     ->label('Sintomas (Optional)')
                     ->description('Sintomas do paciente')
                     ->schema([
                         \Filament\Forms\Components\Grid::make(2)
                             ->schema([
                                 \Filament\Forms\Components\TextInput::make('sintoma1')
-                                ->label('Sintoma 1'),
+                                    ->label('Sintoma 1'),
                                 Select::make('gravidade1')
                                     ->dehydrated(fn (\Filament\Forms\Get $get): bool => filled($get('sintoma1')))
                                     ->label('Gravidade')
@@ -63,7 +145,7 @@ class ConsultaResource extends Resource
                         \Filament\Forms\Components\Grid::make(2)
                             ->schema([
                                 \Filament\Forms\Components\TextInput::make('sintoma2')
-                                ->label('Sintoma 2'),
+                                    ->label('Sintoma 2'),
                                 Select::make('gravidade2')
                                     ->dehydrated(fn (\Filament\Forms\Get $get): bool => filled($get('sintoma2')))
                                     ->label('Gravidade')
@@ -74,7 +156,7 @@ class ConsultaResource extends Resource
                         \Filament\Forms\Components\Grid::make(2)
                             ->schema([
                                 \Filament\Forms\Components\TextInput::make('sintoma3')
-                                ->label('Sintoma 3'),
+                                    ->label('Sintoma 3'),
                                 Select::make('gravidade3')
                                     ->dehydrated(fn (\Filament\Forms\Get $get): bool => filled($get('sintoma3')))
                                     ->label('Gravidade')
@@ -92,6 +174,7 @@ class ConsultaResource extends Resource
     public static function table(Table $table): Table
     {
         return $table
+            ->defaultSort('data_consulta', 'asc')
             ->columns([
                 Tables\Columns\TextColumn::make('paciente.nome_completo')
                     ->label('Nome completo')
@@ -106,6 +189,14 @@ class ConsultaResource extends Resource
                     ->dateTime('d/m/Y H:i')
                     ->searchable()
                     ->sortable(),
+                Tables\Columns\TextColumn::make('estadoConsulta.name')
+                    ->badge()
+                    ->color(fn ($state): string => match ($state) {
+                        'Pendente' => 'warning',
+                        'Em andamento' => 'info',
+                        'Concluido' => 'success',
+                        'Cancelado' => 'danger',
+                    }),
                 Tables\Columns\TextColumn::make('created_at')
                     ->label('Data registro')
                     ->dateTime('d/m/Y H:i')
@@ -114,9 +205,17 @@ class ConsultaResource extends Resource
                     ->toggleable(isToggledHiddenByDefault: true),
             ])
             ->filters([
-                //
+                Filter::make('Pendentes')
+                    ->query(fn (Builder $query): Builder => $query->where('estado_consulta_id', EstadoConsulta::PENDENTE)),
+                Filter::make('Em andamento')
+                    ->query(fn (Builder $query): Builder => $query->where('estado_consulta_id', EstadoConsulta::EM_ANDAMENTO)),
+                Filter::make('Concluídas')
+                    ->query(fn (Builder $query): Builder => $query->where('estado_consulta_id', EstadoConsulta::CONCLUIDA)),
+                Filter::make('Canceladas')
+                    ->query(fn (Builder $query): Builder => $query->where('estado_consulta_id', EstadoConsulta::CANCELADA)),
             ])
             ->actions([
+                Tables\Actions\ViewAction::make(),
                 Tables\Actions\EditAction::make(),
             ])
             ->bulkActions([
@@ -142,6 +241,7 @@ class ConsultaResource extends Resource
             'index' => Pages\ListConsultas::route('/'),
             'create' => Pages\CreateConsulta::route('/create'),
             'edit' => Pages\EditConsulta::route('/{record}/edit'),
+            'view' => Pages\ViewConsulta::route('/{record}'),
         ];
     }
 }
