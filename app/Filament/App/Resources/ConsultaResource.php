@@ -126,10 +126,6 @@ class ConsultaResource extends Resource
                     ->searchable(),
                 Forms\Components\DateTimePicker::make('data_consulta')
                     ->required(),
-                Forms\Components\Select::make('estado_consulta_id')
-                    ->label('Estado da consulta')
-                    ->searchable()
-                    ->options(EstadoConsulta::all()->pluck('name', 'id')),
                 \Filament\Forms\Components\Section::make('Endereço')
                     ->label('Sintomas (Optional)')
                     ->description('Sintomas do paciente')
