@@ -7,9 +7,11 @@ use App\Filament\Resources\AdministradorResource;
 use App\Filament\Resources\ConsultorioResource;
 use App\Filament\Resources\EspecialidadeResource;
 use App\Filament\Resources\EstadoConsultaResource;
+use App\Filament\Resources\ItemResource;
 use App\Filament\Resources\MedicoResource;
 use App\Filament\Resources\RecepcionistaResource;
 use App\Filament\Resources\PacienteResource;
+use App\Filament\Resources\UtenteResource;
 use App\Models\EstadoConsulta;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\DisableBladeIconComponents;
@@ -61,6 +63,13 @@ class AdminPanelProvider extends PanelProvider
                                 ...RecepcionistaResource::getNavigationItems(),
                                 ...MedicoResource::getNavigationItems(),
                                 ...AdministradorResource::getNavigationItems(),
+                            ]),
+                    ])
+                    ->groups([
+                        NavigationGroup::make('Doações')
+                            ->items([
+                                ...UtenteResource::getNavigationItems(),
+                                ...ItemResource::getNavigationItems(),
                             ]),
                     ])
                     ->groups([
