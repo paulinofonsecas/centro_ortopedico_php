@@ -9,8 +9,10 @@ use App\Filament\Resources\EspecialidadeResource;
 use App\Filament\Resources\EstadoConsultaResource;
 use App\Filament\Resources\ItemResource;
 use App\Filament\Resources\MedicoResource;
+use App\Filament\Resources\PermissionResource;
 use App\Filament\Resources\RecepcionistaResource;
 use App\Filament\Resources\PacienteResource;
+use App\Filament\Resources\RoleResource;
 use App\Filament\Resources\UtenteResource;
 use App\Models\EstadoConsulta;
 use Filament\Http\Middleware\Authenticate;
@@ -64,15 +66,17 @@ class AdminPanelProvider extends PanelProvider
                                 ...MedicoResource::getNavigationItems(),
                                 ...AdministradorResource::getNavigationItems(),
                             ]),
-                    ])
-                    ->groups([
+                    
                         NavigationGroup::make('Doações')
                             ->items([
                                 ...UtenteResource::getNavigationItems(),
                                 ...ItemResource::getNavigationItems(),
                             ]),
-                    ])
-                    ->groups([
+                        NavigationGroup::make('Permissões')
+                            ->items([
+                                ...RoleResource::getNavigationItems(),
+                                ...PermissionResource::getNavigationItems(),
+                            ]),
                         NavigationGroup::make('Outros')
                             ->items([
                                 ...EspecialidadeResource::getNavigationItems(),

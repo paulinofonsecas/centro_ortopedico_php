@@ -16,4 +16,19 @@ class Doacao extends Model
         'item_id',
         'estado_do_item_id',
     ];
+
+    public function utente()
+    {
+        return $this->belongsTo(Utente::class);
+    }
+
+    public function item()
+    {
+        return $this->belongsTo(Item::class);
+    }
+
+    public function estadoDoItem()
+    {
+        return $this->belongsTo(EstadoDoItem::class);
+    }
 }

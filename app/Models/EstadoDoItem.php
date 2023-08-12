@@ -11,5 +11,5 @@ class EstadoDoItem extends Model
 
     protected $fillable = [
         'name',
-    ]
+    ];
 }

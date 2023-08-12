@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Filament\Resources;
+namespace App\Filament\App\Resources;
 
-use App\Filament\Resources\PermissionResource\Pages;
-use App\Filament\Resources\PermissionResource\RelationManagers;
-use App\Models\Permission;
+use App\Filament\App\Resources\UtenteResource\Pages;
+use App\Filament\App\Resources\UtenteResource\RelationManagers;
+use App\Models\Utente;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -13,9 +13,9 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
-class PermissionResource extends Resource
+class UtenteResource extends Resource
 {
-    protected static ?string $model = Permission::class;
+    protected static ?string $model = Utente::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
@@ -26,7 +26,19 @@ class PermissionResource extends Resource
                 Forms\Components\TextInput::make('name')
                     ->required()
                     ->maxLength(255),
-                Forms\Components\TextInput::make('guard_name')
+                Forms\Components\TextInput::make('bi')
+                    ->required()
+                    ->maxLength(255),
+                Forms\Components\TextInput::make('telefone')
+                    ->tel()
+                    ->required()
+                    ->maxLength(255),
+                Forms\Components\DatePicker::make('nascimento')
+                    ->required(),
+                Forms\Components\TextInput::make('nome_pai')
+                    ->required()
+                    ->maxLength(255),
+                Forms\Components\TextInput::make('nome_mae')
                     ->required()
                     ->maxLength(255),
             ]);
@@ -38,7 +50,16 @@ class PermissionResource extends Resource
             ->columns([
                 Tables\Columns\TextColumn::make('name')
                     ->searchable(),
-                Tables\Columns\TextColumn::make('guard_name')
+                Tables\Columns\TextColumn::make('bi')
+                    ->searchable(),
+                Tables\Columns\TextColumn::make('telefone')
+                    ->searchable(),
+                Tables\Columns\TextColumn::make('nascimento')
+                    ->date()
+                    ->sortable(),
+                Tables\Columns\TextColumn::make('nome_pai')
+                    ->searchable(),
+                Tables\Columns\TextColumn::make('nome_mae')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
@@ -54,6 +75,7 @@ class PermissionResource extends Resource
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
+                Tables\Actions\DeleteAction::make(),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
@@ -65,19 +87,10 @@ class PermissionResource extends Resource
             ]);
     }
     
-    public static function getRelations(): array
-    {
-        return [
-            //
-        ];
-    }
-    
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListPermissions::route('/'),
-            'create' => Pages\CreatePermission::route('/create'),
-            'edit' => Pages\EditPermission::route('/{record}/edit'),
+            'index' => Pages\ManageUtentes::route('/'),
         ];
     }    
 }

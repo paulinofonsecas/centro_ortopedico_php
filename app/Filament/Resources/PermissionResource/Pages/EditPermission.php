@@ -3,17 +3,17 @@
 namespace App\Filament\Resources\PermissionResource\Pages;
 
 use App\Filament\Resources\PermissionResource;
-use Filament\Pages\Actions;
-use Filament\Resources\Pages\ManageRecords;
+use Filament\Actions;
+use Filament\Resources\Pages\EditRecord;
 
-class ManagePermissions extends ManageRecords
+class EditPermission extends EditRecord
 {
     protected static string $resource = PermissionResource::class;
 
     protected function getHeaderActions(): array
     {
         return [
-            Actions\CreateAction::make(),
+            Actions\DeleteAction::make(),
         ];
     }
 }

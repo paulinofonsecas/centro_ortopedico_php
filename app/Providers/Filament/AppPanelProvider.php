@@ -4,7 +4,9 @@ namespace App\Providers\Filament;
 
 use App\Filament\App\Resources\ConsultaResource;
 use App\Filament\App\Resources\ConsultorioResource;
+use App\Filament\App\Resources\DoacaoResource;
 use App\Filament\App\Resources\PacienteResource;
+use App\Filament\App\Resources\UtenteResource;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\DisableBladeIconComponents;
 use Filament\Http\Middleware\DispatchServingFilamentEvent;
@@ -47,6 +49,11 @@ class AppPanelProvider extends PanelProvider
                         NavigationGroup::make('Produção')
                             ->items([
                                 ...ConsultaResource::getNavigationItems(),
+                            ]),
+                        NavigationGroup::make('Doação')
+                            ->items([
+                                ...DoacaoResource::getNavigationItems(),
+                                ...UtenteResource::getNavigationItems()
                             ]),
                         NavigationGroup::make('Administração')
                             ->items([
