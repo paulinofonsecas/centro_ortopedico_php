@@ -75,13 +75,25 @@ class EditConsulta extends EditRecord
             'observacao' => $consulta->observacao,
         ];
 
-        if (!empty($sintoma1)) $saida['sintoma1'] = $sintoma1->sintoma;
-        if (!empty($sintoma2)) $saida['sintoma2'] = $sintoma2->sintoma;
-        if (!empty($sintoma3)) $saida['sintoma3'] = $sintoma3->sintoma;
+        if (!empty($sintoma1)) {
+            $saida['sintoma1'] = $sintoma1->sintoma;
+        }
+        if (!empty($sintoma2)) {
+            $saida['sintoma2'] = $sintoma2->sintoma;
+        }
+        if (!empty($sintoma3)) {
+            $saida['sintoma3'] = $sintoma3->sintoma;
+        }
 
-        if (!empty($sintoma1->gravidade)) $saida['gravidade1'] = $sintoma1->gravidade->id;
-        if (!empty($sintoma2->gravidade)) $saida['gravidade2'] = $sintoma2->gravidade->id;
-        if (!empty($sintoma3->gravidade)) $saida['gravidade3'] = $sintoma3->gravidade->id;
+        if (!empty($sintoma1->gravidade)) {
+            $saida['gravidade1'] = $sintoma1->gravidade->id;
+        }
+        if (!empty($sintoma2->gravidade)) {
+            $saida['gravidade2'] = $sintoma2->gravidade->id;
+        }
+        if (!empty($sintoma3->gravidade)) {
+            $saida['gravidade3'] = $sintoma3->gravidade->id;
+        }
 
         return $saida;
     }
