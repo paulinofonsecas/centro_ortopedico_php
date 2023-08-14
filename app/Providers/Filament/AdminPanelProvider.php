@@ -5,6 +5,7 @@ namespace App\Providers\Filament;
 use App\Filament\Pages\Dashboard;
 use App\Filament\Resources\AdministradorResource;
 use App\Filament\Resources\ConsultorioResource;
+use App\Filament\Resources\DoacaoResource;
 use App\Filament\Resources\EspecialidadeResource;
 use App\Filament\Resources\EstadoConsultaResource;
 use App\Filament\Resources\ItemResource;
@@ -71,11 +72,11 @@ class AdminPanelProvider extends PanelProvider
                             ->items([
                                 ...UtenteResource::getNavigationItems(),
                                 ...ItemResource::getNavigationItems(),
+                                ...DoacaoResource::getNavigationItems(),
                             ]),
                         NavigationGroup::make('Permissões')
                             ->items([
                                 ...RoleResource::getNavigationItems(),
-                                ...PermissionResource::getNavigationItems(),
                             ]),
                         NavigationGroup::make('Outros')
                             ->items([
