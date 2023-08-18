@@ -3,6 +3,7 @@
 namespace App\Providers\Filament;
 
 use App\Filament\Pages\Dashboard;
+use App\Filament\Resources\ConsultaResource;
 use App\Filament\Resources\AdministradorResource;
 use App\Filament\Resources\ConsultorioResource;
 use App\Filament\Resources\DoacaoResource;
@@ -58,7 +59,7 @@ class AdminPanelProvider extends PanelProvider
                     ->groups([
                         NavigationGroup::make('Administração')
                             ->items([
-                                ...ConsultorioResource::getNavigationItems(),
+                                ...ConsultaResource::getNavigationItems(),
                                 ...PacienteResource::getNavigationItems(),
                             ]),
                         NavigationGroup::make('Usuarios')
@@ -80,6 +81,7 @@ class AdminPanelProvider extends PanelProvider
                             ]),
                         NavigationGroup::make('Outros')
                             ->items([
+                                ...ConsultorioResource::getNavigationItems(),
                                 ...EspecialidadeResource::getNavigationItems(),
                                 ...EstadoConsultaResource::getNavigationItems(),
                             ]),
@@ -103,7 +105,6 @@ class AdminPanelProvider extends PanelProvider
                 ShareErrorsFromSession::class,
                 VerifyCsrfToken::class,
                 SubstituteBindings::class,
-                DisableBladeIconComponents::class,
                 DispatchServingFilamentEvent::class,
             ])
             ->authMiddleware([
