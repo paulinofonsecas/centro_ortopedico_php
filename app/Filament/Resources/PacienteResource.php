@@ -11,19 +11,60 @@ use App\Models\Provincia;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Forms\Components\Select;
-use Filament\Forms\Get;
+use Filament\Infolists\Components\Fieldset;
+use Filament\Infolists\Components\TextEntry;
+use Filament\Infolists\Infolist;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\Collection;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 class PacienteResource extends Resource
 {
     protected static ?string $model = Paciente::class;
 
     protected static ?string $navigationIcon = 'healthicons-f-i-groups-perspective-crowd';
+
+    public static function infolist(Infolist $infolist): Infolist
+    {
+        return $infolist
+            ->schema([
+                \Filament\Infolists\Components\Section::make('Informações do paciente')
+                    ->collapsible()
+                    ->schema([
+                        TextEntry::make('nome_completo')
+                            ->size(TextEntry\TextEntrySize::Large)
+                            ->label('Nome completo'),
+                        TextEntry::make('bi')
+                            ->size(TextEntry\TextEntrySize::Large)
+                            ->label('BI'),
+                        TextEntry::make('nascimento')
+                            ->size(TextEntry\TextEntrySize::Large)
+                            ->dateTime('d/m/Y')
+                            ->label('Data de nascimento'),
+                        TextEntry::make('telefone')
+                            ->size(TextEntry\TextEntrySize::Large)
+                            ->numeric(thousandsSeparator: ' ')
+                            ->label('Telefone'),
+                        TextEntry::make('profissao')
+                            ->size(TextEntry\TextEntrySize::Large)
+                            ->label('Profissão'),
+                        TextEntry::make('genero.name')
+                            ->size(TextEntry\TextEntrySize::Large)
+                            ->label('Genero'),
+                        Fieldset::make('Localização')
+                            ->schema([
+                                TextEntry::make('provincia.nome')
+                                    ->label('Provincia')
+                                    ->size(TextEntry\TextEntrySize::Large),
+                                TextEntry::make('municipio.nome')
+                                    ->label('Municipio')
+                                    ->size(TextEntry\TextEntrySize::Large),
+                                TextEntry::make('endereco')
+                                    ->size(TextEntry\TextEntrySize::Large)
+                            ])->columns(2)
+                    ])->columns(2),
+            ]);
+    }
 
     public static function form(Form $form): Form
     {
@@ -101,6 +142,7 @@ class PacienteResource extends Resource
                 //
             ])
             ->actions([
+                Tables\Actions\ViewAction::make(),
                 Tables\Actions\EditAction::make(),
             ])
             ->bulkActions([
@@ -126,6 +168,7 @@ class PacienteResource extends Resource
             'index' => Pages\ListPacientes::route('/'),
             'create' => Pages\CreatePaciente::route('/create'),
             'edit' => Pages\EditPaciente::route('/{record}/edit'),
+            'view' => Pages\ViewPaciente::route('/{record}'),
         ];
     }
 }
