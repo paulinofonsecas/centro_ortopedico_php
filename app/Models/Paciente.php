@@ -21,6 +21,11 @@ class Paciente extends Model
         'endereco',
     ];
 
+    public function consultas()
+    {
+        return $this->hasMany(Consulta::class);
+    }
+
     public function genero()
     {
         return $this->belongsTo(Genero::class);

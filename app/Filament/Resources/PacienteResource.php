@@ -4,6 +4,7 @@ namespace App\Filament\Resources;
 
 use App\Filament\Resources\PacienteResource\Pages;
 use App\Filament\Resources\PacienteResource\RelationManagers;
+use App\Filament\Resources\PacienteResource\RelationManagers\ConsultasRelationManager;
 use App\Models\Genero;
 use App\Models\Municipio;
 use App\Models\Paciente;
@@ -158,7 +159,7 @@ class PacienteResource extends Resource
     public static function getRelations(): array
     {
         return [
-            //
+            ConsultasRelationManager::class,
         ];
     }
 

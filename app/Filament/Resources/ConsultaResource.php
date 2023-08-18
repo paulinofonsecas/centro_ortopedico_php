@@ -237,7 +237,6 @@ class ConsultaResource extends Resource
             'create' => Pages\CreateConsulta::route('/create'),
             'edit' => Pages\EditConsulta::route('/{record}/edit'),
             'view' => Pages\ViewConsulta::route('/{record}'),
-            // 'processar' => ProcessarConsulta::getUrl(['{record}','processar']),
         ];
     }
 }
