@@ -9,26 +9,11 @@ use Filament\Tables;
 use Filament\Tables\Table;
 use App\Models\Permission;
 use App\Models\Role;
-use Filament\Actions\Action;
 use Filament\Notifications\Notification;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 class PermissionsRelationManager extends RelationManager
 {
     protected static string $relationship = 'permissions';
-
-    // protected function handleRecordCreation(array $data): Model
-    // {
-    //     dd($data);
-    //     // $permission = Permission::create(['name' => $data['name']]);
-
-    //     // $role = $this->ownerRecord;
-    //     // $role->syncPermissions([$permission]);
-
-    //     // return $permission;
-    // }
 
     public function form(Form $form): Form
     {
@@ -71,7 +56,7 @@ class PermissionsRelationManager extends RelationManager
                     ->action(function ($data) {
                         $role = Role::find($this->ownerRecord->id);
                         $permissionId = $data['permission_id'];
-                        
+
                         if ($role->permissions()->where('id', $permissionId)->exists()) {
                             Notification::make()
                                 ->title('Erro ao adicionar permissão')

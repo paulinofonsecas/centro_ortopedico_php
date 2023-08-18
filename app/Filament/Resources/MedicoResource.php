@@ -153,6 +153,7 @@ class MedicoResource extends Resource
             'index' => Pages\ListMedicos::route('/'),
             'create' => Pages\CreateMedico::route('/create'),
             'edit' => Pages\EditMedico::route('/{record}/edit'),
+            'view' => Pages\ViewMedico::route('/{record}'),
         ];
     }
 }

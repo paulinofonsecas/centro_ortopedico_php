@@ -17,4 +17,9 @@ class Recepcionista extends Model
     {
         return $this->belongsTo(Funcionario::class);
     }
+
+    public function permissions()
+    {
+        return $this->funcionario()->user()->getChild()->permissions();
+    }
 }

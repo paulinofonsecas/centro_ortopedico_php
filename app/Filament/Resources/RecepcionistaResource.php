@@ -2,9 +2,8 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\RecepcionistaResource\Pages\CreateRecepcionista;
-use App\Filament\Resources\RecepcionistaResource\Pages\EditRecepcionista;
-use App\Filament\Resources\RecepcionistaResource\Pages\ListRecepcionistas;
+use App\Filament\Resources\PermissionResource\RelationManagers\PermissionsRelationManager;
+use App\Filament\Resources\RecepcionistaResource\Pages;
 use App\Models\Municipio;
 use App\Models\Provincia;
 use App\Models\Recepcionista;
@@ -13,6 +12,10 @@ use Filament\Forms\Components\Section;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
+use Filament\Infolists\Components\Fieldset;
+use Filament\Infolists\Components\Section as ComponentsSection;
+use Filament\Infolists\Components\TextEntry;
+use Filament\Infolists\Infolist;
 use Filament\Resources\Resource;
 use Filament\Tables\Columns\BadgeColumn;
 use Filament\Tables\Table;
@@ -24,6 +27,47 @@ class RecepcionistaResource extends Resource
     protected static ?string $navigationIcon = 'healthicons-f-i-exam-multiple-choice';
 
     protected static ?string $navigationGroup = 'contas';
+
+    public static function infolist(Infolist $infolist): Infolist
+    {
+        return $infolist
+            ->schema([
+                \Filament\Infolists\Components\Section::make('Informações do usuário')
+                    ->schema([
+                        TextEntry::make('funcionario.user.name')
+                            ->label('Nome completo')
+                            ->size(TextEntry\TextEntrySize::Large),
+                        TextEntry::make('funcionario.user.email')
+                            ->label('Email')
+                            ->size(TextEntry\TextEntrySize::Large),
+                        TextEntry::make('funcionario.telefone')
+                            ->label('Telefone')
+                            ->size(TextEntry\TextEntrySize::Large),
+                        TextEntry::make('funcionario.estadoDaConta.nome')
+                            ->label('Estado da conta')
+                            ->size(TextEntry\TextEntrySize::Large)
+                            ->badge()
+                            ->color(fn ($state): string => match ($state) {
+                                'Activa'  => 'success',
+                                'Inativa'  => 'warning',
+                                'Desactivada'  => 'danger',
+                            }),
+                        Fieldset::make('Localização')
+                            ->schema([
+                                TextEntry::make('funcionario.endereco.provincia.nome')
+                                    ->label('Provincia')
+                                    ->size(TextEntry\TextEntrySize::Large),
+                                TextEntry::make('funcionario.endereco.municipio.nome')
+                                    ->label('Municipio')
+                                    ->size(TextEntry\TextEntrySize::Large),
+                                TextEntry::make('funcionario.endereco.rua')
+                                    ->size(TextEntry\TextEntrySize::Large)
+                            ])->columns(2)
+                    ])
+                    ->collapsible()
+                    ->columns(2),
+            ]);
+    }
 
     public static function form(Form $form): Form
     {
@@ -124,6 +168,7 @@ class RecepcionistaResource extends Resource
                 //
             ])
             ->actions([
+                \Filament\Tables\Actions\ViewAction::make(),
                 \Filament\Tables\Actions\EditAction::make(),
             ])
             ->bulkActions([
@@ -133,15 +178,18 @@ class RecepcionistaResource extends Resource
 
     public static function getRelations(): array
     {
-        return [];
+        return [
+            // PermissionsRelationManager::class,
+        ];
     }
 
     public static function getPages(): array
     {
         return [
-            'index' => ListRecepcionistas::route('/'),
-            'create' => CreateRecepcionista::route('/create'),
-            'edit' => EditRecepcionista::route('/{record}/edit'),
+            'index' => Pages\ListRecepcionistas::route('/'),
+            'create' => Pages\CreateRecepcionista::route('/create'),
+            'view' => Pages\ViewRecepcionista::route('/{record}'),
+            'edit' => Pages\EditRecepcionista::route('/{record}/edit'),
         ];
     }
 }

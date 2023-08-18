@@ -3,7 +3,6 @@
 namespace App\Filament\App\Resources;
 
 use App\Filament\App\Resources\ConsultaResource\Pages;
-use App\Filament\App\Resources\ConsultaResource\Pages\ProcessarConsulta;
 use App\Models\Consulta;
 use App\Models\EstadoConsulta;
 use App\Models\Gravidade;
@@ -18,11 +17,9 @@ use Filament\Infolists\Infolist;
 use Filament\Panel;
 use Filament\Resources\Resource;
 use Filament\Tables;
-use Filament\Tables\Enums\FiltersLayout;
 use Filament\Tables\Filters\Filter;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Support\Facades\RouteFacade;
 
 class ConsultaResource extends Resource
 {

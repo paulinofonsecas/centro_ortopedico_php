@@ -4,7 +4,6 @@ namespace App\Filament\Medico\Resources\ConsultaResource\Pages;
 
 use App\Filament\Medico\Resources\ConsultaResource;
 use Filament\Actions;
-use Filament\Forms\Components\Actions as ComponentsActions;
 use Filament\Resources\Pages\ViewRecord;
 
 class ViewConsulta extends ViewRecord

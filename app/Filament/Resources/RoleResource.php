@@ -32,7 +32,7 @@ class RoleResource extends Resource
                 TextEntry::make('name')
                     ->weight(FontWeight::Bold)
                     ->size(TextEntrySize::Large)
-            ]); 
+            ]);
     }
 
     public static function form(Form $form): Form
