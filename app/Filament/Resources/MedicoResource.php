@@ -14,9 +14,13 @@ use Filament\Forms\Components\Section;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
+use Filament\Infolists\Components\Fieldset;
+use Filament\Infolists\Components\TextEntry;
+use Filament\Infolists\Infolist;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Columns\BadgeColumn;
+use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
@@ -24,6 +28,53 @@ use Illuminate\Database\Eloquent\SoftDeletingScope;
 class MedicoResource extends Resource
 {
     protected static ?string $navigationIcon = 'fontisto-doctor';
+
+    public static function infolist(Infolist $infolist): Infolist
+    {
+        return $infolist
+            ->schema([
+                \Filament\Infolists\Components\Section::make('Informações do médico')
+                    ->collapsible()
+                    ->schema([
+                        TextEntry::make('funcionario.user.name')
+                            ->label('Nome completo')
+                            ->size(TextEntry\TextEntrySize::Large)
+                            ->columnSpanFull(),
+                        TextEntry::make('funcionario.user.email')
+                            ->label('Email')
+                            ->size(TextEntry\TextEntrySize::Large),
+                        TextEntry::make('funcionario.telefone')
+                            ->label('Telefone')
+                            ->numeric(thousandsSeparator: ' '),
+                        TextEntry::make('especialidade.name')
+                            ->label('Especialidade')
+                            ->numeric(thousandsSeparator: ' ')
+                            ->size(TextEntry\TextEntrySize::Large),
+                        TextEntry::make('funcionario.estadoDaConta.nome')
+                            ->label('Estado da conta')
+                            ->badge()
+                            ->colors([
+                                'success' => 'Activa',
+                                'danger' => 'Inativa',
+                                'warning' => 'Desactivada',
+                            ])
+                            ->size(TextEntry\TextEntrySize::Large),
+                        Fieldset::make('Localização')
+                            ->schema([
+                                TextEntry::make('funcionario.endereco.provincia.nome')
+                                    ->label('Provincia')
+                                    ->size(TextEntry\TextEntrySize::Large),
+                                TextEntry::make('funcionario.endereco.municipio.nome')
+                                    ->label('Municipio')
+                                    ->size(TextEntry\TextEntrySize::Large),
+                                TextEntry::make('funcionario.endereco.rua')
+                                    ->label('Rua')
+                                    ->size(TextEntry\TextEntrySize::Large)
+                            ])->columns(2)
+                    ])->columns(2),
+
+            ]);
+    }
 
     public static function form(Form $form): Form
     {
@@ -113,8 +164,9 @@ class MedicoResource extends Resource
                 \Filament\Tables\Columns\TextColumn::make('funcionario.telefone')
                     ->label('Telefone')
                     ->searchable()
-                    ->sortable(),
-                BadgeColumn::make('funcionario.estadoDaConta.nome')
+                    ->sortable()
+                    ->toggleable(isToggledHiddenByDefault: true),
+                TextColumn::make('funcionario.estadoDaConta.nome')
                     ->label('Estado da conta')
                     ->colors([
                         'success' => 'Activa',
@@ -127,13 +179,16 @@ class MedicoResource extends Resource
                     ->sortable(),
                 \Filament\Tables\Columns\TextColumn::make('created_at')
                     ->sortable()
-                    ->dateTime(),
+                    ->dateTime('d/m/Y H:i')
+                    ->toggleable(isToggledHiddenByDefault: true),
             ])
             ->filters([
                 //
             ])
             ->actions([
+                \Filament\Tables\Actions\ViewAction::make(),
                 \Filament\Tables\Actions\EditAction::make(),
+                \Filament\Tables\Actions\DeleteAction::make(),
             ])
             ->bulkActions([
                 \Filament\Tables\Actions\DeleteBulkAction::make(),
