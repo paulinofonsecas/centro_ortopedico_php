@@ -14,6 +14,11 @@ class Medico extends Model
         'especialidade_id',
     ];
 
+    public function consultas()
+    {
+        return $this->hasMany(Consulta::class);
+    }
+
     public function funcionario()
     {
         return $this->belongsTo(Funcionario::class);

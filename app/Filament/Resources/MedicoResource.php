@@ -3,13 +3,11 @@
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\MedicoResource\Pages;
-use App\Filament\Resources\MedicoResource\RelationManagers;
+use App\Filament\Resources\MedicoResource\RelationManagers\ConsultasRelationManager;
 use App\Models\Especialidade;
 use App\Models\EstadoDaConta;
-use App\Models\Medico;
 use App\Models\Municipio;
 use App\Models\Provincia;
-use Filament\Forms;
 use Filament\Forms\Components\Section;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
@@ -18,12 +16,8 @@ use Filament\Infolists\Components\Fieldset;
 use Filament\Infolists\Components\TextEntry;
 use Filament\Infolists\Infolist;
 use Filament\Resources\Resource;
-use Filament\Tables;
-use Filament\Tables\Columns\BadgeColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 class MedicoResource extends Resource
 {
@@ -198,7 +192,7 @@ class MedicoResource extends Resource
     public static function getRelations(): array
     {
         return [
-            //
+            ConsultasRelationManager::class,
         ];
     }
 
