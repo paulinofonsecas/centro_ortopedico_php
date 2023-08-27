@@ -12,15 +12,6 @@ class EditConsulta extends EditRecord
 {
     protected static string $resource = ConsultaResource::class;
 
-    protected function getHeaderActions(): array
-    {
-        return [
-            \Filament\Actions\Action::make('continuar')
-                ->label('Continuar o processo')
-                ->color('info'),
-        ];
-    }
-
     protected function handleRecordUpdate(Model $record, array $data): Model
     {
         $consulta = Consulta::find($record->id);
