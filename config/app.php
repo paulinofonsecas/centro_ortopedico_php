@@ -173,6 +173,8 @@ return [
         App\Providers\RouteServiceProvider::class,
         Spatie\Permission\PermissionServiceProvider::class,
         App\Providers\FilamentServiceProvider::class,
+        Barryvdh\Debugbar\ServiceProvider::class,
+        
     ])->toArray(),
 
     /*
