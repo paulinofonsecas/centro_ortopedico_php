@@ -2,7 +2,7 @@
 
 namespace App\Providers\Filament;
 
-use App\Filament\Pages\Dashboard;
+use App\Filament\Pages\dashboards\admin\AdminDashboard;
 use App\Filament\Resources\ConsultaResource;
 use App\Filament\Resources\AdministradorResource;
 use App\Filament\Resources\ConsultorioResource;
@@ -11,14 +11,11 @@ use App\Filament\Resources\EspecialidadeResource;
 use App\Filament\Resources\EstadoConsultaResource;
 use App\Filament\Resources\ItemResource;
 use App\Filament\Resources\MedicoResource;
-use App\Filament\Resources\PermissionResource;
 use App\Filament\Resources\RecepcionistaResource;
 use App\Filament\Resources\PacienteResource;
 use App\Filament\Resources\RoleResource;
 use App\Filament\Resources\UtenteResource;
-use App\Models\EstadoConsulta;
 use Filament\Http\Middleware\Authenticate;
-use Filament\Http\Middleware\DisableBladeIconComponents;
 use Filament\Http\Middleware\DispatchServingFilamentEvent;
 use Filament\Navigation\NavigationBuilder;
 use Filament\Navigation\NavigationGroup;
@@ -53,8 +50,8 @@ class AdminPanelProvider extends PanelProvider
                     ->items([
                         NavigationItem::make('Dashboard')
                             ->icon('heroicon-o-home')
-                            ->url('/admin')
-                            ->isActiveWhen(fn (): bool => request()->fullUrlIs(Dashboard::getUrl())),
+                            ->url('/admin/chart')
+                            ->isActiveWhen(fn (): bool => request()->fullUrlIs(AdminDashboard::getUrl())),
                     ])
                     ->groups([
                         NavigationGroup::make('Administração')
@@ -90,7 +87,7 @@ class AdminPanelProvider extends PanelProvider
             ->discoverResources(in: app_path('Filament/Resources'), for: 'App\\Filament\\Resources')
             ->discoverPages(in: app_path('Filament/Pages'), for: 'App\\Filament\\Pages')
             ->pages([
-                Pages\Dashboard::class,
+                AdminDashboard::class,
             ])
             ->discoverWidgets(in: app_path('Filament/Widgets'), for: 'App\\Filament\\Widgets')
             ->widgets([

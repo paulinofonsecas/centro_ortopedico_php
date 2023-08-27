@@ -2,19 +2,17 @@
 
 namespace Database\Seeders;
 
-use App\Models\Paciente;
+use App\Models\Doacao;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-class PacienteSeeder extends Seeder
+class DoacaoSeeder extends Seeder
 {
     /**
      * Run the database seeds.
      */
     public function run(): void
     {
-        // Paciente::factory()->count(10)->create();
-
         // popular dados na tabela com data aleatória entre 21/08/2023 a 27/08/2023
         $datas = [
             '2023-08-21',
@@ -30,16 +28,12 @@ class PacienteSeeder extends Seeder
         foreach ($datas as $data) {
             $g = random_int(1, 10);
             for ($i=0; $i < $g; $i++) { 
-                Paciente::create([
-                    'nome_completo' => $faker->name,
-                    'bi' => $faker->text(14),
-                    'nascimento' => $faker->date(),
-                    'telefone' => $faker->phoneNumber,
-                    'profissao' => $faker->text(20),
-                    'genero_id' => $faker->numberBetween(1, 2),
-                    'provincia_id' => $faker->numberBetween(1, 5),
-                    'municipio_id' => $faker->numberBetween(1, 5),
-                    'endereco' => $faker->address,
+                Doacao::create([
+                    'quantidade' => random_int(1, 10),
+                    'obs' => $faker->sentence,
+                    'utente_id' => 1,
+                    'item_id' => 1,
+                    'estado_do_item_id' => 1,
                     'created_at' => $data,
                 ]);
             }
