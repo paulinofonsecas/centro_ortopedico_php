@@ -70,27 +70,13 @@ class AdministradorResource extends Resource
                             ->label('Rua'),
 
                     ]),
-                Section::make()
-                    ->schema([
-                        Select::make('funcionario.estado_da_conta_id')
-                            ->label('Estado da conta')
-                            ->options(EstadoDaConta::all()->pluck('nome', 'id'))
-                            ->visibleOn('edit')
-                            ->searchable(),
-                    ]),
             ]);
     }
 
     public static function table(Table $table): Table
     {
-        /*
-         * nome
-         * email
-         * telefone
-         * Estado da conta
-         * data de criacao
-         */
         return $table
+            ->defaultSort('funcionario.user.name')
             ->columns([
                 \Filament\Tables\Columns\TextColumn::make('id')
                     ->label('ID')

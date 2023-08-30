@@ -17,7 +17,7 @@ class CheckAdminPanel
     {
         /** @var User */
         $user = auth()->user();
-        if (!$user->canUserAccessPanel('admin')) {
+        if (! $user->canUserAccessPanel('admin')) {
             abort(403);
         }
         return $next($request);
