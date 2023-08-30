@@ -15,7 +15,7 @@ class EspecialidadeResource extends Resource
 {
     protected static ?string $model = Especialidade::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'healthicons-f-city-worker';
 
     public static function form(Form $form): Form
     {

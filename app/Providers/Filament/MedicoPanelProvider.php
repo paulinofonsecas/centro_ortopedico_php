@@ -4,7 +4,9 @@ namespace App\Providers\Filament;
 
 use App\Filament\Medico\Resources\ConsultaResource;
 use App\Filament\Medico\Resources\ConsultorioResource;
+use App\Filament\Medico\Resources\FichaAvaliacaoResource;
 use App\Filament\Medico\Resources\PacienteResource;
+use App\Http\Middleware\CheckMedicoPanel;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\DisableBladeIconComponents;
 use Filament\Http\Middleware\DispatchServingFilamentEvent;
@@ -29,8 +31,9 @@ class MedicoPanelProvider extends PanelProvider
     public function panel(Panel $panel): Panel
     {
         return $panel
-            ->id('medico')
             ->login()
+            ->id('medico')
+            ->authMiddleware([CheckMedicoPanel::class])
             ->path('medico')
             ->colors([
                 'primary' => Color::Amber,
@@ -47,6 +50,7 @@ class MedicoPanelProvider extends PanelProvider
                         NavigationGroup::make('Produção')
                             ->items([
                                 ...ConsultaResource::getNavigationItems(),
+                                ...FichaAvaliacaoResource::getNavigationItems(),
                             ]),
                         NavigationGroup::make('Administração')
                             ->items([

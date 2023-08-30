@@ -15,6 +15,7 @@ use App\Filament\Resources\RecepcionistaResource;
 use App\Filament\Resources\PacienteResource;
 use App\Filament\Resources\RoleResource;
 use App\Filament\Resources\UtenteResource;
+use App\Http\Middleware\CheckAdminPanel;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\DispatchServingFilamentEvent;
 use Filament\Navigation\NavigationBuilder;
@@ -39,9 +40,10 @@ class AdminPanelProvider extends PanelProvider
     {
         return $panel
             ->default()
-            ->id('admin')
-            ->path('admin')
             ->login()
+            ->id('admin')
+            ->authMiddleware([CheckAdminPanel::class])
+            ->path('admin')
             ->colors([
                 'primary' => Color::Amber,
             ])

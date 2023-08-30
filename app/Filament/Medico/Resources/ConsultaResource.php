@@ -125,14 +125,19 @@ class ConsultaResource extends Resource
 
                                 return $result;
                             }),
-                        Forms\Components\Section::make('avaliacao')	
+                        Forms\Components\Section::make('avaliacao')
                             ->label('Avaliação')
                             ->schema([
                                 \Filament\Forms\Components\Actions\ActionContainer::make(
                                     \Filament\Forms\Components\Actions\Action::make('Adicionar ficha de avaliação')
-                                )
+                                        ->url(function (\Filament\Forms\Get $get) {
+                                            $consultaId = $get('consulta_id');
+
+                                            return FichaAvaliacaoResource::getUrl('create') . '/' .$consultaId;
+                                        })
+                                ),
                             ]),
-                        Forms\Components\Section::make('tratamento')	
+                        Forms\Components\Section::make('tratamento')
                             ->label('Tratamento')
                             ->schema([
                                 \Filament\Forms\Components\Actions\ActionContainer::make(

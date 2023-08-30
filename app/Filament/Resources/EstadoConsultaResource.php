@@ -17,7 +17,7 @@ class EstadoConsultaResource extends Resource
 {
     protected static ?string $model = EstadoConsulta::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'healthicons-f-i-documents-accepted';
 
     public static function form(Form $form): Form
     {

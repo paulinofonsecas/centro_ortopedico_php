@@ -7,6 +7,9 @@ use App\Filament\App\Resources\ConsultorioResource;
 use App\Filament\App\Resources\DoacaoResource;
 use App\Filament\App\Resources\PacienteResource;
 use App\Filament\App\Resources\UtenteResource;
+use App\Filament\Login\CustomLoginPage;
+use App\Http\Middleware\Authenticate as MiddlewareAuthenticate;
+use App\Http\Middleware\CheckRecepcionistaPanel;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\DisableBladeIconComponents;
 use Filament\Http\Middleware\DispatchServingFilamentEvent;
@@ -31,9 +34,10 @@ class AppPanelProvider extends PanelProvider
     public function panel(Panel $panel): Panel
     {
         return $panel
+            ->login(CustomLoginPage::class)
+            ->authMiddleware([CheckRecepcionistaPanel::class])
             ->id('app')
-            ->login()
-            ->path('app')
+            ->path('recepcionista')
             ->colors([
                 'primary' => Color::Amber,
             ])
@@ -42,7 +46,7 @@ class AppPanelProvider extends PanelProvider
                     ->items([
                         NavigationItem::make('Dashboard')
                             ->icon('heroicon-o-home')
-                            ->url('/app')
+                            ->url('/recepcionista')
                             ->isActiveWhen(fn (): bool => request()->fullUrlIs(Pages\Dashboard::getUrl())),
                     ])
                     ->groups([
