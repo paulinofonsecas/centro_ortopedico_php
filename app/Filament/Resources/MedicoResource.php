@@ -8,6 +8,7 @@ use App\Models\Especialidade;
 use App\Models\EstadoDaConta;
 use App\Models\Municipio;
 use App\Models\Provincia;
+use Filament\Actions\Action;
 use Filament\Forms\Components\Section;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
@@ -66,6 +67,25 @@ class MedicoResource extends Resource
                                     ->size(TextEntry\TextEntrySize::Large)
                             ])->columns(2)
                     ])->columns(2),
+                \Filament\Infolists\Components\Section::make('Segurança')
+                    ->collapsed()
+                    ->schema([
+                        \Filament\Infolists\Components\Actions\ActionContainer::make(
+                            \Filament\Infolists\Components\Actions\Action::make('Resetar a senha do usuario')
+                                ->color('info')
+                                ->requiresConfirmation(),
+                        ),
+                        \Filament\Infolists\Components\Actions\ActionContainer::make(
+                            \Filament\Infolists\Components\Actions\Action::make('Bloquear o usuario')
+                                ->color('danger')
+                                ->requiresConfirmation(),
+                        ),
+                        \Filament\Infolists\Components\Actions\ActionContainer::make(
+                            \Filament\Infolists\Components\Actions\Action::make('Deletar o usuario')
+                                ->color('danger')
+                                ->requiresConfirmation(),
+                        ),
+                    ]),
 
             ]);
     }
@@ -143,6 +163,7 @@ class MedicoResource extends Resource
          * data de criacao
          */
         return $table
+            ->defaultSort('funcionario.user.name')
             ->columns([
                 \Filament\Tables\Columns\TextColumn::make('id')
                     ->label('ID')
