@@ -10,6 +10,7 @@ use App\Filament\App\Resources\UtenteResource;
 use App\Filament\Login\CustomLoginPage;
 use App\Http\Middleware\Authenticate as MiddlewareAuthenticate;
 use App\Http\Middleware\CheckRecepcionistaPanel;
+use App\Http\Middleware\CheckResetPassword;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\DisableBladeIconComponents;
 use Filament\Http\Middleware\DispatchServingFilamentEvent;
@@ -17,6 +18,7 @@ use Filament\Navigation\NavigationBuilder;
 use Filament\Navigation\NavigationGroup;
 use Filament\Navigation\NavigationItem;
 use Filament\Pages;
+use Filament\Pages\Auth\EditProfile;
 use Filament\Panel;
 use Filament\PanelProvider;
 use Filament\Support\Colors\Color;
@@ -89,6 +91,7 @@ class AppPanelProvider extends PanelProvider
             ])
             ->authMiddleware([
                 Authenticate::class,
+                CheckResetPassword::class,
             ])
             ->sidebarCollapsibleOnDesktop();
 

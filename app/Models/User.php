@@ -12,6 +12,7 @@ use Spatie\Permission\Traits\HasRoles;
 
 use Filament\Models\Contracts\FilamentUser;
 use Filament\Panel;
+use Illuminate\Support\Facades\Hash;
 
 class User extends Authenticatable implements FilamentUser
 {
@@ -26,6 +27,7 @@ class User extends Authenticatable implements FilamentUser
         'name',
         'email',
         'password',
+        'password_reset_required',
     ];
 
     /**
@@ -61,5 +63,12 @@ class User extends Authenticatable implements FilamentUser
     public function isRecepcionista()
     {
         return $this->hasRole('recepcionista');
+    }
+
+    public function resetPassword($novaSenha)
+    {
+        $this->password = Hash::make($novaSenha);
+        $this->password_reset_required = false;
+        $this->save();
     }
 }

@@ -22,6 +22,7 @@ use Filament\Navigation\NavigationBuilder;
 use Filament\Navigation\NavigationGroup;
 use Filament\Navigation\NavigationItem;
 use Filament\Pages;
+use Filament\Pages\Auth\EditProfile;
 use Filament\Panel;
 use Filament\PanelProvider;
 use Filament\Support\Colors\Color;
@@ -44,6 +45,7 @@ class AdminPanelProvider extends PanelProvider
             ->id('admin')
             ->authMiddleware([CheckAdminPanel::class])
             ->path('admin')
+            ->profile(EditProfile::class)
             ->colors([
                 'primary' => Color::Amber,
             ])

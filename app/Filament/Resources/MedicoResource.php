@@ -8,6 +8,7 @@ use App\Models\Especialidade;
 use App\Models\EstadoDaConta;
 use App\Models\Municipio;
 use App\Models\Provincia;
+use App\Traits\MyCanResetPassword;
 use Filament\Actions\Action;
 use Filament\Forms\Components\Section;
 use Filament\Forms\Components\Select;
@@ -22,6 +23,8 @@ use Filament\Tables\Table;
 
 class MedicoResource extends Resource
 {
+    use MyCanResetPassword;
+    
     protected static ?string $navigationIcon = 'fontisto-doctor';
 
     public static function infolist(Infolist $infolist): Infolist
@@ -73,6 +76,16 @@ class MedicoResource extends Resource
                         \Filament\Infolists\Components\Actions\ActionContainer::make(
                             \Filament\Infolists\Components\Actions\Action::make('Resetar a senha do usuario')
                                 ->color('info')
+                                ->icon('heroicon-o-key')
+                                ->form([
+                                    TextInput::make('password')
+                                        ->label('Nova senha')
+                                        ->password()
+                                        ->required(),
+                                ])
+                                ->action(function (array $data) {
+                                    $this->resetPassword($data['password']);
+                                })
                                 ->requiresConfirmation(),
                         ),
                         \Filament\Infolists\Components\Actions\ActionContainer::make(

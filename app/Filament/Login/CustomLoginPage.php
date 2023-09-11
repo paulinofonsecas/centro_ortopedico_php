@@ -49,7 +49,6 @@ class CustomLoginPage extends Login
 
         session()->regenerate();
 
-
         return app(LoginResponse::class);
     }
 
