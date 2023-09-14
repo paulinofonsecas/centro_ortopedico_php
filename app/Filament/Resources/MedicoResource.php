@@ -6,10 +6,12 @@ use App\Filament\Resources\MedicoResource\Pages;
 use App\Filament\Resources\MedicoResource\RelationManagers\ConsultasRelationManager;
 use App\Models\Especialidade;
 use App\Models\EstadoDaConta;
+use App\Models\Medico;
 use App\Models\Municipio;
 use App\Models\Provincia;
 use App\Traits\MyCanResetPassword;
 use Filament\Actions\Action;
+use Filament\Actions\StaticAction;
 use Filament\Forms\Components\Section;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
@@ -17,9 +19,11 @@ use Filament\Forms\Form;
 use Filament\Infolists\Components\Fieldset;
 use Filament\Infolists\Components\TextEntry;
 use Filament\Infolists\Infolist;
+use Filament\Notifications\Notification;
 use Filament\Resources\Resource;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
+use Illuminate\Support\Facades\Hash;
 
 class MedicoResource extends Resource
 {
@@ -29,6 +33,8 @@ class MedicoResource extends Resource
 
     public static function infolist(Infolist $infolist): Infolist
     {
+        // $model = $infolist->getModel();
+        // session(['key' => 'value']);
         return $infolist
             ->schema([
                 \Filament\Infolists\Components\Section::make('Informações do médico')
@@ -83,8 +89,18 @@ class MedicoResource extends Resource
                                         ->password()
                                         ->required(),
                                 ])
-                                ->action(function (array $data) {
-                                    $this->resetPassword($data['password']);
+                                ->action(function (Medico $medico, array $data) {
+                                    $user = $medico->funcionario->user;
+
+                                    $newPassowrd = Hash::make($data['password']);
+                                    $user->password = $newPassowrd;
+                                    $user->save();
+
+                                    Notification::make('resetPassword')
+                                        ->title('Senha resetada')
+                                        ->success()
+                                        ->body('Senha resetada com sucesso!')
+                                        ->send();
                                 })
                                 ->requiresConfirmation(),
                         ),

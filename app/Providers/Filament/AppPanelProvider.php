@@ -8,7 +8,6 @@ use App\Filament\App\Resources\DoacaoResource;
 use App\Filament\App\Resources\PacienteResource;
 use App\Filament\App\Resources\UtenteResource;
 use App\Filament\Login\CustomLoginPage;
-use App\Http\Middleware\Authenticate as MiddlewareAuthenticate;
 use App\Http\Middleware\CheckRecepcionistaPanel;
 use App\Http\Middleware\CheckResetPassword;
 use Filament\Http\Middleware\Authenticate;
@@ -18,7 +17,6 @@ use Filament\Navigation\NavigationBuilder;
 use Filament\Navigation\NavigationGroup;
 use Filament\Navigation\NavigationItem;
 use Filament\Pages;
-use Filament\Pages\Auth\EditProfile;
 use Filament\Panel;
 use Filament\PanelProvider;
 use Filament\Support\Colors\Color;
@@ -30,6 +28,7 @@ use Illuminate\Routing\Middleware\SubstituteBindings;
 use Illuminate\Session\Middleware\AuthenticateSession;
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
+use JibayMcs\FilamentTour\FilamentTourPlugin;
 
 class AppPanelProvider extends PanelProvider
 {
@@ -39,7 +38,7 @@ class AppPanelProvider extends PanelProvider
             ->login(CustomLoginPage::class)
             ->authMiddleware([CheckRecepcionistaPanel::class])
             ->id('app')
-            ->path('recepcionista')
+            ->path('/recepcionista')
             ->colors([
                 'primary' => Color::Amber,
             ])
@@ -59,7 +58,7 @@ class AppPanelProvider extends PanelProvider
                         NavigationGroup::make('Doação')
                             ->items([
                                 ...DoacaoResource::getNavigationItems(),
-                                ...UtenteResource::getNavigationItems()
+                                ...UtenteResource::getNavigationItems(),
                             ]),
                         NavigationGroup::make('Administração')
                             ->items([
@@ -91,9 +90,13 @@ class AppPanelProvider extends PanelProvider
             ])
             ->authMiddleware([
                 Authenticate::class,
-                CheckResetPassword::class,
+                // CheckResetPassword::class ,
             ])
-            ->sidebarCollapsibleOnDesktop();
-
+            ->sidebarCollapsibleOnDesktop()
+            ->plugins([
+                FilamentTourPlugin::make()
+                    ->onlyVisibleOnce(false)
+                    ->enableCssSelector(),
+            ]);
     }
 }

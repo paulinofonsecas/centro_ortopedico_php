@@ -4,30 +4,36 @@ namespace App\Filament\Resources;
 
 use App\Filament\Resources\PermissionResource\RelationManagers\PermissionsRelationManager;
 use App\Filament\Resources\RecepcionistaResource\Pages;
+use App\Models\EstadoDaConta;
 use App\Models\Municipio;
 use App\Models\Provincia;
 use App\Models\Recepcionista;
-use App\Models\EstadoDaConta;
-use Filament\Actions\Action;
 use Filament\Forms\Components\Section;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Infolists\Components\Fieldset;
-use Filament\Infolists\Components\Section as ComponentsSection;
 use Filament\Infolists\Components\TextEntry;
 use Filament\Infolists\Infolist;
+use Filament\Notifications\Notification;
 use Filament\Resources\Resource;
 use Filament\Tables\Columns\BadgeColumn;
 use Filament\Tables\Table;
+use Illuminate\Support\Facades\Hash;
+use JibayMcs\FilamentTour\Tour\HasTour;
+use JibayMcs\FilamentTour\Tour\Step;
+use JibayMcs\FilamentTour\Tour\Tour;
 
 class RecepcionistaResource extends Resource
 {
+    
     protected static ?string $model = Recepcionista::class;
 
     protected static ?string $navigationIcon = 'healthicons-f-i-exam-multiple-choice';
 
     protected static ?string $navigationGroup = 'contas';
+
+    
 
     public static function infolist(Infolist $infolist): Infolist
     {
@@ -49,9 +55,9 @@ class RecepcionistaResource extends Resource
                             ->size(TextEntry\TextEntrySize::Large)
                             ->badge()
                             ->color(fn ($state): string => match ($state) {
-                                'Activa'  => 'success',
-                                'Inativa'  => 'warning',
-                                'Desactivada'  => 'danger',
+                                'Activa' => 'success',
+                                'Inativa' => 'warning',
+                                'Desactivada' => 'danger',
                             }),
                         Fieldset::make('Localização')
                             ->schema([
@@ -62,8 +68,8 @@ class RecepcionistaResource extends Resource
                                     ->label('Municipio')
                                     ->size(TextEntry\TextEntrySize::Large),
                                 TextEntry::make('funcionario.endereco.rua')
-                                    ->size(TextEntry\TextEntrySize::Large)
-                            ])->columns(2)
+                                    ->size(TextEntry\TextEntrySize::Large),
+                            ])->columns(2),
                     ])
                     ->collapsible()
                     ->columns(2),
@@ -73,6 +79,26 @@ class RecepcionistaResource extends Resource
                         \Filament\Infolists\Components\Actions\ActionContainer::make(
                             \Filament\Infolists\Components\Actions\Action::make('Resetar a senha do usuario')
                                 ->color('info')
+                                ->icon('heroicon-o-key')
+                                ->form([
+                                    TextInput::make('password')
+                                        ->label('Nova senha')
+                                        ->password()
+                                        ->required(),
+                                ])
+                                ->action(function (Recepcionista $recepcionista, array $data) {
+                                    $user = $recepcionista->funcionario->user;
+
+                                    $newPassowrd = Hash::make($data['password']);
+                                    $user->password = $newPassowrd;
+                                    $user->save();
+
+                                    Notification::make('resetPassword')
+                                        ->title('Senha resetada')
+                                        ->success()
+                                        ->body('Senha resetada com sucesso!')
+                                        ->send();
+                                })
                                 ->requiresConfirmation(),
                         ),
                         \Filament\Infolists\Components\Actions\ActionContainer::make(
@@ -129,13 +155,13 @@ class RecepcionistaResource extends Resource
                                 }
 
                                 $munis = Municipio::where('provincia_id', '=', $provincia_id)->pluck('nome', 'id');
+
                                 return $munis;
                             })
                             ->searchable(),
 
                         TextInput::make('endereco.rua')
                             ->label('Rua'),
-
                     ]),
 
                 Section::make()
@@ -186,7 +212,6 @@ class RecepcionistaResource extends Resource
                     ->dateTime(),
             ])
             ->filters([
-                //
             ])
             ->actions([
                 \Filament\Tables\Actions\ViewAction::make(),
