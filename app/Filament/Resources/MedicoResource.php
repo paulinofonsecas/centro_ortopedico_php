@@ -26,9 +26,7 @@ use Filament\Tables\Table;
 use Illuminate\Support\Facades\Hash;
 
 class MedicoResource extends Resource
-{
-    use MyCanResetPassword;
-    
+{    
     protected static ?string $navigationIcon = 'fontisto-doctor';
 
     public static function infolist(Infolist $infolist): Infolist
