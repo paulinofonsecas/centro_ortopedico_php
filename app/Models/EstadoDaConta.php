@@ -9,6 +9,9 @@ class EstadoDaConta extends Model
 {
     use HasFactory;
 
+    const ACTIVA = 1;
+    const INACTIVA = 2;
+
     protected $fillable = [
         'nome',
     ];

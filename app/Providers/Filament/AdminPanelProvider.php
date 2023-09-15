@@ -47,7 +47,7 @@ class AdminPanelProvider extends PanelProvider
             ->path('admin')
             ->profile(EditProfile::class)
             ->colors([
-                'primary' => Color::Amber,
+                'primary' => Color::Red,
             ])
             ->navigation(function (NavigationBuilder $builder): NavigationBuilder {
                 return $builder

@@ -50,6 +50,15 @@ class User extends Authenticatable implements FilamentUser
         'password' => 'hashed',
     ];
 
+    public function isActive() {
+        return $this->funcionario->estado_da_conta_id === EstadoDaConta::ACTIVA;
+    }
+
+    public function funcionario()
+    {
+        return $this->hasOne(Funcionario::class);
+    }
+
     public function canAccessPanel($role): bool
     {
         return true;

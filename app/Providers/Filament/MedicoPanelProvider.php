@@ -2,6 +2,7 @@
 
 namespace App\Providers\Filament;
 
+use App\Filament\Login\CustomLoginPage;
 use App\Filament\Medico\Resources\ConsultaResource;
 use App\Filament\Medico\Resources\ConsultorioResource;
 use App\Filament\Medico\Resources\FichaAvaliacaoResource;
@@ -31,12 +32,12 @@ class MedicoPanelProvider extends PanelProvider
     public function panel(Panel $panel): Panel
     {
         return $panel
-            ->login()
+            ->login(CustomLoginPage::class)
             ->id('medico')
             ->authMiddleware([CheckMedicoPanel::class])
             ->path('medico')
             ->colors([
-                'primary' => Color::Amber,
+                'primary' => Color::Purple,
             ])
             ->navigation(function (NavigationBuilder $builder): NavigationBuilder {
                 return $builder

@@ -47,6 +47,16 @@ class CustomLoginPage extends Login
             ]);
         }
 
+        /**
+         * @var User
+         */
+        if (! User::find(auth()->user()->id)->isActive()) {
+            auth()->logout();
+            throw ValidationException::withMessages([
+                'data.email' => 'Conta inativa, consulte um usuario administrador!',
+            ]);
+        }
+
         session()->regenerate();
 
         return app(LoginResponse::class);

@@ -172,6 +172,7 @@ class MedicoResource extends Resource
                             ->options(EstadoDaConta::all()->pluck('nome', 'id'))
                             ->visibleOn('edit')
                             ->searchable(),
+
                         Select::make('especialidade.id')
                             ->label('Especialidade')
                             ->options(Especialidade::all()->pluck('name', 'id'))
