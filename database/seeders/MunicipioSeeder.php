@@ -33,11 +33,11 @@ class MunicipioSeeder extends Seeder
             'Zaire' => ['Cuimba', 'Mbanza Kongo', 'Nóqui', 'Soyo', 'Tomboco'],
         ];
 
-        for ($i = 0; $i < count($municipios); $i++) {
-            Municipio::create([
-                'nome' => $municipios[$i],
-                'provincia_id' => $i + 1
-            ]);
+        foreach ($municipios as $nome => $municipios) {
+            Municipio::create(['nome' => $nome]);
+            foreach ($municipios as $municipio) {
+                Municipio::create(['nome' => $municipio]);
+            }
         }
-    }
+}
 }

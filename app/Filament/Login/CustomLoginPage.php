@@ -34,7 +34,7 @@ class CustomLoginPage extends Login
 
         $data = $this->form->getState();
 
-        if (! auth()->attempt($this->getCredentialsFromFormData($data), $data['remember'] ?? false)) {
+        if (! Filament::auth()->attempt($this->getCredentialsFromFormData($data), $data['remember'] ?? false)) {
             throw ValidationException::withMessages([
                 'data.email' => __('filament-panels::pages/auth/login.messages.failed'),
             ]);
