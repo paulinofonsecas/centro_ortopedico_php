@@ -45,8 +45,6 @@ class EditRecepcionista extends EditRecord
         $funcionario->update($dfuncionario);
         $endereco->update($dendereco);
 
-        $record->update($data);
-
         return $record;
     }
 

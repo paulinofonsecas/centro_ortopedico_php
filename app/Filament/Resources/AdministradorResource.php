@@ -68,7 +68,10 @@ class AdministradorResource extends Resource
 
                         TextInput::make('endereco.rua')
                             ->label('Rua'),
-
+                        Select::make('funcionario.estado_da_conta_id')
+                            ->label('Estado da conta')
+                            ->options(EstadoDaConta::all()->pluck('nome', 'id'))
+                            ->searchable(),
                     ]),
             ]);
     }

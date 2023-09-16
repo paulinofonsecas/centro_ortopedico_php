@@ -94,9 +94,6 @@ class AppPanelProvider extends PanelProvider
             ])
             ->sidebarCollapsibleOnDesktop()
             ->plugins([
-                FilamentTourPlugin::make()
-                    ->onlyVisibleOnce(false)
-                    ->enableCssSelector(),
             ]);
     }
 }

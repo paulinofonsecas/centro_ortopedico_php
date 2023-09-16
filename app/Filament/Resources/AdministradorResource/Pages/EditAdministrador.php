@@ -38,14 +38,12 @@ class EditAdministrador extends EditRecord
 
         $dfuncionario = [
             'telefone' => $data['funcionario']['telefone'],
-            'estado_da_conta_id' => $data['funcionario']['estado_da_conta_id'],
+            'estado_da_conta_id' => $data['funcionario']['estadoDaConta']['id'],
         ];
 
         $user->update($duser);
         $funcionario->update($dfuncionario);
         $endereco->update($dendereco);
-
-        $record->update($data);
 
         return $record;
     }
@@ -54,15 +52,9 @@ class EditAdministrador extends EditRecord
     {
         $administrador = Administrador::find($data['id']);
 
-        $data['user'] = [
-            'name' => $administrador->funcionario->user->name,
-            'email' => $administrador->funcionario->user->email,
-        ];
+        $data['user'] = $administrador->funcionario->user;
 
-        $data['funcionario'] = [
-            'telefone' => $administrador->funcionario->telefone,
-            'estado_da_conta_id' => $administrador->funcionario->estado_da_conta_id,
-        ];
+        $data['funcionario'] = $administrador->funcionario;
 
         $data['endereco'] = [
             'provincia_id' => $administrador->funcionario->endereco->provincia_id,
