@@ -27,6 +27,11 @@ class ConsultaResource extends Resource
 
     protected static ?string $navigationIcon = 'healthicons-o-cardiogram-e';
 
+    public static function getGloballySearchableAttributes(): array
+    {
+        return ['data_consulta', 'observacao'];
+    }
+
     public static function infolist(Infolist $infolist): Infolist
     {
         return $infolist

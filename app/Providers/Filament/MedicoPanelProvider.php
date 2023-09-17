@@ -34,6 +34,8 @@ class MedicoPanelProvider extends PanelProvider
         return $panel
             ->login(CustomLoginPage::class)
             ->id('medico')
+            ->databaseNotifications()
+            ->databaseNotificationsPolling(30000)
             ->authMiddleware([CheckMedicoPanel::class])
             ->path('medico')
             ->colors([

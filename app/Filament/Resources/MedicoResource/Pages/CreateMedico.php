@@ -4,10 +4,8 @@ namespace App\Filament\Resources\MedicoResource\Pages;
 
 use App\Filament\Resources\MedicoResource;
 use App\Models\Endereco;
-use App\Models\Especialidade;
 use App\Models\Funcionario;
 use App\Models\User;
-use Filament\Actions;
 use Filament\Resources\Pages\CreateRecord;
 use Illuminate\Support\Facades\Hash;
 
@@ -23,6 +21,8 @@ class CreateMedico extends CreateRecord
             'password' => Hash::make($data['user']['password']),
         ]);
 
+        $user->assignRole('medico');
+
         $endereco = Endereco::create([
             'provincia_id' => $data['endereco']['provincia_id'],
             'municipio_id' => $data['endereco']['municipio_id'],
@@ -36,7 +36,7 @@ class CreateMedico extends CreateRecord
             'estado_da_conta_id' => 1,
         ]);
 
-        return[
+        return [
             'funcionario_id' => $funcionario->id,
             'especialidade_id' => $data['especialidade']['id'],
         ];

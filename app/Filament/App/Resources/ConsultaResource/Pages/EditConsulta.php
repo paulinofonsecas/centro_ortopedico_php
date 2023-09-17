@@ -5,6 +5,8 @@ namespace App\Filament\App\Resources\ConsultaResource\Pages;
 use App\Filament\App\Resources\ConsultaResource;
 use App\Models\Consulta;
 use App\Models\Sintoma;
+use Filament\Notifications\Actions\Action;
+use Filament\Notifications\Notification;
 use Filament\Resources\Pages\EditRecord;
 use Illuminate\Database\Eloquent\Model;
 
@@ -54,6 +56,22 @@ class EditConsulta extends EditRecord
             'estado_consulta_id' => $data['estado_consulta_id'],
             'observacao' => $data['observacao'],
         ]);
+
+        $medico = $consulta->medico;
+
+        Notification::make()
+            ->title('Consulta alterada')
+            ->body('Consulta marcada para a data ' . $data['data_consulta'])
+            ->icon('heroicon-o-document-text')
+            ->color('success')
+            ->actions([
+                Action::make('Ver')
+                    ->button()
+                    ->url('http://ortopedico.test/medico/consultas/' . $consulta->id, shouldOpenInNewTab: true),
+                Action::make('fechar')
+                    ->color('gray'),
+            ])
+            ->sendToDatabase([$medico]);
 
         return $consulta;
     }

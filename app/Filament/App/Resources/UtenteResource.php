@@ -3,21 +3,23 @@
 namespace App\Filament\App\Resources;
 
 use App\Filament\App\Resources\UtenteResource\Pages;
-use App\Filament\App\Resources\UtenteResource\RelationManagers;
 use App\Models\Utente;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 class UtenteResource extends Resource
 {
     protected static ?string $model = Utente::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+
+    public static function getGloballySearchableAttributes(): array
+    {
+        return ['name', 'bi', 'telefone'];
+    }
 
     public static function form(Form $form): Form
     {
@@ -71,7 +73,6 @@ class UtenteResource extends Resource
                     ->toggleable(isToggledHiddenByDefault: true),
             ])
             ->filters([
-                //
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
@@ -86,11 +87,11 @@ class UtenteResource extends Resource
                 Tables\Actions\CreateAction::make(),
             ]);
     }
-    
+
     public static function getPages(): array
     {
         return [
             'index' => Pages\ManageUtentes::route('/'),
         ];
-    }    
+    }
 }

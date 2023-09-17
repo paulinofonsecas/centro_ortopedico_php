@@ -32,7 +32,6 @@ class RecepcionistaResource extends Resource
     protected static ?string $navigationIcon = 'healthicons-f-i-exam-multiple-choice';
 
     protected static ?string $navigationGroup = 'contas';
-
     
 
     public static function infolist(Infolist $infolist): Infolist

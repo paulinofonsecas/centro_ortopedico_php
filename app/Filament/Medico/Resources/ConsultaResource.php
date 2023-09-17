@@ -116,12 +116,12 @@ class ConsultaResource extends Resource
                             ->required()
                             ->searchable()
                             ->options(function ($record) {
-                                $estadoConstulaId = $record->estado_consulta_id;
+                                // $estadoConstulaId = $record->estado_consulta_id;
                                 $result = EstadoConsulta::all()->pluck('name', 'id');
 
-                                if ($estadoConstulaId == EstadoConsulta::PENDENTE) {
-                                    $result->forget(EstadoConsulta::CONCLUIDA);
-                                }
+                                // if ($estadoConstulaId == EstadoConsulta::PENDENTE) {
+                                //     $result->forget(EstadoConsulta::CONCLUIDA);
+                                // }
 
                                 return $result;
                             }),
@@ -130,10 +130,12 @@ class ConsultaResource extends Resource
                             ->schema([
                                 \Filament\Forms\Components\Actions\ActionContainer::make(
                                     \Filament\Forms\Components\Actions\Action::make('Adicionar ficha de avaliação')
-                                        ->url(function (\Filament\Forms\Get $get) {
-                                            $consultaId = $get('consulta_id');
-
-                                            return FichaAvaliacaoResource::getUrl('create') . '/' .$consultaId;
+                                        ->url(function ($record) {
+                                            $consultaId = $record->id;
+                                            
+                                            return FichaAvaliacaoResource::getUrl('create', [
+                                                'consulta_id' => $consultaId,
+                                            ]);
                                         })
                                 ),
                             ]),

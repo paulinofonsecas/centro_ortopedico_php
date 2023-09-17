@@ -2,9 +2,11 @@
 
 namespace App\Providers;
 
+use Filament\Notifications\Livewire\DatabaseNotifications;
 use Filament\Support\Facades\FilamentView;
 use Illuminate\Contracts\View\View;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -23,15 +25,11 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         Model::unguard();
+
+        // DatabaseNotifications::trigger('filament-notifications.database-notifications-trigger');
         FilamentView::registerRenderHook(
-            'panels::page.start',
-            function () {
-                ds('page rendered');
-            },
-            scopes: [
-                \App\Filament\Resources\MedicoResource::class,
-                \App\Filament\Resources\RecepcionistaResource::class,
-            ],
+            'panels::global-search.before',
+            fn (): string => Blade::render("@livewire('database-notifications')"),
         );
     }
 }

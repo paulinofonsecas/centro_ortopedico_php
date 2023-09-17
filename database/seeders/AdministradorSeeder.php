@@ -34,8 +34,10 @@ class AdministradorSeeder extends Seeder
             'estado_da_conta_id' => 1,
         ]);
 
-        Administrador::create([
+        $admin = Administrador::create([
             'funcionario_id' => $funcionario->id,
         ]);
+
+        $user->assignRole('admin');
     }
 }
