@@ -2,12 +2,10 @@
 
 namespace App\Filament\Pages\dashboards\medico;
 
-use App\Filament\Pages\dashboards\admin\widgets\StatsOverview;
-use App\Filament\Pages\dashboards\admin\widgets\ConsultasChart;
-use App\Filament\Pages\dashboards\admin\widgets\ControlUsuariosStatsOverview;
+use App\Filament\Pages\dashboards\medico\widgets\StatsOverview;
 use Filament\Pages\Dashboard as BasePage;
 
-class AdminDashboard extends BasePage {
+class MedicoDashboard extends BasePage {
 
     public function getTitle(): string
     {
@@ -18,8 +16,6 @@ class AdminDashboard extends BasePage {
     {
         return [
             StatsOverview::class,
-            ConsultasChart::class,
-            ControlUsuariosStatsOverview::class,
         ];
     }
 

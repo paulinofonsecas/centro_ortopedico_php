@@ -9,9 +9,6 @@ use App\Models\EstadoDaConta;
 use App\Models\Medico;
 use App\Models\Municipio;
 use App\Models\Provincia;
-use App\Traits\MyCanResetPassword;
-use Filament\Actions\Action;
-use Filament\Actions\StaticAction;
 use Filament\Forms\Components\Section;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
@@ -31,8 +28,6 @@ class MedicoResource extends Resource
 
     public static function infolist(Infolist $infolist): Infolist
     {
-        // $model = $infolist->getModel();
-        // session(['key' => 'value']);
         return $infolist
             ->schema([
                 \Filament\Infolists\Components\Section::make('Informações do médico')

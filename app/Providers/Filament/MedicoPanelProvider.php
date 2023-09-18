@@ -7,6 +7,7 @@ use App\Filament\Medico\Resources\ConsultaResource;
 use App\Filament\Medico\Resources\ConsultorioResource;
 use App\Filament\Medico\Resources\FichaAvaliacaoResource;
 use App\Filament\Medico\Resources\PacienteResource;
+use App\Filament\Pages\dashboards\medico\MedicoDashboard;
 use App\Http\Middleware\CheckMedicoPanel;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\DisableBladeIconComponents;
@@ -44,10 +45,10 @@ class MedicoPanelProvider extends PanelProvider
             ->navigation(function (NavigationBuilder $builder): NavigationBuilder {
                 return $builder
                     ->items([
-                        NavigationItem::make('Dashboard')
+                            NavigationItem::make('Dashboard')
                             ->icon('heroicon-o-home')
                             ->url('/medico')
-                            ->isActiveWhen(fn (): bool => request()->fullUrlIs(Pages\Dashboard::getUrl())),
+                            ->isActiveWhen(fn (): bool => request()->fullUrlIs(MedicoDashboard::getUrl())),
                     ])
                     ->groups([
                         NavigationGroup::make('Produção')
@@ -65,7 +66,7 @@ class MedicoPanelProvider extends PanelProvider
             ->discoverResources(in: app_path('Filament/medico/Resources'), for: 'App\\Filament\\Medico\\Resources')
             ->discoverPages(in: app_path('Filament/medico/Pages'), for: 'App\\Filament\\Medico\\Pages')
             ->pages([
-                Pages\Dashboard::class,
+                MedicoDashboard::class,
             ])
             ->discoverWidgets(in: app_path('Filament/medico/Widgets'), for: 'App\\Filament\\Medico\\Widgets')
             ->widgets([
@@ -87,6 +88,5 @@ class MedicoPanelProvider extends PanelProvider
                 Authenticate::class,
             ])
             ->sidebarCollapsibleOnDesktop();
-
     }
 }
