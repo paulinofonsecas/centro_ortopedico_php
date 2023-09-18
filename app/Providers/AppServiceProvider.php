@@ -26,7 +26,11 @@ class AppServiceProvider extends ServiceProvider
     {
         Model::unguard();
 
-        // DatabaseNotifications::trigger('filament-notifications.database-notifications-trigger');
+        FilamentView::registerRenderHook(
+            'panels::auth.login.form.after',
+            fn (): string => Blade::render("@livewire('components.back-to-home-page')"),
+        );
+
         FilamentView::registerRenderHook(
             'panels::global-search.before',
             fn (): string => Blade::render("@livewire('database-notifications')"),
