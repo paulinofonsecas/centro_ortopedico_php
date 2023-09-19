@@ -13,7 +13,7 @@ class TipoTratamentoPolicy
      */
     public function viewAny(User $user): bool
     {
-        //
+        return true;
     }
 
     /**
@@ -21,7 +21,7 @@ class TipoTratamentoPolicy
      */
     public function view(User $user, TipoTratamento $tipoTratamento): bool
     {
-        //
+        return true;
     }
 
     /**
@@ -29,7 +29,7 @@ class TipoTratamentoPolicy
      */
     public function create(User $user): bool
     {
-        //
+        return $user->hasRole(['admin']);
     }
 
     /**
@@ -37,7 +37,7 @@ class TipoTratamentoPolicy
      */
     public function update(User $user, TipoTratamento $tipoTratamento): bool
     {
-        //
+        return $user->hasRole(['admin']);
     }
 
     /**
@@ -45,7 +45,7 @@ class TipoTratamentoPolicy
      */
     public function delete(User $user, TipoTratamento $tipoTratamento): bool
     {
-        //
+        return $user->hasRole(['admin']);
     }
 
     /**
@@ -53,7 +53,7 @@ class TipoTratamentoPolicy
      */
     public function restore(User $user, TipoTratamento $tipoTratamento): bool
     {
-        //
+        return $user->hasRole(['admin']);
     }
 
     /**
@@ -61,6 +61,6 @@ class TipoTratamentoPolicy
      */
     public function forceDelete(User $user, TipoTratamento $tipoTratamento): bool
     {
-        //
+        return $user->hasRole(['admin']);
     }
 }

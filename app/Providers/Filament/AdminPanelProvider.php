@@ -15,6 +15,7 @@ use App\Filament\Resources\MedicoResource;
 use App\Filament\Resources\RecepcionistaResource;
 use App\Filament\Resources\PacienteResource;
 use App\Filament\Resources\RoleResource;
+use App\Filament\Resources\TipoTratamentoResource;
 use App\Filament\Resources\UtenteResource;
 use App\Http\Middleware\CheckAdminPanel;
 use Filament\Http\Middleware\Authenticate;
@@ -86,6 +87,7 @@ class AdminPanelProvider extends PanelProvider
                                 ...ConsultorioResource::getNavigationItems(),
                                 ...EspecialidadeResource::getNavigationItems(),
                                 ...EstadoConsultaResource::getNavigationItems(),
+                                ...TipoTratamentoResource::getNavigationItems(),
                             ]),
                     ]);
             })
