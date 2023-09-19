@@ -7,6 +7,7 @@ use App\Filament\Medico\Resources\ConsultaResource;
 use App\Filament\Medico\Resources\ConsultorioResource;
 use App\Filament\Medico\Resources\FichaAvaliacaoResource;
 use App\Filament\Medico\Resources\PacienteResource;
+use App\Filament\Medico\Resources\TratamentoResource;
 use App\Filament\Pages\dashboards\medico\MedicoDashboard;
 use App\Filament\Pages\dashboards\medico\widgets\StatsOverview;
 use App\Http\Middleware\CheckMedicoPanel;
@@ -54,7 +55,7 @@ class MedicoPanelProvider extends PanelProvider
                         NavigationGroup::make('Produção')
                             ->items([
                                 ...ConsultaResource::getNavigationItems(),
-                                ...FichaAvaliacaoResource::getNavigationItems(),
+                                ...TratamentoResource::getNavigationItems(),
                             ]),
                         NavigationGroup::make('Administração')
                             ->items([

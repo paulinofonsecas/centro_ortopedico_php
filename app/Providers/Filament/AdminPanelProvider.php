@@ -3,17 +3,16 @@
 namespace App\Providers\Filament;
 
 use App\Filament\pages\dashboards\admin\AdminDashboard;
-use App\Filament\pages\dashboards\admin\widgets\StatsOverview as WidgetsStatsOverview;
-use App\Filament\Resources\ConsultaResource;
 use App\Filament\Resources\AdministradorResource;
+use App\Filament\Resources\ConsultaResource;
 use App\Filament\Resources\ConsultorioResource;
 use App\Filament\Resources\DoacaoResource;
 use App\Filament\Resources\EspecialidadeResource;
 use App\Filament\Resources\EstadoConsultaResource;
 use App\Filament\Resources\ItemResource;
 use App\Filament\Resources\MedicoResource;
-use App\Filament\Resources\RecepcionistaResource;
 use App\Filament\Resources\PacienteResource;
+use App\Filament\Resources\RecepcionistaResource;
 use App\Filament\Resources\RoleResource;
 use App\Filament\Resources\TipoTratamentoResource;
 use App\Filament\Resources\UtenteResource;
@@ -23,7 +22,6 @@ use Filament\Http\Middleware\DispatchServingFilamentEvent;
 use Filament\Navigation\NavigationBuilder;
 use Filament\Navigation\NavigationGroup;
 use Filament\Navigation\NavigationItem;
-use Filament\Pages;
 use Filament\Pages\Auth\EditProfile;
 use Filament\Panel;
 use Filament\PanelProvider;
@@ -71,7 +69,7 @@ class AdminPanelProvider extends PanelProvider
                                 ...MedicoResource::getNavigationItems(),
                                 ...AdministradorResource::getNavigationItems(),
                             ]),
-                    
+
                         NavigationGroup::make('Doações')
                             ->items([
                                 ...UtenteResource::getNavigationItems(),
@@ -98,7 +96,7 @@ class AdminPanelProvider extends PanelProvider
             ])
             ->discoverWidgets(in: app_path('Filament/Widgets'), for: 'App\\Filament\\Widgets')
             ->widgets([
-                Widgets\AccountWidget::class,                
+                Widgets\AccountWidget::class,
             ])
             ->middleware([
                 EncryptCookies::class,
