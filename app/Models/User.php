@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use Spatie\Activitylog\LogOptions;
+use Spatie\Activitylog\Traits\LogsActivity;
 use Spatie\Permission\Traits\HasPermissions;
 use Spatie\Permission\Traits\HasRoles;
 
@@ -16,7 +18,7 @@ use Illuminate\Support\Facades\Hash;
 
 class User extends Authenticatable implements FilamentUser
 {
-    use HasApiTokens, HasFactory, Notifiable, HasPermissions, HasRoles;
+    use HasApiTokens, HasFactory, Notifiable, HasPermissions, HasRoles, LogsActivity;
 
     /**
      * The attributes that are mass assignable.
@@ -49,6 +51,12 @@ class User extends Authenticatable implements FilamentUser
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    public function getActivitylogOptions(): LogOptions
+    {
+        return LogOptions::defaults()
+            ->logOnly(['name', 'email']);
+    }
 
     public function isActive() {
         return $this->funcionario->estado_da_conta_id === EstadoDaConta::ACTIVA;

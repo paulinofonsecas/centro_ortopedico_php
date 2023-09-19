@@ -21,6 +21,7 @@ use Filament\Resources\Resource;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Illuminate\Support\Facades\Hash;
+use Rmsramos\Activitylog\RelationManagers\ActivitylogRelationManager;
 
 class MedicoResource extends Resource
 {    
@@ -237,6 +238,7 @@ class MedicoResource extends Resource
     {
         return [
             ConsultasRelationManager::class,
+            ActivitylogRelationManager::class,
         ];
     }
 

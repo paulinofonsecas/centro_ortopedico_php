@@ -20,19 +20,15 @@ use Filament\Resources\Resource;
 use Filament\Tables\Columns\BadgeColumn;
 use Filament\Tables\Table;
 use Illuminate\Support\Facades\Hash;
-use JibayMcs\FilamentTour\Tour\HasTour;
-use JibayMcs\FilamentTour\Tour\Step;
-use JibayMcs\FilamentTour\Tour\Tour;
+use Rmsramos\Activitylog\RelationManagers\ActivitylogRelationManager;
 
 class RecepcionistaResource extends Resource
 {
-    
     protected static ?string $model = Recepcionista::class;
 
     protected static ?string $navigationIcon = 'healthicons-f-i-exam-multiple-choice';
 
     protected static ?string $navigationGroup = 'contas';
-    
 
     public static function infolist(Infolist $infolist): Infolist
     {
@@ -224,7 +220,7 @@ class RecepcionistaResource extends Resource
     public static function getRelations(): array
     {
         return [
-            // PermissionsRelationManager::class,
+            ActivitylogRelationManager::class,
         ];
     }
 

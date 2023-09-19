@@ -15,6 +15,7 @@ use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables\Table;
+use Rmsramos\Activitylog\RelationManagers\ActivitylogRelationManager;
 
 class AdministradorResource extends Resource
 {
@@ -122,7 +123,7 @@ class AdministradorResource extends Resource
     public static function getRelations(): array
     {
         return [
-            //
+            ActivitylogRelationManager::class,
         ];
     }
 

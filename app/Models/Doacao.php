@@ -4,10 +4,13 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Spatie\Activitylog\LogOptions;
+use Spatie\Activitylog\Traits\LogsActivity;
 
 class Doacao extends Model
 {
     use HasFactory;
+    use LogsActivity;
 
     protected $fillable = [
         'quantidade',
@@ -16,6 +19,12 @@ class Doacao extends Model
         'item_id',
         'estado_do_item_id',
     ];
+
+    public function getActivitylogOptions(): LogOptions
+    {
+        return LogOptions::defaults()
+            ->logAll();
+    }
 
     public function utente()
     {

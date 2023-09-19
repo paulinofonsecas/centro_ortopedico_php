@@ -4,10 +4,13 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Spatie\Activitylog\LogOptions;
+use Spatie\Activitylog\Traits\LogsActivity;
 
 class Funcionario extends Model
 {
     use HasFactory;
+    use LogsActivity;
 
     protected $fillable = [
         'telefone',
@@ -15,6 +18,12 @@ class Funcionario extends Model
         'endereco_id',
         'estado_da_conta_id',
     ];
+
+    public function getActivitylogOptions(): LogOptions
+    {
+        return LogOptions::defaults()
+            ->logAll();
+    }
 
     public function user()
     {
