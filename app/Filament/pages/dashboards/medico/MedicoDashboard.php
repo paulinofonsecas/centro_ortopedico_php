@@ -9,7 +9,7 @@ class MedicoDashboard extends BasePage {
 
     public function getTitle(): string
     {
-        return 'Administração do sistema';
+        return 'Painel do Médico';
     }
 
     public function getWidgets(): array

@@ -8,6 +8,7 @@ use App\Filament\Medico\Resources\ConsultorioResource;
 use App\Filament\Medico\Resources\FichaAvaliacaoResource;
 use App\Filament\Medico\Resources\PacienteResource;
 use App\Filament\Pages\dashboards\medico\MedicoDashboard;
+use App\Filament\Pages\dashboards\medico\widgets\StatsOverview;
 use App\Http\Middleware\CheckMedicoPanel;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\DisableBladeIconComponents;
@@ -15,7 +16,6 @@ use Filament\Http\Middleware\DispatchServingFilamentEvent;
 use Filament\Navigation\NavigationBuilder;
 use Filament\Navigation\NavigationGroup;
 use Filament\Navigation\NavigationItem;
-use Filament\Pages;
 use Filament\Panel;
 use Filament\PanelProvider;
 use Filament\Support\Colors\Color;
@@ -46,9 +46,9 @@ class MedicoPanelProvider extends PanelProvider
                 return $builder
                     ->items([
                             NavigationItem::make('Dashboard')
-                            ->icon('heroicon-o-home')
-                            ->url('/medico')
-                            ->isActiveWhen(fn (): bool => request()->fullUrlIs(MedicoDashboard::getUrl())),
+                                ->icon('heroicon-o-home')
+                                ->url('/medico')
+                                ->isActiveWhen(fn (): bool => request()->fullUrlIs(MedicoDashboard::getUrl())),
                     ])
                     ->groups([
                         NavigationGroup::make('Produção')
@@ -71,7 +71,8 @@ class MedicoPanelProvider extends PanelProvider
             ->discoverWidgets(in: app_path('Filament/medico/Widgets'), for: 'App\\Filament\\Medico\\Widgets')
             ->widgets([
                 Widgets\AccountWidget::class,
-                Widgets\FilamentInfoWidget::class,
+                
+                StatsOverview::class,
             ])
             ->middleware([
                 EncryptCookies::class,

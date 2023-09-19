@@ -165,7 +165,7 @@ class RecepcionistaResource extends Resource
 
                 Section::make()
                     ->schema([
-                        Select::make('funcionario.estadoDaConta.id')
+                        Select::make('funcionario.estado_da_conta_id')
                             ->label('Estado da conta')
                             ->options(EstadoDaConta::all()->pluck('nome', 'id'))
                             ->searchable(),

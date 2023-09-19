@@ -55,7 +55,18 @@ class PacienteResource extends Resource
                     ->searchable(),
                 Select::make('municipio_id')
                     ->label('Município')
-                    ->options(Municipio::query()->pluck('nome', 'id'))
+                    ->options(function (\Filament\Forms\Get $get) {
+                        $provincia_id = $get('provincia_id'); // Store the value of the `email` field in the `$email` variable.
+
+                        if (!$provincia_id) {
+                            return Municipio::all()->pluck('nome', 'id');
+                        }
+
+                        $munis = Municipio::where('provincia_id', '=', $provincia_id)->pluck('nome', 'id');
+
+                        return $munis;
+                    })
+                            ->searchable()
                     ->searchable(),
             ]);
     }

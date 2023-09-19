@@ -38,7 +38,7 @@ class EditRecepcionista extends EditRecord
 
         $dfuncionario = [
             'telefone' => $data['funcionario']['telefone'],
-            'estado_da_conta_id' => $data['funcionario']['estadoDaConta']['id'],
+            'estado_da_conta_id' => $data['funcionario']['estado_da_conta_id'],
         ];
 
         $user->update($duser);

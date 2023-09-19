@@ -2,7 +2,8 @@
 
 namespace App\Providers\Filament;
 
-use App\Filament\Pages\dashboards\admin\AdminDashboard;
+use App\Filament\pages\dashboards\admin\AdminDashboard;
+use App\Filament\pages\dashboards\admin\widgets\StatsOverview as WidgetsStatsOverview;
 use App\Filament\Resources\ConsultaResource;
 use App\Filament\Resources\AdministradorResource;
 use App\Filament\Resources\ConsultorioResource;
@@ -44,7 +45,7 @@ class AdminPanelProvider extends PanelProvider
             ->login()
             ->id('admin')
             ->authMiddleware([CheckAdminPanel::class])
-            ->path('admin')
+            ->path('/admin')
             ->profile(EditProfile::class)
             ->colors([
                 'primary' => Color::Red,
@@ -95,8 +96,7 @@ class AdminPanelProvider extends PanelProvider
             ])
             ->discoverWidgets(in: app_path('Filament/Widgets'), for: 'App\\Filament\\Widgets')
             ->widgets([
-                Widgets\AccountWidget::class,
-                Widgets\FilamentInfoWidget::class,
+                Widgets\AccountWidget::class,                
             ])
             ->middleware([
                 EncryptCookies::class,
