@@ -2,11 +2,11 @@
 
 namespace App\Policies;
 
-use App\Models\Paciente;
+use App\Models\Tratamento;
 use App\Models\User;
 use Illuminate\Auth\Access\Response;
 
-class PacientePolicy
+class TratamentoPolicy
 {
     /**
      * Determine whether the user can view any models.
@@ -19,7 +19,7 @@ class PacientePolicy
     /**
      * Determine whether the user can view the model.
      */
-    public function view(User $user, Paciente $paciente): bool
+    public function view(User $user, Tratamento $tratamento): bool
     {
         return true;
     }
@@ -29,38 +29,38 @@ class PacientePolicy
      */
     public function create(User $user): bool
     {
-        return $user->hasRole(['recepcionista', 'medico']);
+        return $user->hasRole(['medico']);
     }
 
     /**
      * Determine whether the user can update the model.
      */
-    public function update(User $user, Paciente $paciente): bool
+    public function update(User $user, Tratamento $tratamento): bool
     {
-        return $user->hasRole(['recepcionista', 'medico']);
+        return $user->hasRole(['medico']);
     }
 
     /**
      * Determine whether the user can delete the model.
      */
-    public function delete(User $user, Paciente $paciente): bool
+    public function delete(User $user, Tratamento $tratamento): bool
     {
-        return $user->hasRole('admin');
+        return $user->hasRole(['admin', 'admin']);
     }
 
     /**
      * Determine whether the user can restore the model.
      */
-    public function restore(User $user, Paciente $paciente): bool
+    public function restore(User $user, Tratamento $tratamento): bool
     {
-        return $user->hasRole('admin');
+        return $user->hasRole(['admin', 'admin']);
     }
 
     /**
      * Determine whether the user can permanently delete the model.
      */
-    public function forceDelete(User $user, Paciente $paciente): bool
+    public function forceDelete(User $user, Tratamento $tratamento): bool
     {
-        return $user->hasRole('admin');
+        return $user->hasRole(['admin', 'admin']);
     }
 }
