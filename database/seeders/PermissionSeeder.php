@@ -53,10 +53,11 @@ class PermissionSeeder extends Seeder
         //     // Permission::create(['name' => 'delete-consulta']),
         // ];
 
-        // $role = Role::find(1);
-        // $role->syncPermissions($permissions);
+        $permissions = Permission::all();
+        $role = Role::find(4);
+        $role->syncPermissions($permissions);
 
-        Permission::create(['name' => 'gerar-relatorio']);
+        // Permission::create(['name' => 'gerar-relatorio']);
 
     }
 }

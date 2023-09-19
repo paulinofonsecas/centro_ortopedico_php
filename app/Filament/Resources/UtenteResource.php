@@ -19,6 +19,11 @@ class UtenteResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
+    public static function getGloballySearchableAttributes(): array
+    {
+        return ['name', 'bi', 'telefone'];
+    }
+
     public static function form(Form $form): Form
     {
         return $form

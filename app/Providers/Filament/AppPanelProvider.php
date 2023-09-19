@@ -7,6 +7,9 @@ use App\Filament\App\Resources\ConsultorioResource;
 use App\Filament\App\Resources\DoacaoResource;
 use App\Filament\App\Resources\PacienteResource;
 use App\Filament\App\Resources\UtenteResource;
+use App\Filament\Login\CustomLoginPage;
+use App\Http\Middleware\CheckRecepcionistaPanel;
+use App\Http\Middleware\CheckResetPassword;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\DisableBladeIconComponents;
 use Filament\Http\Middleware\DispatchServingFilamentEvent;
@@ -17,6 +20,7 @@ use Filament\Pages;
 use Filament\Panel;
 use Filament\PanelProvider;
 use Filament\Support\Colors\Color;
+use Filament\Support\Facades\FilamentView;
 use Filament\Widgets;
 use Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse;
 use Illuminate\Cookie\Middleware\EncryptCookies;
@@ -24,16 +28,22 @@ use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken;
 use Illuminate\Routing\Middleware\SubstituteBindings;
 use Illuminate\Session\Middleware\AuthenticateSession;
 use Illuminate\Session\Middleware\StartSession;
+use Illuminate\Support\Facades\Blade;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
+use JibayMcs\FilamentTour\FilamentTourPlugin;
 
 class AppPanelProvider extends PanelProvider
 {
     public function panel(Panel $panel): Panel
     {
+
         return $panel
+            ->login(CustomLoginPage::class)
+            ->authMiddleware([CheckRecepcionistaPanel::class])
+            ->databaseNotifications()
+            ->databaseNotificationsPolling(30000)
             ->id('app')
-            ->login()
-            ->path('app')
+            ->path('/recepcionista')
             ->colors([
                 'primary' => Color::Amber,
             ])
@@ -42,7 +52,7 @@ class AppPanelProvider extends PanelProvider
                     ->items([
                         NavigationItem::make('Dashboard')
                             ->icon('heroicon-o-home')
-                            ->url('/app')
+                            ->url('/recepcionista')
                             ->isActiveWhen(fn (): bool => request()->fullUrlIs(Pages\Dashboard::getUrl())),
                     ])
                     ->groups([
@@ -53,7 +63,7 @@ class AppPanelProvider extends PanelProvider
                         NavigationGroup::make('Doação')
                             ->items([
                                 ...DoacaoResource::getNavigationItems(),
-                                ...UtenteResource::getNavigationItems()
+                                ...UtenteResource::getNavigationItems(),
                             ]),
                         NavigationGroup::make('Administração')
                             ->items([
@@ -70,7 +80,7 @@ class AppPanelProvider extends PanelProvider
             ->discoverWidgets(in: app_path('Filament/App/Widgets'), for: 'App\\Filament\\App\\Widgets')
             ->widgets([
                 Widgets\AccountWidget::class,
-                Widgets\FilamentInfoWidget::class,
+                
             ])
             ->middleware([
                 EncryptCookies::class,
@@ -85,8 +95,10 @@ class AppPanelProvider extends PanelProvider
             ])
             ->authMiddleware([
                 Authenticate::class,
+                // CheckResetPassword::class ,
             ])
-            ->sidebarCollapsibleOnDesktop();
-
+            ->sidebarCollapsibleOnDesktop()
+            ->plugins([
+            ]);
     }
 }

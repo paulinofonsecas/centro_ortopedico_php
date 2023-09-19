@@ -33,7 +33,7 @@ class EditMedico extends EditRecord
         $dendereco = [
             'provincia_id' => $data['endereco']['provincia_id'],
             'municipio_id' => $data['endereco']['municipio_id'],
-            'rua' =>          $data['endereco']['rua'],
+            'rua' => $data['endereco']['rua'],
         ];
 
         $dfuncionario = [
@@ -45,9 +45,9 @@ class EditMedico extends EditRecord
         $funcionario->update($dfuncionario);
         $endereco->update($dendereco);
 
-        $data['especialidade_id'] = $data['especialidade']['id'];
-
-        $record->update($data);
+        $record->update([
+            'especialidade_id' => $data['especialidade']['id'],
+        ]);
 
         return $record;
     }

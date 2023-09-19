@@ -12,6 +12,7 @@ use Spatie\Permission\Traits\HasRoles;
 
 use Filament\Models\Contracts\FilamentUser;
 use Filament\Panel;
+use Illuminate\Support\Facades\Hash;
 
 class User extends Authenticatable implements FilamentUser
 {
@@ -26,6 +27,7 @@ class User extends Authenticatable implements FilamentUser
         'name',
         'email',
         'password',
+        'password_reset_required',
     ];
 
     /**
@@ -48,14 +50,34 @@ class User extends Authenticatable implements FilamentUser
         'password' => 'hashed',
     ];
 
-    public function canAccessPanel(Panel $panel): bool
+    public function isActive() {
+        return $this->funcionario->estado_da_conta_id === EstadoDaConta::ACTIVA;
+    }
+
+    public function funcionario()
     {
-        // return str_ends_with($this->email, '@admin.com');
+        return $this->hasOne(Funcionario::class);
+    }
+
+    public function canAccessPanel($role): bool
+    {
         return true;
+    }
+
+    public function canUserAccessPanel($role): bool
+    {
+        return $this->getRoleNames()->contains($role);
     }
 
     public function isRecepcionista()
     {
         return $this->hasRole('recepcionista');
+    }
+
+    public function resetPassword($novaSenha)
+    {
+        $this->password = Hash::make($novaSenha);
+        $this->password_reset_required = false;
+        $this->save();
     }
 }

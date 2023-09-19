@@ -3,9 +3,13 @@
 namespace App\Filament\App\Resources\ConsultaResource\Pages;
 
 use App\Filament\App\Resources\ConsultaResource;
+use App\Filament\Medico\Resources\ConsultaResource as ResourcesConsultaResource;
 use App\Models\Consulta;
+use App\Models\Medico;
 use App\Models\RConsultaSintoma;
 use App\Models\Sintoma;
+use Filament\Notifications\Actions\Action;
+use Filament\Notifications\Notification;
 use Filament\Resources\Pages\CreateRecord;
 use Illuminate\Database\Eloquent\Model;
 
@@ -50,7 +54,7 @@ class CreateConsulta extends CreateRecord
             'paciente_id' => $data['paciente_id'],
             'medico_id' => $data['medico_id'],
             'data_consulta' => $data['data_consulta'],
-            'observacao' => $data['observacao'],
+            'observacao' => $data['observacao'] ?? '',
         ]);
 
         if ($sintoma1) {
@@ -71,6 +75,23 @@ class CreateConsulta extends CreateRecord
                 'sintoma_id' => $sintoma3->id,
             ]);
         }
+
+        $medico = Medico::find($data['medico_id'])->funcionario->user;
+        $user = auth()->user();
+
+        Notification::make()
+            ->title('Usuario ' . $user->name . ' criou uma consulta para o médico ' . $medico->name)
+            ->body('Consulta marcada para a data ' . $data['data_consulta'])
+            ->icon('heroicon-o-document-text')
+            ->color('success')
+            ->actions([
+                Action::make('Ver')
+                    ->button()
+                    ->url('http://ortopedico.test/medico/consultas/' . $consulta->id, shouldOpenInNewTab: true),
+                Action::make('fechar')
+                    ->color('gray'),
+            ])
+            ->sendToDatabase([$medico]);
 
         return $consulta;
     }

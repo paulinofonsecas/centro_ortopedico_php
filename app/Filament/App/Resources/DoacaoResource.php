@@ -22,7 +22,7 @@ class DoacaoResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
-    protected static ?string $navigationLabel = 'Doções feitas';
+    protected static ?string $navigationLabel = 'Doações feitas';
 
     protected static ?string $slug = 'doacoes';
     
@@ -82,6 +82,7 @@ class DoacaoResource extends Resource
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
             ])
+            ->defaultSort('created_at', 'desc')
             ->filters([
 
             ])

@@ -2,25 +2,28 @@
 
 namespace App\Providers\Filament;
 
-use App\Filament\Pages\dashboards\admin\AdminDashboard;
-use App\Filament\Resources\ConsultaResource;
+use App\Filament\pages\dashboards\admin\AdminDashboard;
 use App\Filament\Resources\AdministradorResource;
+use App\Filament\Resources\ConsultaResource;
 use App\Filament\Resources\ConsultorioResource;
 use App\Filament\Resources\DoacaoResource;
 use App\Filament\Resources\EspecialidadeResource;
 use App\Filament\Resources\EstadoConsultaResource;
 use App\Filament\Resources\ItemResource;
 use App\Filament\Resources\MedicoResource;
-use App\Filament\Resources\RecepcionistaResource;
 use App\Filament\Resources\PacienteResource;
+use App\Filament\Resources\RecepcionistaResource;
 use App\Filament\Resources\RoleResource;
+use App\Filament\Resources\TipoTratamentoResource;
+use App\Filament\Resources\TratamentoResource;
 use App\Filament\Resources\UtenteResource;
+use App\Http\Middleware\CheckAdminPanel;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\DispatchServingFilamentEvent;
 use Filament\Navigation\NavigationBuilder;
 use Filament\Navigation\NavigationGroup;
 use Filament\Navigation\NavigationItem;
-use Filament\Pages;
+use Filament\Pages\Auth\EditProfile;
 use Filament\Panel;
 use Filament\PanelProvider;
 use Filament\Support\Colors\Color;
@@ -39,18 +42,20 @@ class AdminPanelProvider extends PanelProvider
     {
         return $panel
             ->default()
-            ->id('admin')
-            ->path('admin')
             ->login()
+            ->id('admin')
+            ->authMiddleware([CheckAdminPanel::class])
+            ->path('/admin')
+            ->profile(EditProfile::class)
             ->colors([
-                'primary' => Color::Amber,
+                'primary' => Color::Red,
             ])
             ->navigation(function (NavigationBuilder $builder): NavigationBuilder {
                 return $builder
                     ->items([
                         NavigationItem::make('Dashboard')
                             ->icon('heroicon-o-home')
-                            ->url('/admin/chart')
+                            ->url('/admin')
                             ->isActiveWhen(fn (): bool => request()->fullUrlIs(AdminDashboard::getUrl())),
                     ])
                     ->groups([
@@ -58,6 +63,7 @@ class AdminPanelProvider extends PanelProvider
                             ->items([
                                 ...ConsultaResource::getNavigationItems(),
                                 ...PacienteResource::getNavigationItems(),
+                                ...TratamentoResource::getNavigationItems(),
                             ]),
                         NavigationGroup::make('Usuarios')
                             ->items([
@@ -65,7 +71,7 @@ class AdminPanelProvider extends PanelProvider
                                 ...MedicoResource::getNavigationItems(),
                                 ...AdministradorResource::getNavigationItems(),
                             ]),
-                    
+
                         NavigationGroup::make('Doações')
                             ->items([
                                 ...UtenteResource::getNavigationItems(),
@@ -81,6 +87,7 @@ class AdminPanelProvider extends PanelProvider
                                 ...ConsultorioResource::getNavigationItems(),
                                 ...EspecialidadeResource::getNavigationItems(),
                                 ...EstadoConsultaResource::getNavigationItems(),
+                                ...TipoTratamentoResource::getNavigationItems(),
                             ]),
                     ]);
             })
@@ -92,7 +99,6 @@ class AdminPanelProvider extends PanelProvider
             ->discoverWidgets(in: app_path('Filament/Widgets'), for: 'App\\Filament\\Widgets')
             ->widgets([
                 Widgets\AccountWidget::class,
-                Widgets\FilamentInfoWidget::class,
             ])
             ->middleware([
                 EncryptCookies::class,

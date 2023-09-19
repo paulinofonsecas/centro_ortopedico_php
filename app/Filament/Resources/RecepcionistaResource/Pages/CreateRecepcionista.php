@@ -21,6 +21,8 @@ class CreateRecepcionista extends CreateRecord
             'password' => Hash::make($data['user']['password']),
         ]);
 
+        $user->assignRole('recepcionista');
+
         $endereco = Endereco::create([
             'provincia_id' => $data['endereco']['provincia_id'],
             'municipio_id' => $data['endereco']['municipio_id'],

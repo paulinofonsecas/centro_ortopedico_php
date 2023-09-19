@@ -6,6 +6,7 @@ use App\Filament\Resources\MedicoResource\Pages;
 use App\Filament\Resources\MedicoResource\RelationManagers\ConsultasRelationManager;
 use App\Models\Especialidade;
 use App\Models\EstadoDaConta;
+use App\Models\Medico;
 use App\Models\Municipio;
 use App\Models\Provincia;
 use Filament\Forms\Components\Section;
@@ -15,12 +16,14 @@ use Filament\Forms\Form;
 use Filament\Infolists\Components\Fieldset;
 use Filament\Infolists\Components\TextEntry;
 use Filament\Infolists\Infolist;
+use Filament\Notifications\Notification;
 use Filament\Resources\Resource;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
+use Illuminate\Support\Facades\Hash;
 
 class MedicoResource extends Resource
-{
+{    
     protected static ?string $navigationIcon = 'fontisto-doctor';
 
     public static function infolist(Infolist $infolist): Infolist
@@ -66,6 +69,45 @@ class MedicoResource extends Resource
                                     ->size(TextEntry\TextEntrySize::Large)
                             ])->columns(2)
                     ])->columns(2),
+                \Filament\Infolists\Components\Section::make('Segurança')
+                    ->collapsed()
+                    ->schema([
+                        \Filament\Infolists\Components\Actions\ActionContainer::make(
+                            \Filament\Infolists\Components\Actions\Action::make('Resetar a senha do usuario')
+                                ->color('info')
+                                ->icon('heroicon-o-key')
+                                ->form([
+                                    TextInput::make('password')
+                                        ->label('Nova senha')
+                                        ->password()
+                                        ->required(),
+                                ])
+                                ->action(function (Medico $medico, array $data) {
+                                    $user = $medico->funcionario->user;
+
+                                    $newPassowrd = Hash::make($data['password']);
+                                    $user->password = $newPassowrd;
+                                    $user->save();
+
+                                    Notification::make('resetPassword')
+                                        ->title('Senha resetada')
+                                        ->success()
+                                        ->body('Senha resetada com sucesso!')
+                                        ->send();
+                                })
+                                ->requiresConfirmation(),
+                        ),
+                        \Filament\Infolists\Components\Actions\ActionContainer::make(
+                            \Filament\Infolists\Components\Actions\Action::make('Bloquear o usuario')
+                                ->color('danger')
+                                ->requiresConfirmation(),
+                        ),
+                        \Filament\Infolists\Components\Actions\ActionContainer::make(
+                            \Filament\Infolists\Components\Actions\Action::make('Deletar o usuario')
+                                ->color('danger')
+                                ->requiresConfirmation(),
+                        ),
+                    ]),
 
             ]);
     }
@@ -125,6 +167,7 @@ class MedicoResource extends Resource
                             ->options(EstadoDaConta::all()->pluck('nome', 'id'))
                             ->visibleOn('edit')
                             ->searchable(),
+
                         Select::make('especialidade.id')
                             ->label('Especialidade')
                             ->options(Especialidade::all()->pluck('name', 'id'))
@@ -143,6 +186,7 @@ class MedicoResource extends Resource
          * data de criacao
          */
         return $table
+            ->defaultSort('funcionario.user.name')
             ->columns([
                 \Filament\Tables\Columns\TextColumn::make('id')
                     ->label('ID')

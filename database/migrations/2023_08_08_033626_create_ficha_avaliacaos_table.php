@@ -14,7 +14,7 @@ return new class extends Migration
     {
         Schema::create('ficha_avaliacaos', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('id_paciente')->constrained();
+            $table->foreignId('paciente_id')->constrained();
             $table->unsignedBigInteger('id_hc');
             $table->text('alergias');
             $table->text('quixas_principais');

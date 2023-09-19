@@ -3,27 +3,27 @@
 namespace App\Filament\App\Resources;
 
 use App\Filament\App\Resources\PacienteResource\Pages;
-use App\Filament\App\Resources\PacienteResource\RelationManagers;
 use App\Models\Genero;
 use App\Models\Municipio;
 use App\Models\Paciente;
 use App\Models\Provincia;
 use Filament\Forms;
-use Filament\Forms\Form;
 use Filament\Forms\Components\Select;
-use Filament\Forms\Get;
+use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\Collection;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 class PacienteResource extends Resource
 {
     protected static ?string $model = Paciente::class;
 
     protected static ?string $navigationIcon = 'healthicons-f-i-groups-perspective-crowd';
+
+    public static function getGloballySearchableAttributes(): array
+    {
+        return ['nome_completo', 'bi', 'telefone'];
+    }
 
     public static function form(Form $form): Form
     {
@@ -55,7 +55,18 @@ class PacienteResource extends Resource
                     ->searchable(),
                 Select::make('municipio_id')
                     ->label('Município')
-                    ->options(Municipio::query()->pluck('nome', 'id'))
+                    ->options(function (\Filament\Forms\Get $get) {
+                        $provincia_id = $get('provincia_id'); // Store the value of the `email` field in the `$email` variable.
+
+                        if (!$provincia_id) {
+                            return Municipio::all()->pluck('nome', 'id');
+                        }
+
+                        $munis = Municipio::where('provincia_id', '=', $provincia_id)->pluck('nome', 'id');
+
+                        return $munis;
+                    })
+                            ->searchable()
                     ->searchable(),
             ]);
     }
@@ -95,7 +106,6 @@ class PacienteResource extends Resource
                     ->toggleable(isToggledHiddenByDefault: true),
             ])
             ->filters([
-                //
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
@@ -113,7 +123,6 @@ class PacienteResource extends Resource
     public static function getRelations(): array
     {
         return [
-            //
         ];
     }
 

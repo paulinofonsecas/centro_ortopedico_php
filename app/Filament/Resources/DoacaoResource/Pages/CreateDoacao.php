@@ -16,9 +16,9 @@ class CreateDoacao extends CreateRecord
         $model = [
             'quantidade' => $data['quantidade'],
             'obs' => $data['obs'],
-            'utente_id' => $data['utente']['name'],
-            'item_id' => $data['item']['name'],
-            'estado_do_item_id' => $data['estadoDoItem']['name'],
+            'utente_id' => $data['utente_id'],
+            'item_id' => $data['item_id'],
+            'estado_do_item_id' => $data['estado_do_item_id'],
         ];
 
         return $model;
