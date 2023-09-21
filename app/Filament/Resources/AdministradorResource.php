@@ -34,37 +34,37 @@ class AdministradorResource extends Resource
                 \Filament\Infolists\Components\Section::make('Informações do médico')
                 ->collapsible()
                 ->schema([
-                TextEntry::make('funcionario.user.name')
-                            ->label('Nome completo')
-                            ->size(TextEntry\TextEntrySize::Large)
-                            ->columnSpanFull(),
-                        TextEntry::make('funcionario.user.email')
-                            ->label('Email')
-                            ->size(TextEntry\TextEntrySize::Large),
-                        TextEntry::make('funcionario.telefone')
-                            ->label('Telefone')
-                            ->numeric(thousandsSeparator: ' '),
-                        TextEntry::make('funcionario.estadoDaConta.nome')
-                            ->label('Estado da conta')
-                            ->badge()
-                            ->colors([
-                                'success' => 'Activa',
-                                'danger' => 'Inativa',
-                                'warning' => 'Desactivada',
-                            ])
-                            ->size(TextEntry\TextEntrySize::Large),
-                        Fieldset::make('Localização')
-                            ->schema([
-                                TextEntry::make('funcionario.endereco.provincia.nome')
-                                    ->label('Provincia')
-                                    ->size(TextEntry\TextEntrySize::Large),
-                                TextEntry::make('funcionario.endereco.municipio.nome')
-                                    ->label('Municipio')
-                                    ->size(TextEntry\TextEntrySize::Large),
-                                TextEntry::make('funcionario.endereco.rua')
-                                    ->label('Rua')
-                                    ->size(TextEntry\TextEntrySize::Large),
-                            ])->columns(2),
+                    TextEntry::make('funcionario.user.name')
+                        ->label('Nome completo')
+                        ->size(TextEntry\TextEntrySize::Large)
+                        ->columnSpanFull(),
+                    TextEntry::make('funcionario.user.email')
+                        ->label('Email')
+                        ->size(TextEntry\TextEntrySize::Large),
+                    TextEntry::make('funcionario.telefone')
+                        ->label('Telefone')
+                        ->numeric(thousandsSeparator: ' '),
+                    TextEntry::make('funcionario.estadoDaConta.nome')
+                        ->label('Estado da conta')
+                        ->badge()
+                        ->colors([
+                            'success' => 'Activa',
+                            'danger' => 'Inativa',
+                            'warning' => 'Desactivada',
+                        ])
+                        ->size(TextEntry\TextEntrySize::Large),
+                    Fieldset::make('Localização')
+                        ->schema([
+                            TextEntry::make('funcionario.endereco.provincia.nome')
+                                ->label('Provincia')
+                                ->size(TextEntry\TextEntrySize::Large),
+                            TextEntry::make('funcionario.endereco.municipio.nome')
+                                ->label('Municipio')
+                                ->size(TextEntry\TextEntrySize::Large),
+                            TextEntry::make('funcionario.endereco.rua')
+                                ->label('Rua')
+                                ->size(TextEntry\TextEntrySize::Large),
+                        ])->columns(2),
                     ])->columns(2),
             ]);
     }
