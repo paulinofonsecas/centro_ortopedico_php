@@ -56,6 +56,7 @@ class MedicoPanelProvider extends PanelProvider
                             ->items([
                                 ...ConsultaResource::getNavigationItems(),
                                 ...TratamentoResource::getNavigationItems(),
+                                ...FichaAvaliacaoResource::getNavigationItems(),
                             ]),
                         NavigationGroup::make('Administração')
                             ->items([

@@ -3,28 +3,24 @@
 namespace App\Filament\Medico\Resources;
 
 use App\Filament\Medico\Resources\ConsultaResource\Pages;
-use App\Filament\Medico\Resources\ConsultaResource\Pages\ProcessarConsulta;
 use App\Models\Consulta;
 use App\Models\EstadoConsulta;
 use App\Models\Gravidade;
 use App\Models\Medico;
 use App\Models\Paciente;
-use Filament\Actions\ActionGroup;
 use Filament\Forms;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Form;
-use Filament\Actions;
 use Filament\Infolists\Components\Fieldset;
 use Filament\Infolists\Components\TextEntry;
 use Filament\Infolists\Infolist;
-use Filament\Panel;
 use Filament\Resources\Resource;
 use Filament\Tables;
-use Filament\Tables\Enums\FiltersLayout;
 use Filament\Tables\Filters\Filter;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Support\Facades\RouteFacade;
+use Illuminate\Support\Facades\Session
+;
 
 class ConsultaResource extends Resource
 {
@@ -132,7 +128,8 @@ class ConsultaResource extends Resource
                                     \Filament\Forms\Components\Actions\Action::make('Adicionar ficha de avaliação')
                                         ->url(function ($record) {
                                             $consultaId = $record->id;
-                                            
+                                            Session::put('consultaId', $consultaId);
+
                                             return FichaAvaliacaoResource::getUrl('create', [
                                                 'consulta_id' => $consultaId,
                                             ]);

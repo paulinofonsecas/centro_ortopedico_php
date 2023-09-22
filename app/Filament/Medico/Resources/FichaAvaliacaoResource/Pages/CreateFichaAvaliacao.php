@@ -3,9 +3,11 @@
 namespace App\Filament\Medico\Resources\FichaAvaliacaoResource\Pages;
 
 use App\Filament\Medico\Resources\FichaAvaliacaoResource;
+use App\Models\Consulta;
 use App\Models\FichaAvaliacao;
 use Filament\Resources\Pages\CreateRecord;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Session;
 
 class CreateFichaAvaliacao extends CreateRecord
 {
@@ -23,10 +25,13 @@ class CreateFichaAvaliacao extends CreateRecord
 
     protected function handleRecordCreation(array $data): Model
     {
-        $record = $this->form->getRecord();
+        $consultaId = Session::get('consultaId');
+        $consulta = Consulta::find($consultaId);
 
-        ds($record);
-        return FichaAvaliacao::create();
+        $data['consulta_id'] = $consulta->id;
+        $data['paciente_id'] = $consulta->paciente_id;
+
+        return FichaAvaliacao::create($data);
     }
 
 }

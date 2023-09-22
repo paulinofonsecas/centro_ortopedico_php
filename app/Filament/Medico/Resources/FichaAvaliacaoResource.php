@@ -110,7 +110,7 @@ class FichaAvaliacaoResource extends Resource
                             ->columnSpanFull(),
                         ]),
                     ])
-                        ->persistStepInQueryString('ficha-avaliacao')
+                        // ->persistStepInQueryString('ficha-avaliacao')
                         ->submitAction(new \Illuminate\Support\HtmlString(\Illuminate\Support\Facades\Blade::render(<<<BLADE
                             <x-filament::button
                                 type="submit"
