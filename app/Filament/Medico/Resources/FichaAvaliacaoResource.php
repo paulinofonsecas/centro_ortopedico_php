@@ -3,20 +3,13 @@
 namespace App\Filament\Medico\Resources;
 
 use App\Filament\Medico\Resources\FichaAvaliacaoResource\Pages;
-use App\Filament\Medico\Resources\FichaAvaliacaoResource\RelationManagers;
-use App\Models\Consulta;
 use App\Models\FichaAvaliacao;
-use App\Models\User;
 use Filament\Forms;
-use Filament\Actions\Action;
-use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Wizard;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 class FichaAvaliacaoResource extends Resource
 {
