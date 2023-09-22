@@ -139,13 +139,6 @@ class ConsultaResource extends Resource
                                         })
                                 ),
                             ]),
-                        Forms\Components\Section::make('tratamento')
-                            ->label('Tratamento')
-                            ->schema([
-                                \Filament\Forms\Components\Actions\ActionContainer::make(
-                                    \Filament\Forms\Components\Actions\Action::make('Adicionar ficha de tratamento/acompanhamento')
-                                )
-                            ]),
                     ]),
                 Forms\Components\Section::make('Consulta')
                     ->collapsible()
