@@ -89,7 +89,7 @@ class AdminPanelProvider extends PanelProvider
                             ->items([
                                 ...ConsultorioResource::getNavigationItems(),
                                 ...EspecialidadeResource::getNavigationItems(),
-                                ...EstadoConsultaResource::getNavigationItems(),
+                                // ...EstadoConsultaResource::getNavigationItems(),
                                 ...TipoTratamentoResource::getNavigationItems(),
                             ]),
                     ]);
