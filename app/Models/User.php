@@ -62,6 +62,18 @@ class User extends Authenticatable implements FilamentUser
         return $this->funcionario->estado_da_conta_id === EstadoDaConta::ACTIVA;
     }
 
+    public function bloquear()
+    {
+        $this->funcionario->estado_da_conta_id = EstadoDaConta::INACTIVA;
+        $this->funcionario->save();
+    }
+
+    public function desbloquear()
+    {
+        $this->funcionario->estado_da_conta_id = EstadoDaConta::ACTIVA;
+        $this->funcionario->save();
+    }
+
     public function funcionario()
     {
         return $this->hasOne(Funcionario::class);

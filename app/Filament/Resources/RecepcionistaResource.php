@@ -2,16 +2,17 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\PermissionResource\RelationManagers\PermissionsRelationManager;
 use App\Filament\Resources\RecepcionistaResource\Pages;
 use App\Models\EstadoDaConta;
 use App\Models\Municipio;
 use App\Models\Provincia;
 use App\Models\Recepcionista;
+use App\Models\User;
 use Filament\Forms\Components\Section;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
+use Filament\Infolists\Components\Actions\Action;
 use Filament\Infolists\Components\Fieldset;
 use Filament\Infolists\Components\TextEntry;
 use Filament\Infolists\Infolist;
@@ -70,9 +71,10 @@ class RecepcionistaResource extends Resource
                     ->columns(2),
                 \Filament\Infolists\Components\Section::make('Segurança')
                     ->collapsed()
-                    ->schema([
+                    ->schema(
+                        fn (Recepcionista $recepcionista): array => [
                         \Filament\Infolists\Components\Actions\ActionContainer::make(
-                            \Filament\Infolists\Components\Actions\Action::make('Resetar a senha do usuario')
+                            Action::make('Resetar a senha do usuario')
                                 ->color('info')
                                 ->icon('heroicon-o-key')
                                 ->form([
@@ -97,17 +99,50 @@ class RecepcionistaResource extends Resource
                                 ->requiresConfirmation(),
                         ),
                         \Filament\Infolists\Components\Actions\ActionContainer::make(
-                            \Filament\Infolists\Components\Actions\Action::make('Bloquear o usuario')
-                                ->color('danger')
-                                ->requiresConfirmation(),
+                            RecepcionistaResource::getBloquearOuDesbloquearActionContainer($recepcionista),
                         ),
-                        \Filament\Infolists\Components\Actions\ActionContainer::make(
-                            \Filament\Infolists\Components\Actions\Action::make('Deletar o usuario')
-                                ->color('danger')
-                                ->requiresConfirmation(),
-                        ),
+                        // \Filament\Infolists\Components\Actions\ActionContainer::make(
+                        //     Action::make('Deletar o usuario')
+                        //         ->color('danger')
+                        //         ->requiresConfirmation(),
+                        // ),
                     ]),
             ]);
+    }
+
+    public static function getBloquearOuDesbloquearActionContainer($recepcionista): Action
+    {
+        if (!$recepcionista->funcionario->user->isActive()) {
+            return Action::make('Desbloquear o usuario')
+                ->action(function (Recepcionista $recepcionista) {
+                    /** @var User $user */
+                    $user = $recepcionista->funcionario->user;
+                    $user->desbloquear();
+
+                    Notification::make('desbloquearUsuario')
+                        ->title('Usuario desbloqueado')
+                        ->success()
+                        ->body('Usuario foi desbloqueado com sucesso!')
+                        ->send();
+                })
+                ->color('success')
+                ->requiresConfirmation();
+        } else {
+            return Action::make('Bloquear o usuario')
+                ->action(function (Recepcionista $recepcionista) {
+                    /** @var User $user */
+                    $user = $recepcionista->funcionario->user;
+                    $user->bloquear();
+
+                    Notification::make('bloquearUsuario')
+                        ->title('Usuario bloqueado')
+                        ->success()
+                        ->body('Usuario foi bloqueado com sucesso!')
+                        ->send();
+                })
+                ->color('danger')
+                ->requiresConfirmation();
+        }
     }
 
     public static function form(Form $form): Form

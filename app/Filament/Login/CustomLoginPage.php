@@ -40,6 +40,13 @@ class CustomLoginPage extends Login
             ]);
         }
 
+        if (! $this->userIsActive(auth()->user())) {
+            auth()->logout();
+            throw ValidationException::withMessages([
+                'data.email' => 'A sua conta está bloqueada, consulte um usuario administrador!',
+            ]);
+        }
+
         if (! $this->canAcessPanel(auth()->user())) {
             auth()->logout();
             throw ValidationException::withMessages([
@@ -60,6 +67,11 @@ class CustomLoginPage extends Login
         session()->regenerate();
 
         return app(LoginResponse::class);
+    }
+
+    public function userIsActive(User $user): bool
+    {
+        return $user->isActive();       
     }
 
     public function canAcessPanel($user): bool

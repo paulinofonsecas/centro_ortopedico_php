@@ -9,10 +9,13 @@ use App\Models\EstadoDaConta;
 use App\Models\Medico;
 use App\Models\Municipio;
 use App\Models\Provincia;
+use App\Models\Recepcionista;
+use App\Models\User;
 use Filament\Forms\Components\Section;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
+use Filament\Infolists\Components\Actions\Action;
 use Filament\Infolists\Components\Fieldset;
 use Filament\Infolists\Components\TextEntry;
 use Filament\Infolists\Infolist;
@@ -24,7 +27,7 @@ use Illuminate\Support\Facades\Hash;
 use Rmsramos\Activitylog\RelationManagers\ActivitylogRelationManager;
 
 class MedicoResource extends Resource
-{    
+{
     protected static ?string $navigationIcon = 'fontisto-doctor';
 
     public static function infolist(Infolist $infolist): Infolist
@@ -67,14 +70,15 @@ class MedicoResource extends Resource
                                     ->size(TextEntry\TextEntrySize::Large),
                                 TextEntry::make('funcionario.endereco.rua')
                                     ->label('Rua')
-                                    ->size(TextEntry\TextEntrySize::Large)
-                            ])->columns(2)
+                                    ->size(TextEntry\TextEntrySize::Large),
+                            ])->columns(2),
                     ])->columns(2),
                 \Filament\Infolists\Components\Section::make('Segurança')
                     ->collapsed()
-                    ->schema([
+                    ->schema(
+                    fn (Medico $medico): array => [   
                         \Filament\Infolists\Components\Actions\ActionContainer::make(
-                            \Filament\Infolists\Components\Actions\Action::make('Resetar a senha do usuario')
+                            Action::make('Resetar a senha do usuario')
                                 ->color('info')
                                 ->icon('heroicon-o-key')
                                 ->form([
@@ -99,18 +103,50 @@ class MedicoResource extends Resource
                                 ->requiresConfirmation(),
                         ),
                         \Filament\Infolists\Components\Actions\ActionContainer::make(
-                            \Filament\Infolists\Components\Actions\Action::make('Bloquear o usuario')
-                                ->color('danger')
-                                ->requiresConfirmation(),
+                            MedicoResource::getBloquearOuDesbloquearActionContainer($medico),
                         ),
-                        \Filament\Infolists\Components\Actions\ActionContainer::make(
-                            \Filament\Infolists\Components\Actions\Action::make('Deletar o usuario')
-                                ->color('danger')
-                                ->requiresConfirmation(),
-                        ),
+                        // \Filament\Infolists\Components\Actions\ActionContainer::make(
+                        //     \Filament\Infolists\Components\Actions\Action::make('Deletar o usuario')
+                        //         ->color('danger')
+                        //         ->requiresConfirmation(),
+                        // ),
                     ]),
-
             ]);
+    }
+
+    public static function getBloquearOuDesbloquearActionContainer($medico): Action
+    {
+        if (!$medico->funcionario->user->isActive()) {
+            return Action::make('Desbloquear o usuario')
+                ->action(function (Medico $medico) {
+                    /** @var User $user */
+                    $user = $medico->funcionario->user;
+                    $user->desbloquear();
+
+                    Notification::make('desbloquearUsuario')
+                        ->title('Usuario desbloqueado')
+                        ->success()
+                        ->body('Usuario foi desbloqueado com sucesso!')
+                        ->send();
+                })
+                ->color('success')
+                ->requiresConfirmation();
+        } else {
+            return Action::make('Bloquear o usuario')
+                ->action(function (Medico $medico) {
+                    /** @var User $user */
+                    $user = $medico->funcionario->user;
+                    $user->bloquear();
+
+                    Notification::make('bloquearUsuario')
+                        ->title('Usuario bloqueado')
+                        ->success()
+                        ->body('Usuario foi bloqueado com sucesso!')
+                        ->send();
+                })
+                ->color('danger')
+                ->requiresConfirmation();
+        }
     }
 
     public static function form(Form $form): Form
@@ -153,13 +189,13 @@ class MedicoResource extends Resource
                                 }
 
                                 $munis = Municipio::where('provincia_id', '=', $provincia_id)->pluck('nome', 'id');
+
                                 return $munis;
                             })
                             ->searchable(),
 
                         TextInput::make('endereco.rua')
                             ->label('Rua'),
-
                     ]),
                 Section::make()
                     ->schema([
@@ -173,7 +209,7 @@ class MedicoResource extends Resource
                             ->label('Especialidade')
                             ->options(Especialidade::all()->pluck('name', 'id'))
                             ->searchable(),
-                    ])
+                    ]),
             ]);
     }
 
@@ -222,7 +258,6 @@ class MedicoResource extends Resource
                     ->toggleable(isToggledHiddenByDefault: true),
             ])
             ->filters([
-                //
             ])
             ->actions([
                 \Filament\Tables\Actions\ViewAction::make(),
