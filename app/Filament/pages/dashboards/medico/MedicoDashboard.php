@@ -2,6 +2,7 @@
 
 namespace App\Filament\Pages\dashboards\medico;
 
+use App\Filament\Medico\Resources\MedicoResource\Widgets\ConsultasDeHoje;
 use App\Filament\Pages\dashboards\medico\widgets\StatsOverview;
 use Filament\Pages\Dashboard as BasePage;
 
@@ -16,6 +17,7 @@ class MedicoDashboard extends BasePage {
     {
         return [
             StatsOverview::class,
+            ConsultasDeHoje::class,
         ];
     }
 
