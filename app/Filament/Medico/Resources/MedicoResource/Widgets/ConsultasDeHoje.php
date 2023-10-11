@@ -14,14 +14,6 @@ use Illuminate\Database\Eloquent\Builder;
 class ConsultasDeHoje extends BaseWidget
 {
     protected int|string|array $columnSpan = 'full';
-
-    //     protected function getTableFilters(): array
-    // {
-    //     return [
-
-    //     ];
-    // }
-
     public function table(Table $table): Table
     {
         return $table
