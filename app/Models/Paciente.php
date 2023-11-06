@@ -35,6 +35,11 @@ class Paciente extends Model
         return $this->hasMany(Consulta::class);
     }
 
+    public function tratamentos()
+    {
+        return $this->hasMany(Tratamento::class);
+    }
+
     public function genero()
     {
         return $this->belongsTo(Genero::class);

@@ -2,6 +2,7 @@
 
 namespace App\Providers\Filament;
 
+use App\Filament\Pages\Auth\EditProfiles;
 use App\Filament\pages\dashboards\admin\AdminDashboard;
 use App\Filament\Resources\AdministradorResource;
 use App\Filament\Resources\ConsultaResource;
@@ -23,7 +24,6 @@ use Filament\Http\Middleware\DispatchServingFilamentEvent;
 use Filament\Navigation\NavigationBuilder;
 use Filament\Navigation\NavigationGroup;
 use Filament\Navigation\NavigationItem;
-use Filament\Pages\Auth\EditProfile;
 use Filament\Panel;
 use Filament\PanelProvider;
 use Filament\Support\Colors\Color;
@@ -48,7 +48,7 @@ class AdminPanelProvider extends PanelProvider
             ->id('admin')
             ->authMiddleware([CheckAdminPanel::class])
             ->path('/admin')
-            ->profile(EditProfile::class)
+            ->profile(\App\Filament\Pages\EditProfiles::class)
             ->colors([
                 'primary' => Color::Red,
             ])

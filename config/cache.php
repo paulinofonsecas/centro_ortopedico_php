@@ -34,7 +34,7 @@ return [
     'stores' => [
         'none' => [
             'driver' => 'null'
-        ]
+        ],
         // 'apc' => [
         //     'driver' => 'apc',
         // ],
@@ -51,11 +51,11 @@ return [
         //     'lock_connection' => null,
         // ],
 
-        // 'file' => [
-        //     'driver' => 'file',
-        //     'path' => storage_path('framework/cache/data'),
-        //     'lock_path' => storage_path('framework/cache/data'),
-        // ],
+        'file' => [
+            'driver' => 'file',
+            'path' => storage_path('framework/cache/data'),
+            'lock_path' => storage_path('framework/cache/data'),
+        ],
 
         // 'memcached' => [
         //     'driver' => 'memcached',

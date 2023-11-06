@@ -4,6 +4,7 @@ namespace App\Filament\Medico\Resources;
 
 use App\Filament\Medico\Resources\PacienteResource\Pages;
 use App\Filament\Medico\Resources\PacienteResource\RelationManagers\ConsultasRelationManager;
+use App\Filament\Medico\Resources\PacienteResource\RelationManagers\TratamentoResourceRelationManager;
 use App\Models\Genero;
 use App\Models\Municipio;
 use App\Models\Paciente;
@@ -167,6 +168,7 @@ class PacienteResource extends Resource
     {
         return [
             ConsultasRelationManager::class,
+            TratamentoResourceRelationManager::class,
         ];
     }
 

@@ -38,6 +38,12 @@ class TratamentoResource extends Resource
                         TextEntry::make('tipoTratamento.nome')
                             ->label('Tipo de tratamento')
                             ->size(TextEntry\TextEntrySize::Large),
+                        TextEntry::make('tipoTratamento.ta')
+                            ->label('TA')
+                            ->size(TextEntry\TextEntrySize::Large),
+                        TextEntry::make('tipoTratamento.sessoes')
+                            ->label('Sessões')
+                            ->size(TextEntry\TextEntrySize::Large),
                     ])->columns(2),
                 \Filament\Infolists\Components\Section::make('Informações do paciente')
                     ->collapsible()
