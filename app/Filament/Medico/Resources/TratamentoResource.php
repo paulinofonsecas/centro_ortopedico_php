@@ -9,6 +9,7 @@ use App\Filament\Medico\Resources\TratamentoResource\Pages\ViewTratamento;
 use App\Models\Paciente;
 use App\Models\TipoTratamento;
 use App\Models\Tratamento;
+use DateTime;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Infolists\Components\Fieldset;
@@ -88,9 +89,6 @@ class TratamentoResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('hc')
-                    ->label('HC')
-                    ->numeric(),
                 Forms\Components\Select::make('paciente_id')
                     ->label('Paciente')
                     ->options(Paciente::all()->pluck('nome_completo', 'id'))
@@ -103,6 +101,7 @@ class TratamentoResource extends Resource
                     ->searchable(),
                 Forms\Components\DateTimePicker::make('data')
                     ->label('Data e hora')
+                    ->default(DateTime::createFromFormat('d/m/Y H:i', now()))
                     ->required(),
                 Forms\Components\TextInput::make('sessoes')
                     ->label('Sessões')
@@ -122,9 +121,6 @@ class TratamentoResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('hc')
-                    ->numeric()
-                    ->sortable(),
                 Tables\Columns\TextColumn::make('paciente.nome_completo')
                     ->label('Nome Paciente')
                     ->searchable()
@@ -138,6 +134,7 @@ class TratamentoResource extends Resource
                     ->sortable(),
                 Tables\Columns\TextColumn::make('data')
                     ->dateTime('d/m/Y H:i')
+                    ->label('Data do tratamento')
                     ->searchable()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('sessoes')
@@ -168,7 +165,7 @@ class TratamentoResource extends Resource
                 ]),
             ])
             ->emptyStateActions([
-                Tables\Actions\CreateAction::make(),
+                // Tables\Actions\CreateAction::make(),
             ]);
     }
 
