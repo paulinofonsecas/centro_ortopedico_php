@@ -4,6 +4,10 @@ namespace App\Providers\Filament;
 
 use App\Filament\Login\CustomLoginPage;
 use App\Filament\Medico\Resources\ConsultaResource;
+ 
+use App\Filament\Medico\Resources\ConsultorioResource;
+ 
+ 
 use App\Filament\Medico\Resources\FichaAvaliacaoResource;
 use App\Filament\Medico\Resources\PacienteResource;
 use App\Filament\Medico\Resources\TratamentoResource;
@@ -60,6 +64,10 @@ class MedicoPanelProvider extends PanelProvider
                         NavigationGroup::make('Administração')
                             ->items([
                                 ...PacienteResource::getNavigationItems(),
+ 
+                                ...ConsultorioResource::getNavigationItems(),
+ 
+ 
                             ]),
                     ]);
             })
