@@ -9,8 +9,11 @@ use Filament\Forms\Form;
 use Filament\Resources\RelationManagers\RelationManager;
 use Filament\Tables;
 use Filament\Tables\Table;
+<<<<<<< HEAD
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+=======
+>>>>>>> origin/main
 
 class TratamentoResourceRelationManager extends RelationManager
 {
@@ -31,10 +34,20 @@ class TratamentoResourceRelationManager extends RelationManager
         return $table
             ->recordTitleAttribute('paciente_id')
             ->defaultSort('data', 'desc')
+<<<<<<< HEAD
             ->columns([
                 Tables\Columns\TextColumn::make('hc')
                     ->numeric()
                     ->sortable(),
+=======
+            ->headerActions([
+                Tables\Actions\Action::make('create')
+                    ->label('Criar tratamento')
+                    ->icon('heroicon-o-plus')
+                    ->url(TratamentoResource::getUrl('create'))
+            ])
+            ->columns([
+>>>>>>> origin/main
                 Tables\Columns\TextColumn::make('paciente.nome_completo')
                     ->label('Nome Paciente')
                     ->searchable()
@@ -70,4 +83,12 @@ class TratamentoResourceRelationManager extends RelationManager
                     ->url(fn (Tratamento $record): string => TratamentoResource::getUrl('view', [$record])),
             ]);
     }
+<<<<<<< HEAD
+=======
+
+    public function isReadOnly(): bool
+    {
+        return false;
+    }
+>>>>>>> origin/main
 }

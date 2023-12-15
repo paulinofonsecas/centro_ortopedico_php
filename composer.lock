@@ -8138,7 +8138,7 @@
         },
         {
             "name": "filament/upgrade",
-            "version": "v3.0.34",
+            "version": "v3.1.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/filamentphp/upgrade.git",
@@ -10870,5 +10870,5 @@
         "php": "^8.1"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.3.0"
+    "plugin-api-version": "2.6.0"
 }
