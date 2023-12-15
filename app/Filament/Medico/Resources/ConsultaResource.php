@@ -254,12 +254,12 @@ class ConsultaResource extends Resource
             ])
             ->actions([
                 Tables\Actions\ViewAction::make(),
-<<<<<<< HEAD
+ 
                 Tables\Actions\EditAction::make(),
-=======
+ 
                 Tables\Actions\EditAction::make()
                     ->label('Processar'),
->>>>>>> origin/main
+ 
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([

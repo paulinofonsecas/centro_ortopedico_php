@@ -4,7 +4,7 @@ $__split = function ($name, $params = []) {
 };
 [$__name, $__params] = $__split('database-notifications');
 
-$__html = app('livewire')->mount($__name, $__params, 'XY8KSOI', $__slots ?? [], get_defined_vars());
+$__html = app('livewire')->mount($__name, $__params, 'yzrVXE0', $__slots ?? [], get_defined_vars());
 
 echo $__html;
 

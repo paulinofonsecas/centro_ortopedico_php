@@ -13,12 +13,12 @@ class ViewConsulta extends ViewRecord
     protected function getActions(): array
     {
         return [
-<<<<<<< HEAD
+ 
             Actions\EditAction::make(),
-=======
+ 
             Actions\EditAction::make()
                 ->label('Processar'),
->>>>>>> origin/main
+ 
             // \Filament\actions\Action::make('Processar')
             //     ->label('Processar')
             //     ->color('success')

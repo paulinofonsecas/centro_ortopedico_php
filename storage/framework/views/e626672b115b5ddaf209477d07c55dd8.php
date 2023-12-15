@@ -4,7 +4,7 @@ $__split = function ($name, $params = []) {
 };
 [$__name, $__params] = $__split('components.back-to-home-page');
 
-$__html = app('livewire')->mount($__name, $__params, 'rRC0RBl', $__slots ?? [], get_defined_vars());
+$__html = app('livewire')->mount($__name, $__params, 'FqKqLmw', $__slots ?? [], get_defined_vars());
 
 echo $__html;
 
