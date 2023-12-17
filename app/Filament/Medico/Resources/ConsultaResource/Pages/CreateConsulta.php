@@ -17,7 +17,7 @@ class CreateConsulta extends CreateRecord
     {
         return [
             \Filament\Actions\Action::make('Novo paciente')
-                ->url('/app/pacientes/create'),
+                ->url('/medico/pacientes/create'),
         ];
     }
 
