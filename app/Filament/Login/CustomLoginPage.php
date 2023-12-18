@@ -69,6 +69,7 @@ class CustomLoginPage extends Login
     public function canAcessPanel($user): bool
     {
         $role = '';
+
         if (str_contains(Filament::getUrl(), 'recepcionista')) {
             $role = 'recepcionista';
         } elseif (str_contains(Filament::getUrl(), 'tecnico')) {
@@ -78,7 +79,7 @@ class CustomLoginPage extends Login
         } elseif (str_contains(Filament::getUrl(), 'admin')) {
             $role = 'admin';
         }
-
+        
         return $user->canUserAccessPanel($role);
     }
 }

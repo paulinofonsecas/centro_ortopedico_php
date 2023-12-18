@@ -3,11 +3,15 @@
 namespace App\Providers\Filament;
 
 use App\Filament\Login\CustomLoginPage;
-use App\Http\Middleware\CheckMedicoPanel;
-use Filament\Http\Middleware\Authenticate;
+use App\Filament\Pages\dashboards\medico\MedicoDashboard;
+use App\Filament\Pages\dashboards\tecnico\TecnicoDashboard;
+use App\Filament\Pages\dashboards\tecnico\widgets\StatsOverview;
+use App\Filament\Tecnico\Resources\PacienteResource;
+use App\Http\Middleware\CheckTecnicoPanel;
 use Filament\Http\Middleware\DisableBladeIconComponents;
 use Filament\Http\Middleware\DispatchServingFilamentEvent;
-use Filament\Pages;
+use Filament\Navigation\NavigationBuilder;
+use Filament\Navigation\NavigationItem;
 use Filament\Panel;
 use Filament\PanelProvider;
 use Filament\Support\Colors\Color;
@@ -30,19 +34,30 @@ class TecnicoPanelProvider extends PanelProvider
             ->login(CustomLoginPage::class)
             ->databaseNotifications()
             ->databaseNotificationsPolling(30000)
-            ->authMiddleware([CheckMedicoPanel::class])
+            ->authMiddleware([CheckTecnicoPanel::class])
             ->colors([
                 'primary' => Color::Green,
             ])
-            ->discoverResources(in: app_path('Filament/Tecnico/Resources'), for: 'App\\Filament\\Tecnico\\Resources')
-            ->discoverPages(in: app_path('Filament/Tecnico/Pages'), for: 'App\\Filament\\Tecnico\\Pages')
+            ->navigation(function (NavigationBuilder $builder): NavigationBuilder {
+                return $builder
+                    ->items([
+                        NavigationItem::make('Dashboard')
+                            ->icon('heroicon-o-home')
+                            ->url('/tecnico')
+                            ->isActiveWhen(fn (): bool => request()->fullUrlIs(TecnicoDashboard::getUrl())),
+                            ...PacienteResource::getNavigationItems(),
+                    ]);
+            })
+            ->discoverResources(in: app_path('Filament/tecnico/Resources'), for: 'App\\Filament\\Tecnico\\Resources')
+            ->discoverPages(in: app_path('Filament/tecnico/Pages'), for: 'App\\Filament\\Tecnico\\Pages')
             ->pages([
-                Pages\Dashboard::class,
+                TecnicoDashboard::class,
             ])
             ->discoverWidgets(in: app_path('Filament/Tecnico/Widgets'), for: 'App\\Filament\\Tecnico\\Widgets')
             ->widgets([
                 Widgets\AccountWidget::class,
-                Widgets\FilamentInfoWidget::class,
+
+                StatsOverview::class,
             ])
             ->middleware([
                 EncryptCookies::class,
@@ -54,6 +69,7 @@ class TecnicoPanelProvider extends PanelProvider
                 SubstituteBindings::class,
                 DisableBladeIconComponents::class,
                 DispatchServingFilamentEvent::class,
-            ]);
+            ])
+            ->sidebarCollapsibleOnDesktop();
     }
 }
