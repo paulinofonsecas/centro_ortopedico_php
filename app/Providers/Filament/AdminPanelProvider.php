@@ -15,6 +15,7 @@ use App\Filament\Resources\MedicoResource;
 use App\Filament\Resources\PacienteResource;
 use App\Filament\Resources\RecepcionistaResource;
 use App\Filament\Resources\RoleResource;
+use App\Filament\Resources\TecnicoResource;
 use App\Filament\Resources\TipoTratamentoResource;
 use App\Filament\Resources\TratamentoResource;
 use App\Filament\Resources\UtenteResource;
@@ -71,6 +72,7 @@ class AdminPanelProvider extends PanelProvider
                             ->items([
                                 ...RecepcionistaResource::getNavigationItems(),
                                 ...MedicoResource::getNavigationItems(),
+                                ...TecnicoResource::getNavigationItems(),
                                 ...AdministradorResource::getNavigationItems(),
                                 ...ActivitylogResource::getNavigationItems(),
                             ]),
