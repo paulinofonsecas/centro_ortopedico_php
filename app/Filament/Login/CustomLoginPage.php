@@ -3,12 +3,12 @@
 namespace App\Filament\Login;
 
 use App\Models\User;
-use Filament\Facades\Filament;
-use Filament\Pages\Auth\Login;
-use Filament\Notifications\Notification;
-use Illuminate\Validation\ValidationException;
-use Filament\Http\Responses\Auth\Contracts\LoginResponse;
 use DanHarrin\LivewireRateLimiting\Exceptions\TooManyRequestsException;
+use Filament\Facades\Filament;
+use Filament\Http\Responses\Auth\Contracts\LoginResponse;
+use Filament\Notifications\Notification;
+use Filament\Pages\Auth\Login;
+use Illuminate\Validation\ValidationException;
 
 class CustomLoginPage extends Login
 {
@@ -34,34 +34,26 @@ class CustomLoginPage extends Login
 
         $data = $this->form->getState();
 
-        if (! Filament::auth()->attempt($this->getCredentialsFromFormData($data), $data['remember'] ?? false)) {
-            throw ValidationException::withMessages([
-                'data.email' => __('filament-panels::pages/auth/login.messages.failed'),
-            ]);
+        if (!Filament::auth()->attempt($this->getCredentialsFromFormData($data), $data['remember'] ?? false)) {
+            throw ValidationException::withMessages(['data.email' => __('filament-panels::pages/auth/login.messages.failed')]);
         }
 
-        if (! $this->userIsActive(auth()->user())) {
+        if (!$this->userIsActive(auth()->user())) {
             auth()->logout();
-            throw ValidationException::withMessages([
-                'data.email' => 'A sua conta está bloqueada, consulte um usuario administrador!',
-            ]);
+            throw ValidationException::withMessages(['data.email' => 'A sua conta está bloqueada, consulte um usuario administrador!']);
         }
 
-        if (! $this->canAcessPanel(auth()->user())) {
+        if (!$this->canAcessPanel(auth()->user())) {
             auth()->logout();
-            throw ValidationException::withMessages([
-                'data.email' => 'Não tem permissão para aceder a esta área',
-            ]);
+            throw ValidationException::withMessages(['data.email' => 'Não tem permissão para aceder a esta área']);
         }
 
-        /**
+        /*
          * @var User
          */
-        if (! User::find(auth()->user()->id)->isActive()) {
+        if (!User::find(auth()->user()->id)->isActive()) {
             auth()->logout();
-            throw ValidationException::withMessages([
-                'data.email' => 'Conta inativa, consulte um usuario administrador!',
-            ]);
+            throw ValidationException::withMessages(['data.email' => 'Conta inativa, consulte um usuario administrador!']);
         }
 
         session()->regenerate();
@@ -71,21 +63,23 @@ class CustomLoginPage extends Login
 
     public function userIsActive(User $user): bool
     {
-        return $user->isActive();       
+        return $user->isActive();
     }
 
     public function canAcessPanel($user): bool
     {
         $role = '';
+
         if (str_contains(Filament::getUrl(), 'recepcionista')) {
             $role = 'recepcionista';
+        } elseif (str_contains(Filament::getUrl(), 'tecnico')) {
+            $role = 'tecnico';
         } elseif (str_contains(Filament::getUrl(), 'medico')) {
             $role = 'medico';
         } elseif (str_contains(Filament::getUrl(), 'admin')) {
             $role = 'admin';
         }
-
+        
         return $user->canUserAccessPanel($role);
     }
-
 }
