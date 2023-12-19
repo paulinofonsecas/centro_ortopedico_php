@@ -33,12 +33,12 @@ class DoacaoResource extends Resource
                     ->options(Utente::all()->pluck('name', 'id'))
                     ->searchable(),
                 Forms\Components\Select::make('item_id')
-                    ->label('Item a ser doado')
+                    ->label('Equipamento')
                     ->required()
                     ->options(Item::all()->pluck('name', 'id'))
                     ->searchable(),
                 Forms\Components\Select::make('estado_do_item_id')
-                    ->label('Estado do item')
+                    ->label('Estado do equipamento')
                     ->required()
                     ->options(EstadoDoItem::all()->pluck('name', 'id'))
                     ->searchable(),
