@@ -50,7 +50,7 @@ class TecnicoPanelProvider extends PanelProvider
                             ...PacienteResource::getNavigationItems(),
                             ])
                             ->groups([
-                                NavigationGroup::make('Distribução feitas')
+                                NavigationGroup::make('Distribução')
                                 ->items([
                                 ...DoacaoResource::getNavigationItems(),
                                 // ...ItemResource::getNavigationItems(),
