@@ -86,7 +86,7 @@ class User extends Authenticatable implements FilamentUser
 
     public function canUserAccessPanel($role): bool
     {
-        return $this->getRoleNames()->contains($role);
+        return $this->hasRole($role);
     }
 
     public function isRecepcionista()

@@ -121,21 +121,7 @@ class ConsultaResource extends Resource
 
                                 return $result;
                             }),
-                        Forms\Components\Section::make('avaliacao')
-                            ->label('Avaliação')
-                            ->schema([
-                                \Filament\Forms\Components\Actions\ActionContainer::make(
-                                    \Filament\Forms\Components\Actions\Action::make('Adicionar ficha de avaliação')
-                                        ->url(function ($record) {
-                                            $consultaId = $record->id;
-                                            Session::put('consultaId', $consultaId);
-
-                                            return FichaAvaliacaoResource::getUrl('create', [
-                                                'consulta_id' => $consultaId,
-                                            ]);
-                                        })
-                                ),
-                            ]),
+                        
                     ]),
                 Forms\Components\Section::make('Consulta')
                     ->collapsible()

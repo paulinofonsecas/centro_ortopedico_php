@@ -103,5 +103,6 @@ Homestead.json
 /vendor
 .env
 /public/.htaccess
-/storage
+/storage/*
+!/storage/app
 storage/*.key
