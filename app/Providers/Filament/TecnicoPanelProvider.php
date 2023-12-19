@@ -6,6 +6,7 @@ use App\Filament\Login\CustomLoginPage;
 use App\Filament\Pages\dashboards\medico\MedicoDashboard;
 use App\Filament\Pages\dashboards\tecnico\TecnicoDashboard;
 use App\Filament\Pages\dashboards\tecnico\widgets\StatsOverview;
+use App\Filament\Tecnico\Resources\DoacaoResource;
 use App\Filament\Tecnico\Resources\PacienteResource;
 use App\Http\Middleware\CheckTecnicoPanel;
 use Filament\Http\Middleware\DisableBladeIconComponents;
@@ -46,6 +47,7 @@ class TecnicoPanelProvider extends PanelProvider
                             ->url('/tecnico')
                             ->isActiveWhen(fn (): bool => request()->fullUrlIs(TecnicoDashboard::getUrl())),
                             ...PacienteResource::getNavigationItems(),
+                            ...DoacaoResource::getNavigationItems(),
                     ]);
             })
             ->discoverResources(in: app_path('Filament/tecnico/Resources'), for: 'App\\Filament\\Tecnico\\Resources')
