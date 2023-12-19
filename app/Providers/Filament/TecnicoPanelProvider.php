@@ -8,6 +8,7 @@ use App\Filament\Pages\dashboards\tecnico\TecnicoDashboard;
 use App\Filament\Pages\dashboards\tecnico\widgets\StatsOverview;
 use App\Filament\Tecnico\Resources\DoacaoResource;
 use App\Filament\Tecnico\Resources\PacienteResource;
+use App\Filament\Tecnico\Resources\UtenteResource;
 use App\Http\Middleware\CheckTecnicoPanel;
 use Filament\Http\Middleware\DisableBladeIconComponents;
 use Filament\Http\Middleware\DispatchServingFilamentEvent;
@@ -54,6 +55,7 @@ class TecnicoPanelProvider extends PanelProvider
                                 ->items([
                                 ...DoacaoResource::getNavigationItems(),
                                 // ...ItemResource::getNavigationItems(),
+                                ...UtenteResource::getNavigationItems(),
                             ]),
                     ]);
             })
