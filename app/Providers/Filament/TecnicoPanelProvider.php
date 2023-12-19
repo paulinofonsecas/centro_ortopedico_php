@@ -54,7 +54,6 @@ class TecnicoPanelProvider extends PanelProvider
                                 ->items([
                                 ...DoacaoResource::getNavigationItems(),
                                 // ...ItemResource::getNavigationItems(),
-                                // ...DoacaoResource::getNavigationItems(),
                             ]),
                     ]);
             })
