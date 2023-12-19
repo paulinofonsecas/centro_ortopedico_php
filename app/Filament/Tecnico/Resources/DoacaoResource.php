@@ -59,10 +59,10 @@ class DoacaoResource extends Resource
                     ->label('Utente')
                     ->sortable(),
                 Tables\Columns\TextColumn::make('item.name')
-                    ->label('Item a ser doado')
+                    ->label('Equipamento')
                     ->sortable(),
                 Tables\Columns\TextColumn::make('estadoDoItem.name')
-                    ->label('Estado do item')
+                    ->label('Estado do equipamento')
                     ->sortable(),
                 Tables\Columns\TextColumn::make('quantidade')
                     ->numeric()
