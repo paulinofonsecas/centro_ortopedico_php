@@ -21,7 +21,7 @@ class DoacaoResource extends Resource
 
     protected static ?string $navigationLabel = 'Distribuição de equipamentos';
 
-    protected static ?string $slug = 'Distribuição de equipamentos';
+    protected static ?string $slug = 'equipamentos';
     
     public static function form(Form $form): Form
     {
