@@ -3,14 +3,17 @@
 namespace App\Providers\Filament;
 
 use App\Filament\Login\CustomLoginPage;
-use App\Filament\Pages\dashboards\medico\MedicoDashboard;
 use App\Filament\Pages\dashboards\tecnico\TecnicoDashboard;
 use App\Filament\Pages\dashboards\tecnico\widgets\StatsOverview;
+use App\Filament\Tecnico\Resources\DoacaoResource;
 use App\Filament\Tecnico\Resources\PacienteResource;
+use App\Filament\Tecnico\Resources\UtenteResource;
+use App\Filament\Tecnico\Resources\ItemResource;
 use App\Http\Middleware\CheckTecnicoPanel;
 use Filament\Http\Middleware\DisableBladeIconComponents;
 use Filament\Http\Middleware\DispatchServingFilamentEvent;
 use Filament\Navigation\NavigationBuilder;
+use Filament\Navigation\NavigationGroup;
 use Filament\Navigation\NavigationItem;
 use Filament\Panel;
 use Filament\PanelProvider;
@@ -46,6 +49,14 @@ class TecnicoPanelProvider extends PanelProvider
                             ->url('/tecnico')
                             ->isActiveWhen(fn (): bool => request()->fullUrlIs(TecnicoDashboard::getUrl())),
                             ...PacienteResource::getNavigationItems(),
+                            ])
+                            ->groups([
+                                NavigationGroup::make('Distribução')
+                                ->items([
+                                ...DoacaoResource::getNavigationItems(),
+                                ...ItemResource::getNavigationItems(),
+                                ...UtenteResource::getNavigationItems(),
+                            ]),
                     ]);
             })
             ->discoverResources(in: app_path('Filament/tecnico/Resources'), for: 'App\\Filament\\Tecnico\\Resources')
