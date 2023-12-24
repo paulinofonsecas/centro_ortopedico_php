@@ -3,7 +3,7 @@
 namespace App\Providers\Filament;
 
 use App\Filament\Pages\Auth\EditProfiles;
-use App\Filament\pages\dashboards\admin\AdminDashboard;
+use App\Filament\Pages\dashboards\admin\AdminDashboard;
 use App\Filament\Resources\AdministradorResource;
 use App\Filament\Resources\ConsultaResource;
 use App\Filament\Resources\ConsultorioResource;
