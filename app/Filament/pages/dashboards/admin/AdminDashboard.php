@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Filament\pages\dashboards\admin;
+namespace App\Filament\Pages\dashboards\admin;
 
 use App\Filament\Pages\dashboards\admin\widgets\ConsultasChart;
 use App\Filament\Pages\dashboards\admin\widgets\ControlUsuariosStatsOverview;
