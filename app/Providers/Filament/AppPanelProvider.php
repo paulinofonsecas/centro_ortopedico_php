@@ -59,6 +59,7 @@ class AppPanelProvider extends PanelProvider
                         NavigationGroup::make('Produção')
                             ->items([
                                 ...ConsultaResource::getNavigationItems(),
+                                ...PacienteResource::getNavigationItems(),
                             ]),
                         NavigationGroup::make('Doação')
                             ->items([
@@ -67,7 +68,6 @@ class AppPanelProvider extends PanelProvider
                             ]),
                         NavigationGroup::make('Administração')
                             ->items([
-                                ...PacienteResource::getNavigationItems(),
                                 ...ConsultorioResource::getNavigationItems(),
                             ]),
                     ]);

@@ -59,7 +59,7 @@ class AdminPanelProvider extends PanelProvider
                         NavigationItem::make('Dashboard')
                             ->icon('heroicon-o-home')
                             ->url('/admin')
-                            ->isActiveWhen(fn (): bool => request()->fullUrlIs(AdminDashboard::getUrl())),
+                            // ->isActiveWhen(fn (): bool k=> request()->fullUrlIs(AdminDashboard::getUrl())),
                     ])
                     ->groups([
                         NavigationGroup::make('Administração')
