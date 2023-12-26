@@ -42,6 +42,7 @@ class MedicoPanelProvider extends PanelProvider
             ->databaseNotifications()
             ->databaseNotificationsPolling(30000)
             ->authMiddleware([CheckMedicoPanel::class])
+            ->profile(\App\Filament\Pages\EditProfiles::class)
             ->path('medico')
             ->colors([
                 'primary' => Color::Purple,

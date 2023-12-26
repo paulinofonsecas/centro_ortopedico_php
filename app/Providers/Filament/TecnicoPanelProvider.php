@@ -38,6 +38,7 @@ class TecnicoPanelProvider extends PanelProvider
             ->databaseNotifications()
             ->databaseNotificationsPolling(30000)
             ->authMiddleware([CheckTecnicoPanel::class])
+            ->profile(\App\Filament\Pages\EditProfiles::class)
             ->colors([
                 'primary' => Color::Green,
             ])
