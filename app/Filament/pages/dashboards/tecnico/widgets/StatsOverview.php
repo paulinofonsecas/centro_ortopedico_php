@@ -20,7 +20,7 @@ class StatsOverview extends BaseWidget
         $consultas = $this->getDados('consultas');
         $doacoes = $this->getDados('doacaos');
 
-        ds($consultas);
+        // ds($consultas);
 
         //recuperar o dia atual da semana
         $diaDeHoje = now()->dayOfWeek;
