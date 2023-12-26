@@ -40,6 +40,7 @@ class AppPanelProvider extends PanelProvider
         return $panel
             ->login(CustomLoginPage::class)
             ->authMiddleware([CheckRecepcionistaPanel::class])
+            ->profile(\App\Filament\Pages\EditProfiles::class)
             ->databaseNotifications()
             ->databaseNotificationsPolling(30000)
             ->id('app')
