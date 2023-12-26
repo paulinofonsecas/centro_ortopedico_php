@@ -18,14 +18,14 @@ return new class extends Migration
         Schema::create('pacientes', function (Blueprint $table) {
             $table->id();
             $table->string('nome_completo');
-            $table->string('bi');
+            $table->string('bi')->nullable();
             $table->date('nascimento');
-            $table->string('telefone');
-            $table->string('profissao');
+            $table->string('telefone')->nullable();
+            $table->string('profissao')->nullable();
             $table->foreignId('genero_id')->constrained();
             $table->foreignId('provincia_id')->constrained();
             $table->foreignId('municipio_id')->constrained();
-            $table->string('endereco');
+            $table->string('endereco')->nullable();
             $table->timestamps();
         });
     }
