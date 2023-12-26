@@ -17,11 +17,15 @@ class CreateAdministrador extends CreateRecord
 
     protected function mutateFormDataBeforeCreate(array $data): array
     {
-        $userId = User::create([
+        $user = User::create([
             'name' => $data['user']['name'],
             'email' => $data['user']['email'],
             'password' => Hash::make($data['user']['password']),
-        ])->id;
+            ]);
+
+        $user->assignRole('admin');
+        $userId = $user->id;
+
         $enderecoId = Endereco::create([
             'provincia_id' => $data['endereco']['provincia_id'],
             'municipio_id' => $data['endereco']['municipio_id'],

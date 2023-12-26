@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('funcionarios', function (Blueprint $table) {
             $table->id();
             $table->string('telefone');
-            $table->foreignId('user_id')->constrained();
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->foreignId('endereco_id')->constrained();
             $table->foreignId('estado_da_conta_id')->constrained();
             $table->timestamps();
