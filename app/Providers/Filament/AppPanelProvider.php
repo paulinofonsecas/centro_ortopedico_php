@@ -17,6 +17,7 @@ use Filament\Navigation\NavigationBuilder;
 use Filament\Navigation\NavigationGroup;
 use Filament\Navigation\NavigationItem;
 use Filament\Pages;
+use Filament\Pages\Auth\EditProfile;
 use Filament\Panel;
 use Filament\PanelProvider;
 use Filament\Support\Colors\Color;
@@ -40,7 +41,7 @@ class AppPanelProvider extends PanelProvider
         return $panel
             ->login(CustomLoginPage::class)
             ->authMiddleware([CheckRecepcionistaPanel::class])
-            ->profile(\App\Filament\Pages\EditProfiles::class)
+            ->profile(EditProfile::class)
             ->databaseNotifications()
             ->databaseNotificationsPolling(30000)
             ->id('app')

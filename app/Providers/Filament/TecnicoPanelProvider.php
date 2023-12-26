@@ -15,6 +15,7 @@ use Filament\Http\Middleware\DispatchServingFilamentEvent;
 use Filament\Navigation\NavigationBuilder;
 use Filament\Navigation\NavigationGroup;
 use Filament\Navigation\NavigationItem;
+use Filament\Pages\Auth\EditProfile;
 use Filament\Panel;
 use Filament\PanelProvider;
 use Filament\Support\Colors\Color;
@@ -38,7 +39,7 @@ class TecnicoPanelProvider extends PanelProvider
             ->databaseNotifications()
             ->databaseNotificationsPolling(30000)
             ->authMiddleware([CheckTecnicoPanel::class])
-            ->profile(\App\Filament\Pages\EditProfiles::class)
+            ->profile(EditProfile::class)
             ->colors([
                 'primary' => Color::Green,
             ])

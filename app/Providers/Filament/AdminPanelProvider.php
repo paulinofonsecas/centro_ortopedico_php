@@ -25,6 +25,7 @@ use Filament\Http\Middleware\DispatchServingFilamentEvent;
 use Filament\Navigation\NavigationBuilder;
 use Filament\Navigation\NavigationGroup;
 use Filament\Navigation\NavigationItem;
+use Filament\Pages\Auth\EditProfile;
 use Filament\Panel;
 use Filament\PanelProvider;
 use Filament\Support\Colors\Color;
@@ -49,7 +50,7 @@ class AdminPanelProvider extends PanelProvider
             ->id('admin')
             ->authMiddleware([CheckAdminPanel::class])
             ->path('/admin')
-            ->profile(\App\Filament\Pages\EditProfiles::class)
+            ->profile(EditProfile::class)
             ->colors([
                 'primary' => Color::Red,
             ])
