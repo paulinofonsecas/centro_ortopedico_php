@@ -4,10 +4,7 @@ namespace App\Providers\Filament;
 
 use App\Filament\Login\CustomLoginPage;
 use App\Filament\Medico\Resources\ConsultaResource;
- 
 use App\Filament\Medico\Resources\ConsultorioResource;
- 
- 
 use App\Filament\Medico\Resources\FichaAvaliacaoResource;
 use App\Filament\Medico\Resources\PacienteResource;
 use App\Filament\Medico\Resources\TratamentoResource;
@@ -20,6 +17,7 @@ use Filament\Http\Middleware\DispatchServingFilamentEvent;
 use Filament\Navigation\NavigationBuilder;
 use Filament\Navigation\NavigationGroup;
 use Filament\Navigation\NavigationItem;
+use Filament\Pages\Auth\EditProfile;
 use Filament\Panel;
 use Filament\PanelProvider;
 use Filament\Support\Colors\Color;
@@ -42,7 +40,7 @@ class MedicoPanelProvider extends PanelProvider
             ->databaseNotifications()
             ->databaseNotificationsPolling(30000)
             ->authMiddleware([CheckMedicoPanel::class])
-            ->profile(\App\Filament\Pages\EditProfiles::class)
+            ->profile(EditProfile::class)
             ->path('medico')
             ->colors([
                 'primary' => Color::Purple,
@@ -65,7 +63,7 @@ class MedicoPanelProvider extends PanelProvider
                         NavigationGroup::make('Administração')
                             ->items([
                                 ...PacienteResource::getNavigationItems(),
-                                ...ConsultorioResource::getNavigationItems(), 
+                                ...ConsultorioResource::getNavigationItems(),
                             ]),
                     ]);
             })
@@ -77,7 +75,7 @@ class MedicoPanelProvider extends PanelProvider
             ->discoverWidgets(in: app_path('Filament/medico/Widgets'), for: 'App\\Filament\\Medico\\Widgets')
             ->widgets([
                 Widgets\AccountWidget::class,
-                
+
                 StatsOverview::class,
             ])
             ->middleware([
