@@ -87,7 +87,7 @@ class CreateConsulta extends CreateRecord
             ->actions([
                 Action::make('Ver')
                     ->button()
-                    ->url('http://ortopedico.com/medico/consultas/' . $consulta->id, shouldOpenInNewTab: true),
+                    ->url('http://ortopedico.test/medico/consultas/' . $consulta->id, shouldOpenInNewTab: true),
                 Action::make('fechar')
                     ->color('gray'),
             ])
