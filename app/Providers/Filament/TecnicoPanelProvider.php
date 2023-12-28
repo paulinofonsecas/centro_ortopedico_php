@@ -50,7 +50,7 @@ class TecnicoPanelProvider extends PanelProvider
                             ->icon('heroicon-o-home')
                             ->url('/tecnico')
                             ->isActiveWhen(fn (): bool => request()->fullUrlIs(TecnicoDashboard::getUrl())),
-                            ...PacienteResource::getNavigationItems(),
+                                ...PacienteResource::getNavigationItems(),
                             ])
                             ->groups([
                                 NavigationGroup::make('Distribução')
