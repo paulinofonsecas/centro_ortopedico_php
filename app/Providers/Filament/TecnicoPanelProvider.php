@@ -55,14 +55,14 @@ class TecnicoPanelProvider extends PanelProvider
                             ->groups([
                                 NavigationGroup::make('Distribução')
                                 ->items([
-                                // ...DoacaoResource::getNavigationItems(),
+                                ...DoacaoResource::getNavigationItems(),
                                 ...ItemResource::getNavigationItems(),
                                 ...UtenteResource::getNavigationItems(),
                             ]),
                     ]);
             })
-            ->discoverResources(in: app_path('Filament/tecnico/Resources'), for: 'App\\Filament\\Tecnico\\Resources')
-            ->discoverPages(in: app_path('Filament/tecnico/Pages'), for: 'App\\Filament\\Tecnico\\Pages')
+            ->discoverResources(in: app_path('Filament/Tecnico/Resources'), for: 'App\\Filament\\Tecnico\\Resources')
+            ->discoverPages(in: app_path('Filament/Tecnico/Pages'), for: 'App\\Filament\\Tecnico\\Pages')
             ->pages([
                 TecnicoDashboard::class,
             ])
