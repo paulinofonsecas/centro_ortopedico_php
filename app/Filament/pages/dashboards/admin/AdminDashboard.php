@@ -18,7 +18,7 @@ class AdminDashboard extends BasePage
     {
         return [
             StatsOverview::class,
-            ControlUsuariosStatsOverview::class,
+            // ControlUsuariosStatsOverview::class,
             // ConsultasChart::class,
         ];
     }
