@@ -17,6 +17,9 @@ use Illuminate\Support\Facades\DB;
 
 class ControlUsuariosStatsOverview extends BaseWidget
 {
+
+    
+
     protected function getStats(): array
     {
         return [
