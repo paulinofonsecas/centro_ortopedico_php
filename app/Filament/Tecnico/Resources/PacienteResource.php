@@ -4,6 +4,7 @@ namespace App\Filament\Tecnico\Resources;
 
 use App\Filament\Tecnico\Resources\PacienteResource\Pages;
 use App\Filament\Tecnico\Resources\PacienteResource\RelationManagers;
+use App\Filament\Tecnico\Resources\PacienteResource\RelationManagers\TratamentoResourceRelationManager;
 use App\Models\Genero;
 use App\Models\Municipio;
 use App\Models\Paciente;
