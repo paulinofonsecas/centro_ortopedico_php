@@ -907,7 +907,7 @@ Filament::auth()->logout();
 
                             </div>
 
-                            <h2 class="mt-6 text-xl font-semibold text-gray-900 dark:text-white">Painel do médico</h2>
+                            <h2 class="mt-6 text-xl font-semibold text-gray-900 dark:text-white">Painel do Técnico</h2>
 
                             <p class="mt-4 text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
                                 Área reservada para Tecnicos e outros especialistas. Outros usuarios não serão aceites.
