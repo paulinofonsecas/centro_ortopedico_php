@@ -55,7 +55,7 @@ class TecnicoPanelProvider extends PanelProvider
                             ->groups([
                                 NavigationGroup::make('Distribução')
                                 ->items([
-                                ...DoacaoResource::getNavigationItems(),
+                                // ...DoacaoResource::getNavigationItems(),
                                 ...ItemResource::getNavigationItems(),
                                 ...UtenteResource::getNavigationItems(),
                             ]),
