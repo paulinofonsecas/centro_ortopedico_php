@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Filament\Pages\dashboards\tecnico\widgets;
+namespace App\Filament\pages\dashboards\tecnico\widgets;
 
 use App\Models\Consulta;
 use App\Models\Doacao;

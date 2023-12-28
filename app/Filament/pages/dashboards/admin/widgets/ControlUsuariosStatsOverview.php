@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Filament\Pages\dashboards\admin\widgets;
+namespace App\Filament\pages\dashboards\admin\widgets;
 
 use App\Models\Administrador;
 use App\Models\Consulta;

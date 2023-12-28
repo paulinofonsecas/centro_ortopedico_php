@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Filament\Pages\dashboards\medico;
+namespace App\Filament\pages\dashboards\medico;
 
 use App\Filament\Medico\Resources\MedicoResource\Widgets\ConsultasDeHoje;
-use App\Filament\Pages\dashboards\medico\widgets\StatsOverview;
+use App\Filament\pages\dashboards\medico\widgets\StatsOverview;
 use Filament\Pages\Dashboard as BasePage;
 
 class MedicoDashboard extends BasePage {

@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Filament\Pages\dashboards\admin;
+namespace App\Filament\pages\dashboards\admin;
 
-use App\Filament\Pages\dashboards\admin\widgets\ConsultasChart;
-use App\Filament\Pages\dashboards\admin\widgets\ControlUsuariosStatsOverview;
-use App\Filament\Pages\dashboards\admin\widgets\StatsOverview;
+use App\Filament\pages\dashboards\admin\widgets\ConsultasChart;
+use App\Filament\pages\dashboards\admin\widgets\ControlUsuariosStatsOverview;
+use App\Filament\pages\dashboards\admin\widgets\StatsOverview;
 use Filament\Pages\Dashboard as BasePage;
 
 class AdminDashboard extends BasePage
