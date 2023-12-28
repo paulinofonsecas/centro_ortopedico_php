@@ -4,14 +4,20 @@ namespace App\Filament\Tecnico\Resources;
 
 use App\Filament\Tecnico\Resources\PacienteResource\Pages;
 use App\Filament\Tecnico\Resources\PacienteResource\RelationManagers;
+use App\Models\Genero;
+use App\Models\Municipio;
 use App\Models\Paciente;
+use App\Models\Provincia;
 use Filament\Forms;
+use Filament\Forms\Components\Select;
 use Filament\Forms\Form;
+use Filament\Forms\Get;
+use Filament\Infolists\Components\Fieldset;
+use Filament\Infolists\Components\TextEntry;
+use Filament\Infolists\Infolist;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 class PacienteResource extends Resource
 {
