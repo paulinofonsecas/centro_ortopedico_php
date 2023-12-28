@@ -79,8 +79,8 @@ class TratamentoResourceRelationManager extends RelationManager
             ->filters([
             ])
             ->actions([
-                Tables\Actions\ViewAction::make()
-                    ->url(fn (Tratamento $record): string => TratamentoResource::getUrl('view', [$record])),
+                // Tables\Actions\ViewAction::make()
+                //     ->url(fn (Tratamento $record): string => TratamentoResource::getUrl('view', [$record])),
             ]);
     }
  
