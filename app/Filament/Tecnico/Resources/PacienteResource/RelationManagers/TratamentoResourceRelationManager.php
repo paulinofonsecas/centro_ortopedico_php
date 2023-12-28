@@ -41,10 +41,10 @@ class TratamentoResourceRelationManager extends RelationManager
                     ->sortable(),
             ])
             ->headerActions([
-                Tables\Actions\Action::make('create')
-                    ->label('Criar tratamento')
-                    ->icon('heroicon-o-plus')
-                    ->url(TratamentoResource::getUrl('create'))
+                // Tables\Actions\Action::make('create')
+                //     ->label('Criar tratamento')
+                //     ->icon('heroicon-o-plus')
+                //     ->url(TratamentoResource::getUrl('create'))
             ])
             ->columns([
  
