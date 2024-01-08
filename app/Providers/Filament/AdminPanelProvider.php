@@ -51,7 +51,7 @@ class AdminPanelProvider extends PanelProvider
             ->authMiddleware([CheckAdminPanel::class])
             ->path('/admin')
             ->profile(EditProfile::class)
-            ->theme('resources/css/filament/admin/theme.css')
+            ->viteTheme('resources/css/filament/admin/theme.css')
             ->colors([
                 'primary' => Color::Red,
             ])
