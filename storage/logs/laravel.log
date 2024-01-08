@@ -6024,3 +6024,312 @@ as recusou ativamente at C:\\xampp2\\htdocs\\gestao\\vendor\\laravel\\framework\
 #19 /home/pfonseca/devin/laravel/centro_ortopedico_php/artisan(35): Illuminate\\Foundation\\Console\\Kernel->handle()
 #20 {main}
 "} 
+[2024-01-08 13:13:54] local.ERROR: The "--columns" option does not exist. {"exception":"[object] (Symfony\\Component\\Console\\Exception\\RuntimeException(code: 0): The \"--columns\" option does not exist. at /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/symfony/console/Input/ArgvInput.php:223)
+[stacktrace]
+#0 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/symfony/console/Input/ArgvInput.php(150): Symfony\\Component\\Console\\Input\\ArgvInput->addLongOption()
+#1 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/symfony/console/Input/ArgvInput.php(85): Symfony\\Component\\Console\\Input\\ArgvInput->parseLongOption()
+#2 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/symfony/console/Input/ArgvInput.php(74): Symfony\\Component\\Console\\Input\\ArgvInput->parseToken()
+#3 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/symfony/console/Input/Input.php(56): Symfony\\Component\\Console\\Input\\ArgvInput->parse()
+#4 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/symfony/console/Command/Command.php(285): Symfony\\Component\\Console\\Input\\Input->bind()
+#5 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Console/Command.php(180): Symfony\\Component\\Console\\Command\\Command->run()
+#6 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/symfony/console/Application.php(1096): Illuminate\\Console\\Command->run()
+#7 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/symfony/console/Application.php(324): Symfony\\Component\\Console\\Application->doRunCommand()
+#8 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/symfony/console/Application.php(175): Symfony\\Component\\Console\\Application->doRun()
+#9 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(201): Symfony\\Component\\Console\\Application->run()
+#10 /home/pfonseca/devin/laravel/centro_ortopedico_php/artisan(35): Illuminate\\Foundation\\Console\\Kernel->handle()
+#11 {main}
+"} 
+[2024-01-08 13:14:52] local.ERROR: syntax error, unexpected token "->", expecting identifier or variable or "{" or "$" {"exception":"[object] (ParseError(code: 0): syntax error, unexpected token \"->\", expecting identifier or variable or \"{\" or \"$\" at /home/pfonseca/devin/laravel/centro_ortopedico_php/app/Providers/Filament/AdminPanelProvider.php:55)
+[stacktrace]
+#0 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/composer/ClassLoader.php(427): Composer\\Autoload\\{closure}()
+#1 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(851): Composer\\Autoload\\ClassLoader->loadClass()
+#2 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(785): Illuminate\\Foundation\\Application->resolveProvider()
+#3 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/ProviderRepository.php(75): Illuminate\\Foundation\\Application->register()
+#4 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(765): Illuminate\\Foundation\\ProviderRepository->load()
+#5 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/RegisterProviders.php(17): Illuminate\\Foundation\\Application->registerConfiguredProviders()
+#6 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(263): Illuminate\\Foundation\\Bootstrap\\RegisterProviders->bootstrap()
+#7 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(447): Illuminate\\Foundation\\Application->bootstrapWith()
+#8 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(199): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#9 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle()
+#10 {main}
+"} 
+[2024-01-08 13:14:52] local.ERROR: syntax error, unexpected token "->", expecting identifier or variable or "{" or "$" {"exception":"[object] (ParseError(code: 0): syntax error, unexpected token \"->\", expecting identifier or variable or \"{\" or \"$\" at /home/pfonseca/devin/laravel/centro_ortopedico_php/app/Providers/Filament/AdminPanelProvider.php:55)
+[stacktrace]
+#0 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/composer/ClassLoader.php(427): Composer\\Autoload\\{closure}()
+#1 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(851): Composer\\Autoload\\ClassLoader->loadClass()
+#2 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(785): Illuminate\\Foundation\\Application->resolveProvider()
+#3 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/ProviderRepository.php(75): Illuminate\\Foundation\\Application->register()
+#4 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(765): Illuminate\\Foundation\\ProviderRepository->load()
+#5 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/RegisterProviders.php(17): Illuminate\\Foundation\\Application->registerConfiguredProviders()
+#6 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(263): Illuminate\\Foundation\\Bootstrap\\RegisterProviders->bootstrap()
+#7 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(447): Illuminate\\Foundation\\Application->bootstrapWith()
+#8 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(199): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#9 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle()
+#10 {main}
+"} 
+[2024-01-08 13:15:52] local.ERROR: syntax error, unexpected token "->", expecting identifier or variable or "{" or "$" {"exception":"[object] (ParseError(code: 0): syntax error, unexpected token \"->\", expecting identifier or variable or \"{\" or \"$\" at /home/pfonseca/devin/laravel/centro_ortopedico_php/app/Providers/Filament/AdminPanelProvider.php:55)
+[stacktrace]
+#0 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/composer/ClassLoader.php(427): Composer\\Autoload\\{closure}()
+#1 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(851): Composer\\Autoload\\ClassLoader->loadClass()
+#2 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(785): Illuminate\\Foundation\\Application->resolveProvider()
+#3 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/ProviderRepository.php(75): Illuminate\\Foundation\\Application->register()
+#4 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(765): Illuminate\\Foundation\\ProviderRepository->load()
+#5 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/RegisterProviders.php(17): Illuminate\\Foundation\\Application->registerConfiguredProviders()
+#6 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(263): Illuminate\\Foundation\\Bootstrap\\RegisterProviders->bootstrap()
+#7 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(447): Illuminate\\Foundation\\Application->bootstrapWith()
+#8 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(199): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#9 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle()
+#10 {main}
+"} 
+[2024-01-08 13:15:52] local.ERROR: syntax error, unexpected token "->", expecting identifier or variable or "{" or "$" {"exception":"[object] (ParseError(code: 0): syntax error, unexpected token \"->\", expecting identifier or variable or \"{\" or \"$\" at /home/pfonseca/devin/laravel/centro_ortopedico_php/app/Providers/Filament/AdminPanelProvider.php:55)
+[stacktrace]
+#0 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/composer/ClassLoader.php(427): Composer\\Autoload\\{closure}()
+#1 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(851): Composer\\Autoload\\ClassLoader->loadClass()
+#2 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(785): Illuminate\\Foundation\\Application->resolveProvider()
+#3 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/ProviderRepository.php(75): Illuminate\\Foundation\\Application->register()
+#4 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(765): Illuminate\\Foundation\\ProviderRepository->load()
+#5 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/RegisterProviders.php(17): Illuminate\\Foundation\\Application->registerConfiguredProviders()
+#6 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(263): Illuminate\\Foundation\\Bootstrap\\RegisterProviders->bootstrap()
+#7 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(447): Illuminate\\Foundation\\Application->bootstrapWith()
+#8 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(199): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#9 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle()
+#10 {main}
+"} 
+[2024-01-08 13:16:52] local.ERROR: syntax error, unexpected token "->", expecting identifier or variable or "{" or "$" {"exception":"[object] (ParseError(code: 0): syntax error, unexpected token \"->\", expecting identifier or variable or \"{\" or \"$\" at /home/pfonseca/devin/laravel/centro_ortopedico_php/app/Providers/Filament/AdminPanelProvider.php:55)
+[stacktrace]
+#0 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/composer/ClassLoader.php(427): Composer\\Autoload\\{closure}()
+#1 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(851): Composer\\Autoload\\ClassLoader->loadClass()
+#2 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(785): Illuminate\\Foundation\\Application->resolveProvider()
+#3 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/ProviderRepository.php(75): Illuminate\\Foundation\\Application->register()
+#4 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(765): Illuminate\\Foundation\\ProviderRepository->load()
+#5 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/RegisterProviders.php(17): Illuminate\\Foundation\\Application->registerConfiguredProviders()
+#6 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(263): Illuminate\\Foundation\\Bootstrap\\RegisterProviders->bootstrap()
+#7 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(447): Illuminate\\Foundation\\Application->bootstrapWith()
+#8 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(199): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#9 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle()
+#10 {main}
+"} 
+[2024-01-08 13:16:52] local.ERROR: syntax error, unexpected token "->", expecting identifier or variable or "{" or "$" {"exception":"[object] (ParseError(code: 0): syntax error, unexpected token \"->\", expecting identifier or variable or \"{\" or \"$\" at /home/pfonseca/devin/laravel/centro_ortopedico_php/app/Providers/Filament/AdminPanelProvider.php:55)
+[stacktrace]
+#0 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/composer/ClassLoader.php(427): Composer\\Autoload\\{closure}()
+#1 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(851): Composer\\Autoload\\ClassLoader->loadClass()
+#2 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(785): Illuminate\\Foundation\\Application->resolveProvider()
+#3 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/ProviderRepository.php(75): Illuminate\\Foundation\\Application->register()
+#4 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(765): Illuminate\\Foundation\\ProviderRepository->load()
+#5 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/RegisterProviders.php(17): Illuminate\\Foundation\\Application->registerConfiguredProviders()
+#6 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(263): Illuminate\\Foundation\\Bootstrap\\RegisterProviders->bootstrap()
+#7 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(447): Illuminate\\Foundation\\Application->bootstrapWith()
+#8 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(199): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#9 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle()
+#10 {main}
+"} 
+[2024-01-08 13:17:52] local.ERROR: syntax error, unexpected token "->", expecting identifier or variable or "{" or "$" {"exception":"[object] (ParseError(code: 0): syntax error, unexpected token \"->\", expecting identifier or variable or \"{\" or \"$\" at /home/pfonseca/devin/laravel/centro_ortopedico_php/app/Providers/Filament/AdminPanelProvider.php:55)
+[stacktrace]
+#0 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/composer/ClassLoader.php(427): Composer\\Autoload\\{closure}()
+#1 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(851): Composer\\Autoload\\ClassLoader->loadClass()
+#2 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(785): Illuminate\\Foundation\\Application->resolveProvider()
+#3 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/ProviderRepository.php(75): Illuminate\\Foundation\\Application->register()
+#4 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(765): Illuminate\\Foundation\\ProviderRepository->load()
+#5 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/RegisterProviders.php(17): Illuminate\\Foundation\\Application->registerConfiguredProviders()
+#6 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(263): Illuminate\\Foundation\\Bootstrap\\RegisterProviders->bootstrap()
+#7 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(447): Illuminate\\Foundation\\Application->bootstrapWith()
+#8 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(199): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#9 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle()
+#10 {main}
+"} 
+[2024-01-08 13:17:52] local.ERROR: syntax error, unexpected token "->", expecting identifier or variable or "{" or "$" {"exception":"[object] (ParseError(code: 0): syntax error, unexpected token \"->\", expecting identifier or variable or \"{\" or \"$\" at /home/pfonseca/devin/laravel/centro_ortopedico_php/app/Providers/Filament/AdminPanelProvider.php:55)
+[stacktrace]
+#0 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/composer/ClassLoader.php(427): Composer\\Autoload\\{closure}()
+#1 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(851): Composer\\Autoload\\ClassLoader->loadClass()
+#2 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(785): Illuminate\\Foundation\\Application->resolveProvider()
+#3 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/ProviderRepository.php(75): Illuminate\\Foundation\\Application->register()
+#4 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(765): Illuminate\\Foundation\\ProviderRepository->load()
+#5 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/RegisterProviders.php(17): Illuminate\\Foundation\\Application->registerConfiguredProviders()
+#6 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(263): Illuminate\\Foundation\\Bootstrap\\RegisterProviders->bootstrap()
+#7 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(447): Illuminate\\Foundation\\Application->bootstrapWith()
+#8 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(199): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#9 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle()
+#10 {main}
+"} 
+[2024-01-08 13:18:52] local.ERROR: syntax error, unexpected token "->", expecting identifier or variable or "{" or "$" {"exception":"[object] (ParseError(code: 0): syntax error, unexpected token \"->\", expecting identifier or variable or \"{\" or \"$\" at /home/pfonseca/devin/laravel/centro_ortopedico_php/app/Providers/Filament/AdminPanelProvider.php:55)
+[stacktrace]
+#0 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/composer/ClassLoader.php(427): Composer\\Autoload\\{closure}()
+#1 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(851): Composer\\Autoload\\ClassLoader->loadClass()
+#2 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(785): Illuminate\\Foundation\\Application->resolveProvider()
+#3 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/ProviderRepository.php(75): Illuminate\\Foundation\\Application->register()
+#4 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(765): Illuminate\\Foundation\\ProviderRepository->load()
+#5 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/RegisterProviders.php(17): Illuminate\\Foundation\\Application->registerConfiguredProviders()
+#6 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(263): Illuminate\\Foundation\\Bootstrap\\RegisterProviders->bootstrap()
+#7 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(447): Illuminate\\Foundation\\Application->bootstrapWith()
+#8 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(199): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#9 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle()
+#10 {main}
+"} 
+[2024-01-08 13:18:52] local.ERROR: syntax error, unexpected token "->", expecting identifier or variable or "{" or "$" {"exception":"[object] (ParseError(code: 0): syntax error, unexpected token \"->\", expecting identifier or variable or \"{\" or \"$\" at /home/pfonseca/devin/laravel/centro_ortopedico_php/app/Providers/Filament/AdminPanelProvider.php:55)
+[stacktrace]
+#0 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/composer/ClassLoader.php(427): Composer\\Autoload\\{closure}()
+#1 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(851): Composer\\Autoload\\ClassLoader->loadClass()
+#2 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(785): Illuminate\\Foundation\\Application->resolveProvider()
+#3 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/ProviderRepository.php(75): Illuminate\\Foundation\\Application->register()
+#4 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(765): Illuminate\\Foundation\\ProviderRepository->load()
+#5 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/RegisterProviders.php(17): Illuminate\\Foundation\\Application->registerConfiguredProviders()
+#6 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(263): Illuminate\\Foundation\\Bootstrap\\RegisterProviders->bootstrap()
+#7 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(447): Illuminate\\Foundation\\Application->bootstrapWith()
+#8 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(199): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#9 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle()
+#10 {main}
+"} 
+[2024-01-08 13:19:52] local.ERROR: syntax error, unexpected token "->", expecting identifier or variable or "{" or "$" {"exception":"[object] (ParseError(code: 0): syntax error, unexpected token \"->\", expecting identifier or variable or \"{\" or \"$\" at /home/pfonseca/devin/laravel/centro_ortopedico_php/app/Providers/Filament/AdminPanelProvider.php:55)
+[stacktrace]
+#0 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/composer/ClassLoader.php(427): Composer\\Autoload\\{closure}()
+#1 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(851): Composer\\Autoload\\ClassLoader->loadClass()
+#2 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(785): Illuminate\\Foundation\\Application->resolveProvider()
+#3 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/ProviderRepository.php(75): Illuminate\\Foundation\\Application->register()
+#4 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(765): Illuminate\\Foundation\\ProviderRepository->load()
+#5 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/RegisterProviders.php(17): Illuminate\\Foundation\\Application->registerConfiguredProviders()
+#6 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(263): Illuminate\\Foundation\\Bootstrap\\RegisterProviders->bootstrap()
+#7 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(447): Illuminate\\Foundation\\Application->bootstrapWith()
+#8 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(199): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#9 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle()
+#10 {main}
+"} 
+[2024-01-08 13:19:52] local.ERROR: syntax error, unexpected token "->", expecting identifier or variable or "{" or "$" {"exception":"[object] (ParseError(code: 0): syntax error, unexpected token \"->\", expecting identifier or variable or \"{\" or \"$\" at /home/pfonseca/devin/laravel/centro_ortopedico_php/app/Providers/Filament/AdminPanelProvider.php:55)
+[stacktrace]
+#0 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/composer/ClassLoader.php(427): Composer\\Autoload\\{closure}()
+#1 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(851): Composer\\Autoload\\ClassLoader->loadClass()
+#2 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(785): Illuminate\\Foundation\\Application->resolveProvider()
+#3 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/ProviderRepository.php(75): Illuminate\\Foundation\\Application->register()
+#4 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(765): Illuminate\\Foundation\\ProviderRepository->load()
+#5 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/RegisterProviders.php(17): Illuminate\\Foundation\\Application->registerConfiguredProviders()
+#6 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(263): Illuminate\\Foundation\\Bootstrap\\RegisterProviders->bootstrap()
+#7 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(447): Illuminate\\Foundation\\Application->bootstrapWith()
+#8 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(199): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#9 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle()
+#10 {main}
+"} 
+[2024-01-08 13:20:52] local.ERROR: syntax error, unexpected token "->", expecting identifier or variable or "{" or "$" {"exception":"[object] (ParseError(code: 0): syntax error, unexpected token \"->\", expecting identifier or variable or \"{\" or \"$\" at /home/pfonseca/devin/laravel/centro_ortopedico_php/app/Providers/Filament/AdminPanelProvider.php:55)
+[stacktrace]
+#0 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/composer/ClassLoader.php(427): Composer\\Autoload\\{closure}()
+#1 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(851): Composer\\Autoload\\ClassLoader->loadClass()
+#2 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(785): Illuminate\\Foundation\\Application->resolveProvider()
+#3 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/ProviderRepository.php(75): Illuminate\\Foundation\\Application->register()
+#4 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(765): Illuminate\\Foundation\\ProviderRepository->load()
+#5 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/RegisterProviders.php(17): Illuminate\\Foundation\\Application->registerConfiguredProviders()
+#6 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(263): Illuminate\\Foundation\\Bootstrap\\RegisterProviders->bootstrap()
+#7 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(447): Illuminate\\Foundation\\Application->bootstrapWith()
+#8 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(199): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#9 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle()
+#10 {main}
+"} 
+[2024-01-08 13:20:52] local.ERROR: syntax error, unexpected token "->", expecting identifier or variable or "{" or "$" {"exception":"[object] (ParseError(code: 0): syntax error, unexpected token \"->\", expecting identifier or variable or \"{\" or \"$\" at /home/pfonseca/devin/laravel/centro_ortopedico_php/app/Providers/Filament/AdminPanelProvider.php:55)
+[stacktrace]
+#0 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/composer/ClassLoader.php(427): Composer\\Autoload\\{closure}()
+#1 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(851): Composer\\Autoload\\ClassLoader->loadClass()
+#2 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(785): Illuminate\\Foundation\\Application->resolveProvider()
+#3 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/ProviderRepository.php(75): Illuminate\\Foundation\\Application->register()
+#4 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(765): Illuminate\\Foundation\\ProviderRepository->load()
+#5 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/RegisterProviders.php(17): Illuminate\\Foundation\\Application->registerConfiguredProviders()
+#6 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(263): Illuminate\\Foundation\\Bootstrap\\RegisterProviders->bootstrap()
+#7 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(447): Illuminate\\Foundation\\Application->bootstrapWith()
+#8 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(199): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#9 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle()
+#10 {main}
+"} 
+[2024-01-08 13:21:52] local.ERROR: syntax error, unexpected token "->", expecting identifier or variable or "{" or "$" {"exception":"[object] (ParseError(code: 0): syntax error, unexpected token \"->\", expecting identifier or variable or \"{\" or \"$\" at /home/pfonseca/devin/laravel/centro_ortopedico_php/app/Providers/Filament/AdminPanelProvider.php:55)
+[stacktrace]
+#0 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/composer/ClassLoader.php(427): Composer\\Autoload\\{closure}()
+#1 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(851): Composer\\Autoload\\ClassLoader->loadClass()
+#2 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(785): Illuminate\\Foundation\\Application->resolveProvider()
+#3 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/ProviderRepository.php(75): Illuminate\\Foundation\\Application->register()
+#4 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(765): Illuminate\\Foundation\\ProviderRepository->load()
+#5 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/RegisterProviders.php(17): Illuminate\\Foundation\\Application->registerConfiguredProviders()
+#6 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(263): Illuminate\\Foundation\\Bootstrap\\RegisterProviders->bootstrap()
+#7 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(447): Illuminate\\Foundation\\Application->bootstrapWith()
+#8 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(199): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#9 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle()
+#10 {main}
+"} 
+[2024-01-08 13:21:52] local.ERROR: syntax error, unexpected token "->", expecting identifier or variable or "{" or "$" {"exception":"[object] (ParseError(code: 0): syntax error, unexpected token \"->\", expecting identifier or variable or \"{\" or \"$\" at /home/pfonseca/devin/laravel/centro_ortopedico_php/app/Providers/Filament/AdminPanelProvider.php:55)
+[stacktrace]
+#0 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/composer/ClassLoader.php(427): Composer\\Autoload\\{closure}()
+#1 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(851): Composer\\Autoload\\ClassLoader->loadClass()
+#2 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(785): Illuminate\\Foundation\\Application->resolveProvider()
+#3 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/ProviderRepository.php(75): Illuminate\\Foundation\\Application->register()
+#4 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(765): Illuminate\\Foundation\\ProviderRepository->load()
+#5 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/RegisterProviders.php(17): Illuminate\\Foundation\\Application->registerConfiguredProviders()
+#6 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(263): Illuminate\\Foundation\\Bootstrap\\RegisterProviders->bootstrap()
+#7 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(447): Illuminate\\Foundation\\Application->bootstrapWith()
+#8 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(199): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#9 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle()
+#10 {main}
+"} 
+[2024-01-08 13:22:52] local.ERROR: syntax error, unexpected token "->", expecting identifier or variable or "{" or "$" {"exception":"[object] (ParseError(code: 0): syntax error, unexpected token \"->\", expecting identifier or variable or \"{\" or \"$\" at /home/pfonseca/devin/laravel/centro_ortopedico_php/app/Providers/Filament/AdminPanelProvider.php:55)
+[stacktrace]
+#0 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/composer/ClassLoader.php(427): Composer\\Autoload\\{closure}()
+#1 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(851): Composer\\Autoload\\ClassLoader->loadClass()
+#2 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(785): Illuminate\\Foundation\\Application->resolveProvider()
+#3 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/ProviderRepository.php(75): Illuminate\\Foundation\\Application->register()
+#4 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(765): Illuminate\\Foundation\\ProviderRepository->load()
+#5 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/RegisterProviders.php(17): Illuminate\\Foundation\\Application->registerConfiguredProviders()
+#6 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(263): Illuminate\\Foundation\\Bootstrap\\RegisterProviders->bootstrap()
+#7 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(447): Illuminate\\Foundation\\Application->bootstrapWith()
+#8 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(199): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#9 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle()
+#10 {main}
+"} 
+[2024-01-08 13:22:52] local.ERROR: syntax error, unexpected token "->", expecting identifier or variable or "{" or "$" {"exception":"[object] (ParseError(code: 0): syntax error, unexpected token \"->\", expecting identifier or variable or \"{\" or \"$\" at /home/pfonseca/devin/laravel/centro_ortopedico_php/app/Providers/Filament/AdminPanelProvider.php:55)
+[stacktrace]
+#0 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/composer/ClassLoader.php(427): Composer\\Autoload\\{closure}()
+#1 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(851): Composer\\Autoload\\ClassLoader->loadClass()
+#2 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(785): Illuminate\\Foundation\\Application->resolveProvider()
+#3 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/ProviderRepository.php(75): Illuminate\\Foundation\\Application->register()
+#4 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(765): Illuminate\\Foundation\\ProviderRepository->load()
+#5 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/RegisterProviders.php(17): Illuminate\\Foundation\\Application->registerConfiguredProviders()
+#6 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(263): Illuminate\\Foundation\\Bootstrap\\RegisterProviders->bootstrap()
+#7 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(447): Illuminate\\Foundation\\Application->bootstrapWith()
+#8 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(199): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#9 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle()
+#10 {main}
+"} 
+[2024-01-08 13:23:52] local.ERROR: syntax error, unexpected token "->", expecting identifier or variable or "{" or "$" {"exception":"[object] (ParseError(code: 0): syntax error, unexpected token \"->\", expecting identifier or variable or \"{\" or \"$\" at /home/pfonseca/devin/laravel/centro_ortopedico_php/app/Providers/Filament/AdminPanelProvider.php:55)
+[stacktrace]
+#0 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/composer/ClassLoader.php(427): Composer\\Autoload\\{closure}()
+#1 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(851): Composer\\Autoload\\ClassLoader->loadClass()
+#2 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(785): Illuminate\\Foundation\\Application->resolveProvider()
+#3 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/ProviderRepository.php(75): Illuminate\\Foundation\\Application->register()
+#4 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(765): Illuminate\\Foundation\\ProviderRepository->load()
+#5 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/RegisterProviders.php(17): Illuminate\\Foundation\\Application->registerConfiguredProviders()
+#6 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(263): Illuminate\\Foundation\\Bootstrap\\RegisterProviders->bootstrap()
+#7 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(447): Illuminate\\Foundation\\Application->bootstrapWith()
+#8 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(199): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#9 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle()
+#10 {main}
+"} 
+[2024-01-08 13:23:52] local.ERROR: syntax error, unexpected token "->", expecting identifier or variable or "{" or "$" {"exception":"[object] (ParseError(code: 0): syntax error, unexpected token \"->\", expecting identifier or variable or \"{\" or \"$\" at /home/pfonseca/devin/laravel/centro_ortopedico_php/app/Providers/Filament/AdminPanelProvider.php:55)
+[stacktrace]
+#0 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/composer/ClassLoader.php(427): Composer\\Autoload\\{closure}()
+#1 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(851): Composer\\Autoload\\ClassLoader->loadClass()
+#2 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(785): Illuminate\\Foundation\\Application->resolveProvider()
+#3 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/ProviderRepository.php(75): Illuminate\\Foundation\\Application->register()
+#4 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(765): Illuminate\\Foundation\\ProviderRepository->load()
+#5 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/RegisterProviders.php(17): Illuminate\\Foundation\\Application->registerConfiguredProviders()
+#6 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(263): Illuminate\\Foundation\\Bootstrap\\RegisterProviders->bootstrap()
+#7 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(447): Illuminate\\Foundation\\Application->bootstrapWith()
+#8 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(199): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#9 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle()
+#10 {main}
+"} 
+[2024-01-08 13:23:52] local.ERROR: syntax error, unexpected token "->", expecting identifier or variable or "{" or "$" {"exception":"[object] (ParseError(code: 0): syntax error, unexpected token \"->\", expecting identifier or variable or \"{\" or \"$\" at /home/pfonseca/devin/laravel/centro_ortopedico_php/app/Providers/Filament/AdminPanelProvider.php:55)
+[stacktrace]
+#0 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/composer/ClassLoader.php(427): Composer\\Autoload\\{closure}()
+#1 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(851): Composer\\Autoload\\ClassLoader->loadClass()
+#2 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(785): Illuminate\\Foundation\\Application->resolveProvider()
+#3 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/ProviderRepository.php(75): Illuminate\\Foundation\\Application->register()
+#4 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(765): Illuminate\\Foundation\\ProviderRepository->load()
+#5 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/RegisterProviders.php(17): Illuminate\\Foundation\\Application->registerConfiguredProviders()
+#6 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(263): Illuminate\\Foundation\\Bootstrap\\RegisterProviders->bootstrap()
+#7 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(447): Illuminate\\Foundation\\Application->bootstrapWith()
+#8 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(199): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#9 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle()
+#10 {main}
+"} 
