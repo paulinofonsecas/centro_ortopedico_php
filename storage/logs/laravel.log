@@ -5660,3 +5660,367 @@ as recusou ativamente at C:\\xampp2\\htdocs\\gestao\\vendor\\laravel\\framework\
 #25 /home/pfonseca/devin/laravel/centro_ortopedico_php/artisan(37): Illuminate\\Foundation\\Console\\Kernel->handle()
 #26 {main}
 "} 
+[2023-12-28 20:48:51] local.ERROR: The "--columns" option does not exist. {"exception":"[object] (Symfony\\Component\\Console\\Exception\\RuntimeException(code: 0): The \"--columns\" option does not exist. at /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/symfony/console/Input/ArgvInput.php:223)
+[stacktrace]
+#0 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/symfony/console/Input/ArgvInput.php(150): Symfony\\Component\\Console\\Input\\ArgvInput->addLongOption()
+#1 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/symfony/console/Input/ArgvInput.php(85): Symfony\\Component\\Console\\Input\\ArgvInput->parseLongOption()
+#2 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/symfony/console/Input/ArgvInput.php(74): Symfony\\Component\\Console\\Input\\ArgvInput->parseToken()
+#3 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/symfony/console/Input/Input.php(56): Symfony\\Component\\Console\\Input\\ArgvInput->parse()
+#4 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/symfony/console/Command/Command.php(285): Symfony\\Component\\Console\\Input\\Input->bind()
+#5 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Console/Command.php(181): Symfony\\Component\\Console\\Command\\Command->run()
+#6 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/symfony/console/Application.php(1096): Illuminate\\Console\\Command->run()
+#7 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/symfony/console/Application.php(324): Symfony\\Component\\Console\\Application->doRunCommand()
+#8 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/symfony/console/Application.php(175): Symfony\\Component\\Console\\Application->doRun()
+#9 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(201): Symfony\\Component\\Console\\Application->run()
+#10 /home/pfonseca/devin/laravel/centro_ortopedico_php/artisan(37): Illuminate\\Foundation\\Console\\Kernel->handle()
+#11 {main}
+"} 
+[2023-12-28 20:54:57] local.ERROR: The "--columns" option does not exist. {"exception":"[object] (Symfony\\Component\\Console\\Exception\\RuntimeException(code: 0): The \"--columns\" option does not exist. at /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/symfony/console/Input/ArgvInput.php:223)
+[stacktrace]
+#0 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/symfony/console/Input/ArgvInput.php(150): Symfony\\Component\\Console\\Input\\ArgvInput->addLongOption()
+#1 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/symfony/console/Input/ArgvInput.php(85): Symfony\\Component\\Console\\Input\\ArgvInput->parseLongOption()
+#2 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/symfony/console/Input/ArgvInput.php(74): Symfony\\Component\\Console\\Input\\ArgvInput->parseToken()
+#3 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/symfony/console/Input/Input.php(56): Symfony\\Component\\Console\\Input\\ArgvInput->parse()
+#4 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/symfony/console/Command/Command.php(285): Symfony\\Component\\Console\\Input\\Input->bind()
+#5 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Console/Command.php(181): Symfony\\Component\\Console\\Command\\Command->run()
+#6 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/symfony/console/Application.php(1096): Illuminate\\Console\\Command->run()
+#7 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/symfony/console/Application.php(324): Symfony\\Component\\Console\\Application->doRunCommand()
+#8 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/symfony/console/Application.php(175): Symfony\\Component\\Console\\Application->doRun()
+#9 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(201): Symfony\\Component\\Console\\Application->run()
+#10 /home/pfonseca/devin/laravel/centro_ortopedico_php/artisan(37): Illuminate\\Foundation\\Console\\Kernel->handle()
+#11 {main}
+"} 
+[2023-12-28 21:55:08] laravel.EMERGENCY: Unable to create configured logger. Using emergency logger. {"exception":"[object] (InvalidArgumentException(code: 0): Log [] is not defined. at /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Log/LogManager.php:212)
+[stacktrace]
+#0 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Log/LogManager.php(137): Illuminate\\Log\\LogManager->resolve()
+#1 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Log/LogManager.php(124): Illuminate\\Log\\LogManager->get()
+#2 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Log/LogManager.php(665): Illuminate\\Log\\LogManager->driver()
+#3 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(317): Illuminate\\Log\\LogManager->error()
+#4 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(278): Illuminate\\Foundation\\Exceptions\\Handler->reportThrowable()
+#5 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(523): Illuminate\\Foundation\\Exceptions\\Handler->report()
+#6 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(203): Illuminate\\Foundation\\Console\\Kernel->reportException()
+#7 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle()
+#8 {main}
+"} 
+[2023-12-28 21:55:08] laravel.ERROR: syntax error, unexpected token ",", expecting ";" {"exception":"[object] (ParseError(code: 0): syntax error, unexpected token \",\", expecting \";\" at /home/pfonseca/devin/laravel/centro_ortopedico_php/config/filament.php:26)
+[stacktrace]
+#0 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/LoadConfiguration.php(39): Illuminate\\Foundation\\Bootstrap\\LoadConfiguration->loadConfigurationFiles()
+#1 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(263): Illuminate\\Foundation\\Bootstrap\\LoadConfiguration->bootstrap()
+#2 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(447): Illuminate\\Foundation\\Application->bootstrapWith()
+#3 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(199): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#4 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle()
+#5 {main}
+"} 
+[2023-12-28 21:55:55] laravel.EMERGENCY: Unable to create configured logger. Using emergency logger. {"exception":"[object] (InvalidArgumentException(code: 0): Log [] is not defined. at /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Log/LogManager.php:212)
+[stacktrace]
+#0 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Log/LogManager.php(137): Illuminate\\Log\\LogManager->resolve()
+#1 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Log/LogManager.php(124): Illuminate\\Log\\LogManager->get()
+#2 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Log/LogManager.php(665): Illuminate\\Log\\LogManager->driver()
+#3 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(317): Illuminate\\Log\\LogManager->error()
+#4 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(278): Illuminate\\Foundation\\Exceptions\\Handler->reportThrowable()
+#5 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(523): Illuminate\\Foundation\\Exceptions\\Handler->report()
+#6 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(203): Illuminate\\Foundation\\Console\\Kernel->reportException()
+#7 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle()
+#8 {main}
+"} 
+[2023-12-28 21:55:55] laravel.ERROR: syntax error, unexpected token ",", expecting ";" {"exception":"[object] (ParseError(code: 0): syntax error, unexpected token \",\", expecting \";\" at /home/pfonseca/devin/laravel/centro_ortopedico_php/config/filament.php:26)
+[stacktrace]
+#0 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/LoadConfiguration.php(39): Illuminate\\Foundation\\Bootstrap\\LoadConfiguration->loadConfigurationFiles()
+#1 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(263): Illuminate\\Foundation\\Bootstrap\\LoadConfiguration->bootstrap()
+#2 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(447): Illuminate\\Foundation\\Application->bootstrapWith()
+#3 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(199): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#4 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle()
+#5 {main}
+"} 
+[2023-12-28 21:55:55] laravel.EMERGENCY: Unable to create configured logger. Using emergency logger. {"exception":"[object] (InvalidArgumentException(code: 0): Log [] is not defined. at /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Log/LogManager.php:212)
+[stacktrace]
+#0 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Log/LogManager.php(137): Illuminate\\Log\\LogManager->resolve()
+#1 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Log/LogManager.php(124): Illuminate\\Log\\LogManager->get()
+#2 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Log/LogManager.php(665): Illuminate\\Log\\LogManager->driver()
+#3 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(317): Illuminate\\Log\\LogManager->error()
+#4 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(278): Illuminate\\Foundation\\Exceptions\\Handler->reportThrowable()
+#5 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(523): Illuminate\\Foundation\\Exceptions\\Handler->report()
+#6 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(203): Illuminate\\Foundation\\Console\\Kernel->reportException()
+#7 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle()
+#8 {main}
+"} 
+[2023-12-28 21:55:55] laravel.ERROR: syntax error, unexpected token ",", expecting ";" {"exception":"[object] (ParseError(code: 0): syntax error, unexpected token \",\", expecting \";\" at /home/pfonseca/devin/laravel/centro_ortopedico_php/config/filament.php:26)
+[stacktrace]
+#0 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/LoadConfiguration.php(39): Illuminate\\Foundation\\Bootstrap\\LoadConfiguration->loadConfigurationFiles()
+#1 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(263): Illuminate\\Foundation\\Bootstrap\\LoadConfiguration->bootstrap()
+#2 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(447): Illuminate\\Foundation\\Application->bootstrapWith()
+#3 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(199): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#4 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle()
+#5 {main}
+"} 
+[2023-12-28 21:56:55] laravel.EMERGENCY: Unable to create configured logger. Using emergency logger. {"exception":"[object] (InvalidArgumentException(code: 0): Log [] is not defined. at /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Log/LogManager.php:212)
+[stacktrace]
+#0 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Log/LogManager.php(137): Illuminate\\Log\\LogManager->resolve()
+#1 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Log/LogManager.php(124): Illuminate\\Log\\LogManager->get()
+#2 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Log/LogManager.php(665): Illuminate\\Log\\LogManager->driver()
+#3 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(317): Illuminate\\Log\\LogManager->error()
+#4 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(278): Illuminate\\Foundation\\Exceptions\\Handler->reportThrowable()
+#5 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(523): Illuminate\\Foundation\\Exceptions\\Handler->report()
+#6 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(203): Illuminate\\Foundation\\Console\\Kernel->reportException()
+#7 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle()
+#8 {main}
+"} 
+[2023-12-28 21:56:55] laravel.ERROR: syntax error, unexpected token ",", expecting ";" {"exception":"[object] (ParseError(code: 0): syntax error, unexpected token \",\", expecting \";\" at /home/pfonseca/devin/laravel/centro_ortopedico_php/config/filament.php:26)
+[stacktrace]
+#0 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/LoadConfiguration.php(39): Illuminate\\Foundation\\Bootstrap\\LoadConfiguration->loadConfigurationFiles()
+#1 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(263): Illuminate\\Foundation\\Bootstrap\\LoadConfiguration->bootstrap()
+#2 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(447): Illuminate\\Foundation\\Application->bootstrapWith()
+#3 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(199): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#4 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle()
+#5 {main}
+"} 
+[2023-12-28 21:56:55] laravel.EMERGENCY: Unable to create configured logger. Using emergency logger. {"exception":"[object] (InvalidArgumentException(code: 0): Log [] is not defined. at /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Log/LogManager.php:212)
+[stacktrace]
+#0 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Log/LogManager.php(137): Illuminate\\Log\\LogManager->resolve()
+#1 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Log/LogManager.php(124): Illuminate\\Log\\LogManager->get()
+#2 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Log/LogManager.php(665): Illuminate\\Log\\LogManager->driver()
+#3 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(317): Illuminate\\Log\\LogManager->error()
+#4 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(278): Illuminate\\Foundation\\Exceptions\\Handler->reportThrowable()
+#5 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(523): Illuminate\\Foundation\\Exceptions\\Handler->report()
+#6 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(203): Illuminate\\Foundation\\Console\\Kernel->reportException()
+#7 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle()
+#8 {main}
+"} 
+[2023-12-28 21:56:55] laravel.ERROR: syntax error, unexpected token ",", expecting ";" {"exception":"[object] (ParseError(code: 0): syntax error, unexpected token \",\", expecting \";\" at /home/pfonseca/devin/laravel/centro_ortopedico_php/config/filament.php:26)
+[stacktrace]
+#0 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/LoadConfiguration.php(39): Illuminate\\Foundation\\Bootstrap\\LoadConfiguration->loadConfigurationFiles()
+#1 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(263): Illuminate\\Foundation\\Bootstrap\\LoadConfiguration->bootstrap()
+#2 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(447): Illuminate\\Foundation\\Application->bootstrapWith()
+#3 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(199): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#4 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle()
+#5 {main}
+"} 
+[2023-12-28 21:57:55] laravel.EMERGENCY: Unable to create configured logger. Using emergency logger. {"exception":"[object] (InvalidArgumentException(code: 0): Log [] is not defined. at /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Log/LogManager.php:212)
+[stacktrace]
+#0 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Log/LogManager.php(137): Illuminate\\Log\\LogManager->resolve()
+#1 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Log/LogManager.php(124): Illuminate\\Log\\LogManager->get()
+#2 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Log/LogManager.php(665): Illuminate\\Log\\LogManager->driver()
+#3 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(317): Illuminate\\Log\\LogManager->error()
+#4 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(278): Illuminate\\Foundation\\Exceptions\\Handler->reportThrowable()
+#5 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(523): Illuminate\\Foundation\\Exceptions\\Handler->report()
+#6 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(203): Illuminate\\Foundation\\Console\\Kernel->reportException()
+#7 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle()
+#8 {main}
+"} 
+[2023-12-28 21:57:55] laravel.ERROR: syntax error, unexpected token ",", expecting ";" {"exception":"[object] (ParseError(code: 0): syntax error, unexpected token \",\", expecting \";\" at /home/pfonseca/devin/laravel/centro_ortopedico_php/config/filament.php:26)
+[stacktrace]
+#0 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/LoadConfiguration.php(39): Illuminate\\Foundation\\Bootstrap\\LoadConfiguration->loadConfigurationFiles()
+#1 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(263): Illuminate\\Foundation\\Bootstrap\\LoadConfiguration->bootstrap()
+#2 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(447): Illuminate\\Foundation\\Application->bootstrapWith()
+#3 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(199): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#4 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle()
+#5 {main}
+"} 
+[2023-12-28 21:57:55] laravel.EMERGENCY: Unable to create configured logger. Using emergency logger. {"exception":"[object] (InvalidArgumentException(code: 0): Log [] is not defined. at /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Log/LogManager.php:212)
+[stacktrace]
+#0 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Log/LogManager.php(137): Illuminate\\Log\\LogManager->resolve()
+#1 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Log/LogManager.php(124): Illuminate\\Log\\LogManager->get()
+#2 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Log/LogManager.php(665): Illuminate\\Log\\LogManager->driver()
+#3 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(317): Illuminate\\Log\\LogManager->error()
+#4 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(278): Illuminate\\Foundation\\Exceptions\\Handler->reportThrowable()
+#5 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(523): Illuminate\\Foundation\\Exceptions\\Handler->report()
+#6 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(203): Illuminate\\Foundation\\Console\\Kernel->reportException()
+#7 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle()
+#8 {main}
+"} 
+[2023-12-28 21:57:55] laravel.ERROR: syntax error, unexpected token ",", expecting ";" {"exception":"[object] (ParseError(code: 0): syntax error, unexpected token \",\", expecting \";\" at /home/pfonseca/devin/laravel/centro_ortopedico_php/config/filament.php:26)
+[stacktrace]
+#0 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/LoadConfiguration.php(39): Illuminate\\Foundation\\Bootstrap\\LoadConfiguration->loadConfigurationFiles()
+#1 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(263): Illuminate\\Foundation\\Bootstrap\\LoadConfiguration->bootstrap()
+#2 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(447): Illuminate\\Foundation\\Application->bootstrapWith()
+#3 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(199): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#4 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle()
+#5 {main}
+"} 
+[2023-12-28 21:58:55] laravel.EMERGENCY: Unable to create configured logger. Using emergency logger. {"exception":"[object] (InvalidArgumentException(code: 0): Log [] is not defined. at /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Log/LogManager.php:212)
+[stacktrace]
+#0 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Log/LogManager.php(137): Illuminate\\Log\\LogManager->resolve()
+#1 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Log/LogManager.php(124): Illuminate\\Log\\LogManager->get()
+#2 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Log/LogManager.php(665): Illuminate\\Log\\LogManager->driver()
+#3 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(317): Illuminate\\Log\\LogManager->error()
+#4 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(278): Illuminate\\Foundation\\Exceptions\\Handler->reportThrowable()
+#5 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(523): Illuminate\\Foundation\\Exceptions\\Handler->report()
+#6 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(203): Illuminate\\Foundation\\Console\\Kernel->reportException()
+#7 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle()
+#8 {main}
+"} 
+[2023-12-28 21:58:55] laravel.ERROR: syntax error, unexpected token ",", expecting ";" {"exception":"[object] (ParseError(code: 0): syntax error, unexpected token \",\", expecting \";\" at /home/pfonseca/devin/laravel/centro_ortopedico_php/config/filament.php:26)
+[stacktrace]
+#0 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/LoadConfiguration.php(39): Illuminate\\Foundation\\Bootstrap\\LoadConfiguration->loadConfigurationFiles()
+#1 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(263): Illuminate\\Foundation\\Bootstrap\\LoadConfiguration->bootstrap()
+#2 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(447): Illuminate\\Foundation\\Application->bootstrapWith()
+#3 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(199): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#4 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle()
+#5 {main}
+"} 
+[2023-12-28 21:58:55] laravel.EMERGENCY: Unable to create configured logger. Using emergency logger. {"exception":"[object] (InvalidArgumentException(code: 0): Log [] is not defined. at /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Log/LogManager.php:212)
+[stacktrace]
+#0 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Log/LogManager.php(137): Illuminate\\Log\\LogManager->resolve()
+#1 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Log/LogManager.php(124): Illuminate\\Log\\LogManager->get()
+#2 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Log/LogManager.php(665): Illuminate\\Log\\LogManager->driver()
+#3 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(317): Illuminate\\Log\\LogManager->error()
+#4 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(278): Illuminate\\Foundation\\Exceptions\\Handler->reportThrowable()
+#5 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(523): Illuminate\\Foundation\\Exceptions\\Handler->report()
+#6 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(203): Illuminate\\Foundation\\Console\\Kernel->reportException()
+#7 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle()
+#8 {main}
+"} 
+[2023-12-28 21:58:55] laravel.ERROR: syntax error, unexpected token ",", expecting ";" {"exception":"[object] (ParseError(code: 0): syntax error, unexpected token \",\", expecting \";\" at /home/pfonseca/devin/laravel/centro_ortopedico_php/config/filament.php:26)
+[stacktrace]
+#0 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/LoadConfiguration.php(39): Illuminate\\Foundation\\Bootstrap\\LoadConfiguration->loadConfigurationFiles()
+#1 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(263): Illuminate\\Foundation\\Bootstrap\\LoadConfiguration->bootstrap()
+#2 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(447): Illuminate\\Foundation\\Application->bootstrapWith()
+#3 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(199): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#4 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle()
+#5 {main}
+"} 
+[2023-12-28 21:59:33] laravel.EMERGENCY: Unable to create configured logger. Using emergency logger. {"exception":"[object] (InvalidArgumentException(code: 0): Log [] is not defined. at /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Log/LogManager.php:212)
+[stacktrace]
+#0 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Log/LogManager.php(137): Illuminate\\Log\\LogManager->resolve()
+#1 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Log/LogManager.php(124): Illuminate\\Log\\LogManager->get()
+#2 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Log/LogManager.php(665): Illuminate\\Log\\LogManager->driver()
+#3 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(317): Illuminate\\Log\\LogManager->error()
+#4 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(278): Illuminate\\Foundation\\Exceptions\\Handler->reportThrowable()
+#5 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(523): Illuminate\\Foundation\\Exceptions\\Handler->report()
+#6 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(203): Illuminate\\Foundation\\Console\\Kernel->reportException()
+#7 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle()
+#8 {main}
+"} 
+[2023-12-28 21:59:33] laravel.ERROR: syntax error, unexpected token ",", expecting ";" {"exception":"[object] (ParseError(code: 0): syntax error, unexpected token \",\", expecting \";\" at /home/pfonseca/devin/laravel/centro_ortopedico_php/config/filament.php:26)
+[stacktrace]
+#0 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/LoadConfiguration.php(39): Illuminate\\Foundation\\Bootstrap\\LoadConfiguration->loadConfigurationFiles()
+#1 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(263): Illuminate\\Foundation\\Bootstrap\\LoadConfiguration->bootstrap()
+#2 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(447): Illuminate\\Foundation\\Application->bootstrapWith()
+#3 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(199): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#4 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle()
+#5 {main}
+"} 
+[2023-12-28 21:59:39] laravel.EMERGENCY: Unable to create configured logger. Using emergency logger. {"exception":"[object] (InvalidArgumentException(code: 0): Log [] is not defined. at /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Log/LogManager.php:212)
+[stacktrace]
+#0 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Log/LogManager.php(137): Illuminate\\Log\\LogManager->resolve()
+#1 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Log/LogManager.php(124): Illuminate\\Log\\LogManager->get()
+#2 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Log/LogManager.php(665): Illuminate\\Log\\LogManager->driver()
+#3 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(317): Illuminate\\Log\\LogManager->error()
+#4 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(278): Illuminate\\Foundation\\Exceptions\\Handler->reportThrowable()
+#5 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(523): Illuminate\\Foundation\\Exceptions\\Handler->report()
+#6 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(203): Illuminate\\Foundation\\Console\\Kernel->reportException()
+#7 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle()
+#8 {main}
+"} 
+[2023-12-28 21:59:39] laravel.ERROR: syntax error, unexpected token ",", expecting ";" {"exception":"[object] (ParseError(code: 0): syntax error, unexpected token \",\", expecting \";\" at /home/pfonseca/devin/laravel/centro_ortopedico_php/config/filament.php:25)
+[stacktrace]
+#0 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/LoadConfiguration.php(39): Illuminate\\Foundation\\Bootstrap\\LoadConfiguration->loadConfigurationFiles()
+#1 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(263): Illuminate\\Foundation\\Bootstrap\\LoadConfiguration->bootstrap()
+#2 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(447): Illuminate\\Foundation\\Application->bootstrapWith()
+#3 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(199): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#4 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle()
+#5 {main}
+"} 
+[2024-01-02 13:20:38] local.ERROR: Class "DOMDocument" not found {"exception":"[object] (Error(code: 0): Class \"DOMDocument\" not found at /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/nunomaduro/termwind/src/HtmlRenderer.php:32)
+[stacktrace]
+#0 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/nunomaduro/termwind/src/HtmlRenderer.php(24): Termwind\\HtmlRenderer->parse()
+#1 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/nunomaduro/termwind/src/Functions.php(41): Termwind\\HtmlRenderer->render()
+#2 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Console/View/Components/Component.php(52): Termwind\\render()
+#3 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Console/View/Components/Line.php(49): Illuminate\\Console\\View\\Components\\Component->renderView()
+#4 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Console/View/Components/Info.php(18): Illuminate\\Console\\View\\Components\\Line->render()
+#5 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Console/View/Components/Factory.php(58): Illuminate\\Console\\View\\Components\\Info->render()
+#6 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Console/ServeCommand.php(243): Illuminate\\Console\\View\\Components\\Factory->__call()
+#7 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Collections/Traits/EnumeratesValues.php(240): Illuminate\\Foundation\\Console\\ServeCommand->Illuminate\\Foundation\\Console\\{closure}()
+#8 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Console/ServeCommand.php(237): Illuminate\\Support\\Collection->each()
+#9 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/symfony/process/Process.php(1274): Illuminate\\Foundation\\Console\\ServeCommand->Illuminate\\Foundation\\Console\\{closure}()
+#10 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/symfony/process/Process.php(1374): Symfony\\Component\\Process\\Process->Symfony\\Component\\Process\\{closure}()
+#11 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/symfony/process/Process.php(1294): Symfony\\Component\\Process\\Process->readPipes()
+#12 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/symfony/process/Process.php(838): Symfony\\Component\\Process\\Process->updateStatus()
+#13 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Console/ServeCommand.php(92): Symfony\\Component\\Process\\Process->isRunning()
+#14 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(36): Illuminate\\Foundation\\Console\\ServeCommand->handle()
+#15 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Container/Util.php(41): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#16 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(93): Illuminate\\Container\\Util::unwrapIfClosure()
+#17 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(35): Illuminate\\Container\\BoundMethod::callBoundMethod()
+#18 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Container/Container.php(662): Illuminate\\Container\\BoundMethod::call()
+#19 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Console/Command.php(211): Illuminate\\Container\\Container->call()
+#20 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/symfony/console/Command/Command.php(326): Illuminate\\Console\\Command->execute()
+#21 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Console/Command.php(180): Symfony\\Component\\Console\\Command\\Command->run()
+#22 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/symfony/console/Application.php(1096): Illuminate\\Console\\Command->run()
+#23 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/symfony/console/Application.php(324): Symfony\\Component\\Console\\Application->doRunCommand()
+#24 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/symfony/console/Application.php(175): Symfony\\Component\\Console\\Application->doRun()
+#25 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(201): Symfony\\Component\\Console\\Application->run()
+#26 /home/pfonseca/devin/laravel/centro_ortopedico_php/artisan(35): Illuminate\\Foundation\\Console\\Kernel->handle()
+#27 {main}
+"} 
+[2024-01-02 15:39:05] local.ERROR: Class "DOMDocument" not found {"exception":"[object] (Error(code: 0): Class \"DOMDocument\" not found at /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/nunomaduro/termwind/src/HtmlRenderer.php:32)
+[stacktrace]
+#0 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/nunomaduro/termwind/src/HtmlRenderer.php(24): Termwind\\HtmlRenderer->parse()
+#1 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/nunomaduro/termwind/src/Functions.php(41): Termwind\\HtmlRenderer->render()
+#2 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Console/View/Components/Component.php(52): Termwind\\render()
+#3 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Console/View/Components/Line.php(49): Illuminate\\Console\\View\\Components\\Component->renderView()
+#4 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Console/View/Components/Info.php(18): Illuminate\\Console\\View\\Components\\Line->render()
+#5 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Console/View/Components/Factory.php(58): Illuminate\\Console\\View\\Components\\Info->render()
+#6 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/filament/filament/src/Commands/MakeThemeCommand.php(92): Illuminate\\Console\\View\\Components\\Factory->__call()
+#7 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(36): Filament\\Commands\\MakeThemeCommand->handle()
+#8 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Container/Util.php(41): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#9 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(93): Illuminate\\Container\\Util::unwrapIfClosure()
+#10 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(35): Illuminate\\Container\\BoundMethod::callBoundMethod()
+#11 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Container/Container.php(662): Illuminate\\Container\\BoundMethod::call()
+#12 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Console/Command.php(211): Illuminate\\Container\\Container->call()
+#13 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/symfony/console/Command/Command.php(326): Illuminate\\Console\\Command->execute()
+#14 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Console/Command.php(180): Symfony\\Component\\Console\\Command\\Command->run()
+#15 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/symfony/console/Application.php(1096): Illuminate\\Console\\Command->run()
+#16 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/symfony/console/Application.php(324): Symfony\\Component\\Console\\Application->doRunCommand()
+#17 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/symfony/console/Application.php(175): Symfony\\Component\\Console\\Application->doRun()
+#18 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(201): Symfony\\Component\\Console\\Application->run()
+#19 /home/pfonseca/devin/laravel/centro_ortopedico_php/artisan(35): Illuminate\\Foundation\\Console\\Kernel->handle()
+#20 {main}
+"} 
+[2024-01-02 15:41:38] local.ERROR: Class "DOMDocument" not found {"exception":"[object] (Error(code: 0): Class \"DOMDocument\" not found at /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/nunomaduro/termwind/src/HtmlRenderer.php:32)
+[stacktrace]
+#0 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/nunomaduro/termwind/src/HtmlRenderer.php(24): Termwind\\HtmlRenderer->parse()
+#1 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/nunomaduro/termwind/src/Functions.php(41): Termwind\\HtmlRenderer->render()
+#2 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Console/View/Components/Component.php(52): Termwind\\render()
+#3 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Console/View/Components/Line.php(49): Illuminate\\Console\\View\\Components\\Component->renderView()
+#4 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Console/View/Components/Info.php(18): Illuminate\\Console\\View\\Components\\Line->render()
+#5 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Console/View/Components/Factory.php(58): Illuminate\\Console\\View\\Components\\Info->render()
+#6 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Console/PackageDiscoverCommand.php(34): Illuminate\\Console\\View\\Components\\Factory->__call()
+#7 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(36): Illuminate\\Foundation\\Console\\PackageDiscoverCommand->handle()
+#8 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Container/Util.php(41): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#9 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(93): Illuminate\\Container\\Util::unwrapIfClosure()
+#10 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(35): Illuminate\\Container\\BoundMethod::callBoundMethod()
+#11 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Container/Container.php(662): Illuminate\\Container\\BoundMethod::call()
+#12 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Console/Command.php(211): Illuminate\\Container\\Container->call()
+#13 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/symfony/console/Command/Command.php(326): Illuminate\\Console\\Command->execute()
+#14 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Console/Command.php(180): Symfony\\Component\\Console\\Command\\Command->run()
+#15 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/symfony/console/Application.php(1096): Illuminate\\Console\\Command->run()
+#16 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/symfony/console/Application.php(324): Symfony\\Component\\Console\\Application->doRunCommand()
+#17 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/symfony/console/Application.php(175): Symfony\\Component\\Console\\Application->doRun()
+#18 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(201): Symfony\\Component\\Console\\Application->run()
+#19 /home/pfonseca/devin/laravel/centro_ortopedico_php/artisan(35): Illuminate\\Foundation\\Console\\Kernel->handle()
+#20 {main}
+"} 
+[2024-01-02 15:41:51] local.ERROR: Class "DOMDocument" not found {"exception":"[object] (Error(code: 0): Class \"DOMDocument\" not found at /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/nunomaduro/termwind/src/HtmlRenderer.php:32)
+[stacktrace]
+#0 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/nunomaduro/termwind/src/HtmlRenderer.php(24): Termwind\\HtmlRenderer->parse()
+#1 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/nunomaduro/termwind/src/Functions.php(41): Termwind\\HtmlRenderer->render()
+#2 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Console/View/Components/Component.php(52): Termwind\\render()
+#3 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Console/View/Components/Line.php(49): Illuminate\\Console\\View\\Components\\Component->renderView()
+#4 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Console/View/Components/Info.php(18): Illuminate\\Console\\View\\Components\\Line->render()
+#5 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Console/View/Components/Factory.php(58): Illuminate\\Console\\View\\Components\\Info->render()
+#6 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Console/PackageDiscoverCommand.php(34): Illuminate\\Console\\View\\Components\\Factory->__call()
+#7 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(36): Illuminate\\Foundation\\Console\\PackageDiscoverCommand->handle()
+#8 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Container/Util.php(41): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#9 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(93): Illuminate\\Container\\Util::unwrapIfClosure()
+#10 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(35): Illuminate\\Container\\BoundMethod::callBoundMethod()
+#11 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Container/Container.php(662): Illuminate\\Container\\BoundMethod::call()
+#12 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Console/Command.php(211): Illuminate\\Container\\Container->call()
+#13 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/symfony/console/Command/Command.php(326): Illuminate\\Console\\Command->execute()
+#14 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Console/Command.php(180): Symfony\\Component\\Console\\Command\\Command->run()
+#15 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/symfony/console/Application.php(1096): Illuminate\\Console\\Command->run()
+#16 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/symfony/console/Application.php(324): Symfony\\Component\\Console\\Application->doRunCommand()
+#17 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/symfony/console/Application.php(175): Symfony\\Component\\Console\\Application->doRun()
+#18 /home/pfonseca/devin/laravel/centro_ortopedico_php/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(201): Symfony\\Component\\Console\\Application->run()
+#19 /home/pfonseca/devin/laravel/centro_ortopedico_php/artisan(35): Illuminate\\Foundation\\Console\\Kernel->handle()
+#20 {main}
+"} 
