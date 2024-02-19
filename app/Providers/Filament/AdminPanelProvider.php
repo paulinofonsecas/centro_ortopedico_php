@@ -2,7 +2,6 @@
 
 namespace App\Providers\Filament;
 
-use App\Filament\Pages\Auth\EditProfiles;
 use App\Filament\Pages\dashboards\admin\AdminDashboard;
 use App\Filament\Resources\AdministradorResource;
 use App\Filament\Resources\ConsultaResource;
@@ -51,7 +50,7 @@ class AdminPanelProvider extends PanelProvider
             ->authMiddleware([CheckAdminPanel::class])
             ->path('/admin')
             ->profile(EditProfile::class)
-            ->viteTheme('resources/css/filament/admin/theme.css')
+            // ->viteTheme('resources/css/filament/admin/theme.css')
             ->colors([
                 'primary' => Color::Red,
             ])
