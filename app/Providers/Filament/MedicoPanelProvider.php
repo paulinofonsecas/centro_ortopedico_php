@@ -8,8 +8,8 @@ use App\Filament\Medico\Resources\ConsultorioResource;
 use App\Filament\Medico\Resources\FichaAvaliacaoResource;
 use App\Filament\Medico\Resources\PacienteResource;
 use App\Filament\Medico\Resources\TratamentoResource;
-use App\Filament\Pages\dashboards\medico\MedicoDashboard;
-use App\Filament\Pages\dashboards\medico\widgets\StatsOverview;
+use App\Filament\Pages\Dashboards\Medico\MedicoDashboard;
+use App\Filament\Pages\Dashboards\Medico\Widgets\StatsOverview;
 use App\Http\Middleware\CheckMedicoPanel;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\DisableBladeIconComponents;
@@ -72,7 +72,7 @@ class MedicoPanelProvider extends PanelProvider
             ->pages([
                 MedicoDashboard::class,
             ])
-            ->discoverWidgets(in: app_path('Filament/medico/Widgets'), for: 'App\\Filament\\Medico\\Widgets')
+            ->discoverWidgets(in: app_path('Filament/medico/Widgets'), for: 'App\\Filament\\Pages\\Dashboards\\Medico\\Widgets')
             ->widgets([
                 Widgets\AccountWidget::class,
 

@@ -75,7 +75,7 @@
     <?php else: ?>
         <?php echo e($content()); ?>
 
-    <?php endif; ?> <!--[if ENDBLOCK]><![endif]-->
+    <?php endif; ?><!--[if ENDBLOCK]><![endif]-->
  <?php echo $__env->renderComponent(); ?>
 <?php endif; ?>
 <?php if (isset($__attributesOriginal511d4862ff04963c3c16115c05a86a9d)): ?>

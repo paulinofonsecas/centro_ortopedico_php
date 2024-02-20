@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Filament\Pages\dashboards\medico\widgets;
+namespace App\Filament\Pages\Dashboards\Admin\Widgets;
 
 use App\Models\Consulta;
 use App\Models\Doacao;
@@ -32,7 +32,7 @@ class StatsOverview extends BaseWidget
                 ->chart($pacientes)
                 ->color(Color::Pink),
 
-            Stat::make('Consultas marcadas', Consulta::where('estado_consulta_id', EstadoConsulta::CONCLUIDA)->count())
+            Stat::make('Consultas', Consulta::where('estado_consulta_id', EstadoConsulta::CONCLUIDA)->count())
                 ->description($consultas[$diaDeHoje] . ' hoje')
                 ->descriptionIcon('heroicon-m-arrow-trending-up')
                 ->chart($consultas)

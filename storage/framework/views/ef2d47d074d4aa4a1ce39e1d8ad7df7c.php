@@ -161,7 +161,7 @@
             <?php echo e($trigger); ?>
 
         </div>
-    <?php endif; ?> <!--[if ENDBLOCK]><![endif]-->
+    <?php endif; ?><!--[if ENDBLOCK]><![endif]-->
 
     <div x-cloak x-show="isOpen">
         <div
@@ -292,7 +292,7 @@
 <?php unset($__componentOriginalf0029cce6d19fd6d472097ff06a800a1); ?>
 <?php endif; ?>
                                 </div>
-                            <?php endif; ?> <!--[if ENDBLOCK]><![endif]-->
+                            <?php endif; ?><!--[if ENDBLOCK]><![endif]-->
 
                             <!--[if BLOCK]><![endif]--><?php if($header): ?>
                                 <?php echo e($header); ?>
@@ -359,7 +359,7 @@
 <?php endif; ?>
                                         </div>
                                     </div>
-                                <?php endif; ?> <!--[if ENDBLOCK]><![endif]-->
+                                <?php endif; ?><!--[if ENDBLOCK]><![endif]-->
 
                                 <div
                                     class="<?php echo \Illuminate\Support\Arr::toCssClasses([
@@ -412,11 +412,11 @@
 <?php $component = $__componentOriginal97b96faab0e6cbb838ae7fea15042b0e; ?>
 <?php unset($__componentOriginal97b96faab0e6cbb838ae7fea15042b0e); ?>
 <?php endif; ?>
-                                    <?php endif; ?> <!--[if ENDBLOCK]><![endif]-->
+                                    <?php endif; ?><!--[if ENDBLOCK]><![endif]-->
                                 </div>
-                            <?php endif; ?> <!--[if ENDBLOCK]><![endif]-->
+                            <?php endif; ?><!--[if ENDBLOCK]><![endif]-->
                         </div>
-                    <?php endif; ?> <!--[if ENDBLOCK]><![endif]-->
+                    <?php endif; ?><!--[if ENDBLOCK]><![endif]-->
 
                     <!--[if BLOCK]><![endif]--><?php if(! \Filament\Support\is_slot_empty($slot)): ?>
                         <div
@@ -430,7 +430,7 @@
                             <?php echo e($slot); ?>
 
                         </div>
-                    <?php endif; ?> <!--[if ENDBLOCK]><![endif]-->
+                    <?php endif; ?><!--[if ENDBLOCK]><![endif]-->
 
                     <!--[if BLOCK]><![endif]--><?php if((! \Filament\Support\is_slot_empty($footer)) || (is_array($footerActions) && count($footerActions)) || (! is_array($footerActions) && (! \Filament\Support\is_slot_empty($footerActions)))): ?>
                         <div
@@ -464,15 +464,15 @@
                                         <!--[if BLOCK]><![endif]--><?php $__currentLoopData = $footerActions; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $action): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                             <?php echo e($action); ?>
 
-                                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?> <!--[if ENDBLOCK]><![endif]-->
+                                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?><!--[if ENDBLOCK]><![endif]-->
                                     <?php else: ?>
                                         <?php echo e($footerActions); ?>
 
-                                    <?php endif; ?> <!--[if ENDBLOCK]><![endif]-->
+                                    <?php endif; ?><!--[if ENDBLOCK]><![endif]-->
                                 </div>
-                            <?php endif; ?> <!--[if ENDBLOCK]><![endif]-->
+                            <?php endif; ?><!--[if ENDBLOCK]><![endif]-->
                         </div>
-                    <?php endif; ?> <!--[if ENDBLOCK]><![endif]-->
+                    <?php endif; ?><!--[if ENDBLOCK]><![endif]-->
                 </div>
             </div>
         </div>

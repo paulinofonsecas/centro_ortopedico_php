@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Filament\pages\dashboards\admin\widgets;
+namespace App\Filament\Pages\Dashboards\Tecnico\Widgets;
 
 use App\Models\Consulta;
 use App\Models\Doacao;
@@ -20,7 +20,7 @@ class StatsOverview extends BaseWidget
         $consultas = $this->getDados('consultas');
         $doacoes = $this->getDados('doacaos');
 
-        ds($consultas);
+        // ds($consultas);
 
         //recuperar o dia atual da semana
         $diaDeHoje = now()->dayOfWeek;
@@ -32,7 +32,7 @@ class StatsOverview extends BaseWidget
                 ->chart($pacientes)
                 ->color(Color::Pink),
 
-            Stat::make('Consultas', Consulta::where('estado_consulta_id', EstadoConsulta::CONCLUIDA)->count())
+            Stat::make('Consultas marcadas', Consulta::where('estado_consulta_id', EstadoConsulta::CONCLUIDA)->count())
                 ->description($consultas[$diaDeHoje] . ' hoje')
                 ->descriptionIcon('heroicon-m-arrow-trending-up')
                 ->chart($consultas)

@@ -69,6 +69,6 @@
 <?php $component = $__componentOriginal028e05680f6c5b1e293abd7fbe5f9758; ?>
 <?php unset($__componentOriginal028e05680f6c5b1e293abd7fbe5f9758); ?>
 <?php endif; ?>
-    <?php endif; ?> <!--[if ENDBLOCK]><![endif]-->
+    <?php endif; ?><!--[if ENDBLOCK]><![endif]-->
 </div>
 <?php /**PATH /var/www/html/vendor/filament/filament/src/../resources/views/components/page/simple.blade.php ENDPATH**/ ?>

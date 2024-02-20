@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Filament\Pages\dashboards\admin;
+namespace App\Filament\Pages\Dashboards\Admin;
 
-use App\Filament\Pages\dashboards\admin\widgets\ConsultasChart;
-use App\Filament\Pages\dashboards\admin\widgets\ControlUsuariosStatsOverview;
-use App\Filament\Pages\dashboards\admin\widgets\StatsOverview;
+use App\Filament\Pages\Dashboards\Admin\Widgets\ConsultasChart;
+use App\Filament\Pages\Dashboards\Admin\Widgets\ControlUsuariosStatsOverview;
+use App\Filament\Pages\Dashboards\Admin\Widgets\StatsOverview;
 use Filament\Pages\Dashboard as BasePage;
 
 class AdminDashboard extends BasePage
@@ -18,8 +18,8 @@ class AdminDashboard extends BasePage
     {
         return [
             StatsOverview::class,
-            // ControlUsuariosStatsOverview::class,
-            // ConsultasChart::class,
+            ControlUsuariosStatsOverview::class,
+            ConsultasChart::class,
         ];
     }
 
