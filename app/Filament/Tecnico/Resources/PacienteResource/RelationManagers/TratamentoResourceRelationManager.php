@@ -3,6 +3,8 @@
 namespace App\Filament\Tecnico\Resources\PacienteResource\RelationManagers;
 
 use App\Filament\Tecnico\Resources\TratamentoResource;
+use App\Models\Paciente;
+use App\Models\TipoTratamento;
 use App\Models\Tratamento;
 use Filament\Forms;
 use Filament\Forms\Form;
@@ -19,9 +21,25 @@ class TratamentoResourceRelationManager extends RelationManager
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('paciente_id')
-                    ->required()
-                    ->maxLength(255),
+                Forms\Components\TextInput::make('paciente.nome_completo')
+                        ->label('Nome completo')
+                        ->required()
+                        ->maxLength(255),
+                Forms\Components\TextInput::make('tecnico.funcionario.user.name')
+                        ->label('Técnico')
+                        ->required()
+                        ->maxLength(255),
+                Forms\Components\TextInput::make('peso')
+                        ->label('Peso')
+                        ->required()
+                        ->maxLength(255),
+                Forms\Components\TextInput::make('ta')
+                        ->label('TA')
+                        ->required()
+                        ->maxLength(255),
+                Forms\Components\Textarea::make('observacoes')
+                    ->maxLength(6553)
+                    ->columnSpanFull(),
             ]);
     }
 
@@ -29,19 +47,34 @@ class TratamentoResourceRelationManager extends RelationManager
     {
         return $table
             ->recordTitleAttribute('paciente_id')
-            ->defaultSort('data', 'desc')
+            ->defaultSort('created_at', 'desc')
             ->columns([
-                Tables\Columns\TextColumn::make('hc')
-                    ->numeric()
+                Tables\Columns\TextColumn::make('paciente.nome_completo')
+                    ->label('Nome Paciente')
                     ->searchable()
                     ->sortable(),
-                Tables\Columns\TextColumn::make('medico.funcionario.user.name')
-                    ->label('Tratameto feito por')
+                Tables\Columns\TextColumn::make('tecnico.funcionario.user.name')
+                    ->label('Nome Tecnico')
                     ->searchable()
                     ->sortable(),
+                Tables\Columns\TextColumn::make('peso')
+                    ->label('Peso')
+                    ->searchable(),
+                Tables\Columns\TextColumn::make('ta')
+                    ->label('TA')
+                    ->searchable(),
                 Tables\Columns\TextColumn::make('tipoTratamento.nome')
-                    ->label('Tratameto feito')
+                    ->label('Tipo de tratamento')
                     ->sortable(),
+                Tables\Columns\TextColumn::make('created_at')
+                    ->dateTime('d/m/Y H:i')
+                    ->label('Data do tratamento')
+                    ->sortable()
+                    ->toggleable(),
+                Tables\Columns\TextColumn::make('updated_at')
+                    ->dateTime()
+                    ->sortable()
+                    ->toggleable(isToggledHiddenByDefault: true),
             ])
             ->headerActions([
                 Tables\Actions\Action::make('create')
@@ -49,40 +82,8 @@ class TratamentoResourceRelationManager extends RelationManager
                     ->icon('heroicon-o-plus')
                     ->url(TratamentoResource::getUrl('create'))
             ])
-            ->columns([
-
-                Tables\Columns\TextColumn::make('paciente.nome_completo')
-                    ->label('Nome Paciente')
-                    ->searchable()
-                    ->sortable(),
-                Tables\Columns\TextColumn::make('medico.funcionario.user.name')
-                    ->label('Nome Médico')
-                    ->searchable()
-                    ->sortable(),
-                Tables\Columns\TextColumn::make('tipoTratamento.nome')
-                    ->label('Tipo de tratamento')
-                    ->sortable(),
-                Tables\Columns\TextColumn::make('data')
-                    ->dateTime('d/m/Y H:i')
-                    ->searchable()
-                    ->sortable(),
-                Tables\Columns\TextColumn::make('sessoes')
-                    ->label('Sessões')
-                    ->numeric()
-                    ->sortable(),
-                Tables\Columns\TextColumn::make('created_at')
-                    ->dateTime()
-                    ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
-                Tables\Columns\TextColumn::make('updated_at')
-                    ->dateTime()
-                    ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
-            ])
             ->filters([])
             ->actions([
-                // Tables\Actions\ViewAction::make()
-                //     ->url(fn (Tratamento $record): string => TratamentoResource::getUrl('view', [$record])),
             ]);
     }
 

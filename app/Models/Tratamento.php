@@ -17,9 +17,9 @@ class Tratamento extends Model
             ->logAll();
     }
 
-    public function medico()
+    public function tecnico()
     {
-        return $this->belongsTo(Medico::class);
+        return $this->belongsTo(Tecnico::class);
     }
 
     public function paciente()
@@ -27,7 +27,7 @@ class Tratamento extends Model
         return $this->belongsTo(Paciente::class);
     }
 
-    public function tipoTratamento() 
+    public function tipoTratamento()
     {
         return $this->belongsTo(TipoTratamento::class);
     }

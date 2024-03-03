@@ -13,14 +13,12 @@ return new class extends Migration
     {
         Schema::create('tratamentos', function (Blueprint $table) {
             $table->id();
-            $table->integer('hc')->nullable();
-            $table->dateTime('data');
-            $table->integer('sessoes');
-            $table->text('observacoes')->nullable();
             $table->string('ta');
-            $table->foreignId('paciente_id')->constrained('pacientes');
-            $table->foreignId('medico_id')->constrained('medicos');
+            $table->double('peso');
             $table->foreignId('tipo_tratamento_id')->constrained('tipo_tratamentos');
+            $table->foreignId('paciente_id')->constrained('pacientes');
+            $table->foreignId('tecnico_id')->constrained('tecnicos');
+            $table->text('observacoes')->nullable();
             $table->timestamps();
         });
     }

@@ -34,19 +34,23 @@ class TratamentoResource extends Resource
                 \Filament\Infolists\Components\Section::make('Informações do tratamento')
                     ->collapsible()
                     ->schema([
-                        TextEntry::make('hc')
-                            ->label('HC')
-                            ->size(TextEntry\TextEntrySize::Large)
-                            ->numeric(),
-                        TextEntry::make('data')
-                            ->label('Data do tratamento')
-                            ->size(TextEntry\TextEntrySize::Large)
-                            ->dateTime('d/m/Y H:i'),
-                        TextEntry::make('medico.funcionario.user.name')
-                            ->label('Médico')
+                        TextEntry::make('tecnico.funcionario.user.name')
+                            ->label('Técnico')
                             ->size(TextEntry\TextEntrySize::Large),
                         TextEntry::make('tipoTratamento.nome')
                             ->label('Tipo de tratamento')
+                            ->size(TextEntry\TextEntrySize::Large),
+                        TextEntry::make('peso')
+                            ->label('Peso')
+                            ->size(TextEntry\TextEntrySize::Large),
+                        TextEntry::make('ta')
+                            ->label('TA')
+                            ->size(TextEntry\TextEntrySize::Large),
+                        TextEntry::make('created_at')
+                            ->label('Data do tratamento')
+                            ->size(TextEntry\TextEntrySize::Large),
+                        TextEntry::make('updated_at')
+                            ->label('Data da ultima atualização')
                             ->size(TextEntry\TextEntrySize::Large),
                     ])->columns(2),
                 \Filament\Infolists\Components\Section::make('Informações do paciente')
@@ -91,12 +95,6 @@ class TratamentoResource extends Resource
     {
         return $form
             ->schema([
-
-                Forms\Components\TextInput::make('hc')
-                    ->label('HC')
-                    ->numeric(),
-
-
                 Forms\Components\Select::make('paciente_id')
                     ->label('Paciente')
                     ->options(Paciente::all()->pluck('nome_completo', 'id'))
@@ -107,23 +105,16 @@ class TratamentoResource extends Resource
                     ->options(TipoTratamento::all()->pluck('nome', 'id'))
                     ->required()
                     ->searchable(),
-                Forms\Components\DateTimePicker::make('data')
-                    ->label('Data e hora')
-
-
-                    ->default(DateTime::createFromFormat('d/m/Y H:i', now()))
-
-                    ->required(),
-                Forms\Components\TextInput::make('sessoes')
-                    ->label('Sessões')
-                    ->required()
-                    ->numeric(),
+                Forms\Components\TextInput::make('peso')
+                        ->label('Peso')
+                        ->required()
+                        ->maxLength(255),
                 Forms\Components\TextInput::make('ta')
                         ->label('TA')
                         ->required()
                         ->maxLength(255),
                 Forms\Components\Textarea::make('observacoes')
-                    ->maxLength(65535)
+                    ->maxLength(6553)
                     ->columnSpanFull(),
             ]);
     }
@@ -132,42 +123,28 @@ class TratamentoResource extends Resource
     {
         return $table
             ->columns([
-
-                Tables\Columns\TextColumn::make('hc')
-                    ->numeric()
-                    ->sortable(),
-
-
                 Tables\Columns\TextColumn::make('paciente.nome_completo')
                     ->label('Nome Paciente')
                     ->searchable()
                     ->sortable(),
-                Tables\Columns\TextColumn::make('medico.funcionario.user.name')
-                    ->label('Nome Médico')
+                Tables\Columns\TextColumn::make('tecnico.funcionario.user.name')
+                    ->label('Nome Tecnico')
                     ->searchable()
                     ->sortable(),
-                Tables\Columns\TextColumn::make('tipoTratamento.nome')
-                    ->label('Tipo de tratamento')
-                    ->sortable(),
-                Tables\Columns\TextColumn::make('data')
-                    ->dateTime('d/m/Y H:i')
-
-
-                    ->label('Data do tratamento')
-
-                    ->searchable()
-                    ->sortable(),
-                Tables\Columns\TextColumn::make('sessoes')
-                    ->label('Sessões')
-                    ->numeric()
-                    ->sortable(),
+                Tables\Columns\TextColumn::make('peso')
+                    ->label('Peso')
+                    ->searchable(),
                 Tables\Columns\TextColumn::make('ta')
                     ->label('TA')
                     ->searchable(),
+                Tables\Columns\TextColumn::make('tipoTratamento.nome')
+                    ->label('Tipo de tratamento')
+                    ->sortable(),
                 Tables\Columns\TextColumn::make('created_at')
-                    ->dateTime()
+                    ->dateTime('d/m/Y H:i')
+                    ->label('Data do tratamento')
                     ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
+                    ->toggleable(),
                 Tables\Columns\TextColumn::make('updated_at')
                     ->dateTime()
                     ->sortable()
@@ -185,11 +162,8 @@ class TratamentoResource extends Resource
                 ]),
             ])
             ->emptyStateActions([
-
-                // Tables\Actions\CreateAction::make(),
-
-                // Tables\Actions\CreateAction::make(),
-
+                Tables\Actions\CreateAction::make()
+                    ->label('Registar tratamento'),
             ]);
     }
 
