@@ -16,9 +16,14 @@ class ConsultasDeHoje extends BaseWidget
     protected int|string|array $columnSpan = 'full';
     public function table(Table $table): Table
     {
+        $list = Consulta::all();
+        if ($list->isEmpty()) {
+            $list = null;
+        }
+
         return $table
             ->query(
-                Consulta::all()->toQuery()
+                $list->toQuery()
             )
             ->filters([
                     Filter::make('para_mim')
