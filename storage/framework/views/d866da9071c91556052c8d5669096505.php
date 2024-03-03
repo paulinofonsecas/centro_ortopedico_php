@@ -139,7 +139,7 @@
             <!--[if BLOCK]><![endif]--><?php if(! $isHidden): ?>
                 <?php echo e($formComponent); ?>
 
-            <?php endif; ?> <!--[if ENDBLOCK]><![endif]-->
+            <?php endif; ?><!--[if ENDBLOCK]><![endif]-->
          <?php echo $__env->renderComponent(); ?>
 <?php endif; ?>
 <?php if (isset($__attributesOriginal6f9d0ad23f77111c926012ad6ce09333)): ?>
@@ -150,7 +150,7 @@
 <?php $component = $__componentOriginal6f9d0ad23f77111c926012ad6ce09333; ?>
 <?php unset($__componentOriginal6f9d0ad23f77111c926012ad6ce09333); ?>
 <?php endif; ?>
-    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?> <!--[if ENDBLOCK]><![endif]-->
+    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?><!--[if ENDBLOCK]><![endif]-->
  <?php echo $__env->renderComponent(); ?>
 <?php endif; ?>
 <?php if (isset($__attributesOriginal30dbd75eb120a380110a2b340cd88f46)): ?>

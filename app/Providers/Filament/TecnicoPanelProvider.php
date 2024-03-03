@@ -3,8 +3,8 @@
 namespace App\Providers\Filament;
 
 use App\Filament\Login\CustomLoginPage;
-use App\Filament\Pages\dashboards\tecnico\TecnicoDashboard;
-use App\Filament\Pages\dashboards\tecnico\widgets\StatsOverview;
+use App\Filament\Pages\Dashboards\Tecnico\TecnicoDashboard;
+use App\Filament\Pages\Dashboards\Tecnico\Widgets\StatsOverview;
 use App\Filament\Tecnico\Resources\DoacaoResource;
 use App\Filament\Tecnico\Resources\PacienteResource;
 use App\Filament\Tecnico\Resources\UtenteResource;

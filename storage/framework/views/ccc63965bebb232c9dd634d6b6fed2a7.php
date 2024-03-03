@@ -24,7 +24,7 @@
         <!--[if BLOCK]><![endif]--><?php $__currentLoopData = $notifications; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $notification): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
             <?php echo e($notification); ?>
 
-        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?> <!--[if ENDBLOCK]><![endif]-->
+        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?><!--[if ENDBLOCK]><![endif]-->
     </div>
 
     <!--[if BLOCK]><![endif]--><?php if($broadcastChannel = $this->getBroadcastChannel()): ?>
@@ -48,6 +48,6 @@
 <?php $component = $__componentOriginal40a2401e895531715a66e1631dec94aa; ?>
 <?php unset($__componentOriginal40a2401e895531715a66e1631dec94aa); ?>
 <?php endif; ?>
-    <?php endif; ?> <!--[if ENDBLOCK]><![endif]-->
+    <?php endif; ?><!--[if ENDBLOCK]><![endif]-->
 </div>
 <?php /**PATH /var/www/html/vendor/filament/notifications/src/../resources/views/notifications.blade.php ENDPATH**/ ?>

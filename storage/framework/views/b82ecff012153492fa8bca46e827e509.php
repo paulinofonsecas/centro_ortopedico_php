@@ -50,11 +50,11 @@
                 <?php elseif($this->mountedActionHasForm()): ?>
                     <?php echo e($this->getMountedActionForm()); ?>
 
-                <?php endif; ?> <!--[if ENDBLOCK]><![endif]-->
+                <?php endif; ?><!--[if ENDBLOCK]><![endif]-->
 
                 <?php echo e($action->getModalContentFooter()); ?>
 
-            <?php endif; ?> <!--[if ENDBLOCK]><![endif]-->
+            <?php endif; ?><!--[if ENDBLOCK]><![endif]-->
          <?php echo $__env->renderComponent(); ?>
 <?php endif; ?>
 <?php if (isset($__attributesOriginal0942a211c37469064369f887ae8d1cef)): ?>
@@ -70,7 +70,7 @@
     <?php
         $this->hasActionsModalRendered = true;
     ?>
-<?php endif; ?> <!--[if ENDBLOCK]><![endif]-->
+<?php endif; ?><!--[if ENDBLOCK]><![endif]-->
 
 <!--[if BLOCK]><![endif]--><?php if($this instanceof \Filament\Tables\Contracts\HasTable && (! $this->hasTableModalRendered)): ?>
     <form wire:submit.prevent="callMountedTableAction">
@@ -124,11 +124,11 @@
                 <?php elseif($this->mountedTableActionHasForm()): ?>
                     <?php echo e($this->getMountedTableActionForm()); ?>
 
-                <?php endif; ?> <!--[if ENDBLOCK]><![endif]-->
+                <?php endif; ?><!--[if ENDBLOCK]><![endif]-->
 
                 <?php echo e($action->getModalContentFooter()); ?>
 
-            <?php endif; ?> <!--[if ENDBLOCK]><![endif]-->
+            <?php endif; ?><!--[if ENDBLOCK]><![endif]-->
          <?php echo $__env->renderComponent(); ?>
 <?php endif; ?>
 <?php if (isset($__attributesOriginal0942a211c37469064369f887ae8d1cef)): ?>
@@ -192,11 +192,11 @@
                 <?php elseif($this->mountedTableBulkActionHasForm()): ?>
                     <?php echo e($this->getMountedTableBulkActionForm()); ?>
 
-                <?php endif; ?> <!--[if ENDBLOCK]><![endif]-->
+                <?php endif; ?><!--[if ENDBLOCK]><![endif]-->
 
                 <?php echo e($action->getModalContentFooter()); ?>
 
-            <?php endif; ?> <!--[if ENDBLOCK]><![endif]-->
+            <?php endif; ?><!--[if ENDBLOCK]><![endif]-->
          <?php echo $__env->renderComponent(); ?>
 <?php endif; ?>
 <?php if (isset($__attributesOriginal0942a211c37469064369f887ae8d1cef)): ?>
@@ -212,7 +212,7 @@
     <?php
         $this->hasTableModalRendered = true;
     ?>
-<?php endif; ?> <!--[if ENDBLOCK]><![endif]-->
+<?php endif; ?><!--[if ENDBLOCK]><![endif]-->
 
 <!--[if BLOCK]><![endif]--><?php if($this instanceof \Filament\Infolists\Contracts\HasInfolists && (! $this->hasInfolistsModalRendered)): ?>
     <form wire:submit.prevent="callMountedInfolistAction">
@@ -266,11 +266,11 @@
                 <?php elseif($this->mountedInfolistActionHasForm()): ?>
                     <?php echo e($this->getMountedInfolistActionForm()); ?>
 
-                <?php endif; ?> <!--[if ENDBLOCK]><![endif]-->
+                <?php endif; ?><!--[if ENDBLOCK]><![endif]-->
 
                 <?php echo e($action->getModalContentFooter()); ?>
 
-            <?php endif; ?> <!--[if ENDBLOCK]><![endif]-->
+            <?php endif; ?><!--[if ENDBLOCK]><![endif]-->
          <?php echo $__env->renderComponent(); ?>
 <?php endif; ?>
 <?php if (isset($__attributesOriginal0942a211c37469064369f887ae8d1cef)): ?>
@@ -286,7 +286,7 @@
     <?php
         $this->hasInfolistsModalRendered = true;
     ?>
-<?php endif; ?> <!--[if ENDBLOCK]><![endif]-->
+<?php endif; ?><!--[if ENDBLOCK]><![endif]-->
 
 <!--[if BLOCK]><![endif]--><?php if(! $this->hasFormsModalRendered): ?>
     <?php
@@ -328,11 +328,11 @@
                 <?php elseif($this->mountedFormComponentActionHasForm()): ?>
                     <?php echo e($this->getMountedFormComponentActionForm()); ?>
 
-                <?php endif; ?> <!--[if ENDBLOCK]><![endif]-->
+                <?php endif; ?><!--[if ENDBLOCK]><![endif]-->
 
                 <?php echo e($action->getModalContentFooter()); ?>
 
-            <?php endif; ?> <!--[if ENDBLOCK]><![endif]-->
+            <?php endif; ?><!--[if ENDBLOCK]><![endif]-->
          <?php echo $__env->renderComponent(); ?>
 <?php endif; ?>
 <?php if (isset($__attributesOriginal0942a211c37469064369f887ae8d1cef)): ?>
@@ -348,5 +348,5 @@
     <?php
         $this->hasFormsModalRendered = true;
     ?>
-<?php endif; ?> <!--[if ENDBLOCK]><![endif]-->
+<?php endif; ?><!--[if ENDBLOCK]><![endif]-->
 <?php /**PATH /var/www/html/vendor/filament/actions/src/../resources/views/components/modals.blade.php ENDPATH**/ ?>

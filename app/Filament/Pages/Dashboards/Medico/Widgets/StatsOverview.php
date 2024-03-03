@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Filament\pages\dashboards\tecnico\widgets;
+namespace App\Filament\Pages\Dashboards\Medico\Widgets;
 
 use App\Models\Consulta;
 use App\Models\Doacao;
@@ -20,7 +20,7 @@ class StatsOverview extends BaseWidget
         $consultas = $this->getDados('consultas');
         $doacoes = $this->getDados('doacaos');
 
-        // ds($consultas);
+        ds($consultas);
 
         //recuperar o dia atual da semana
         $diaDeHoje = now()->dayOfWeek;

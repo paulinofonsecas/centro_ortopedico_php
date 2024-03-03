@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Filament\pages\dashboards\tecnico;
+namespace App\Filament\Pages\Dashboards\Tecnico;
 
-use App\Filament\pages\dashboards\tecnico\widgets\StatsOverview;
+use App\Filament\Pages\Dashboards\Tecnico\widgets\StatsOverview;
 use Filament\Pages\Dashboard as BasePage;
 
 class TecnicoDashboard extends BasePage {

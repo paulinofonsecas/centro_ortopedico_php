@@ -2,8 +2,10 @@
 
 namespace App\Providers\Filament;
 
-use App\Filament\Pages\Auth\EditProfiles;
-use App\Filament\Pages\dashboards\admin\AdminDashboard;
+use App\Filament\Pages\Dashboards\Admin\AdminDashboard;
+use App\Filament\Pages\Dashboards\Admin\Widgets\ConsultasChart;
+use App\Filament\Pages\Dashboards\Admin\Widgets\ControlUsuariosStatsOverview;
+use App\Filament\Pages\Dashboards\Admin\Widgets\StatsOverview;
 use App\Filament\Resources\AdministradorResource;
 use App\Filament\Resources\ConsultaResource;
 use App\Filament\Resources\ConsultorioResource;
@@ -37,6 +39,8 @@ use Illuminate\Routing\Middleware\SubstituteBindings;
 use Illuminate\Session\Middleware\AuthenticateSession;
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
+use Leandrocfe\FilamentApexCharts\Facades\FilamentApexCharts;
+use Leandrocfe\FilamentApexCharts\FilamentApexChartsPlugin;
 use Rmsramos\Activitylog\ActivitylogPlugin;
 use Rmsramos\Activitylog\Resources\ActivitylogResource;
 
@@ -51,7 +55,7 @@ class AdminPanelProvider extends PanelProvider
             ->authMiddleware([CheckAdminPanel::class])
             ->path('/admin')
             ->profile(EditProfile::class)
-            ->viteTheme('resources/css/filament/admin/theme.css')
+            // ->viteTheme('resources/css/filament/admin/theme.css')
             ->colors([
                 'primary' => Color::Red,
             ])
@@ -98,13 +102,15 @@ class AdminPanelProvider extends PanelProvider
                     ]);
             })
             ->discoverResources(in: app_path('Filament/Resources'), for: 'App\\Filament\\Resources')
-            ->discoverPages(in: app_path('Filament/Pages'), for: 'App\\Filament\\Pages\\dashboards\\admin')
+            ->discoverPages(in: app_path('Filament/Pages'), for: 'App\\Filament\\Pages\\Dashboards\\Admin')
             ->pages([
                 AdminDashboard::class,
             ])
-            ->discoverWidgets(in: app_path('Filament/Widgets'), for: 'App\\Filament\\Widgets')
+            ->discoverWidgets(in: app_path('Filament/App/Widgets'), for: 'App\\Filament\\Pages\\Dashboards\\Admin\\Widgets')
             ->widgets([
-                // Widgets\AccountWidget::class,
+                StatsOverview::class,
+                ConsultasChart::class,
+                ControlUsuariosStatsOverview::class,
             ])
             ->middleware([
                 EncryptCookies::class,
@@ -122,6 +128,7 @@ class AdminPanelProvider extends PanelProvider
             ->sidebarCollapsibleOnDesktop()
             ->plugins([
                 ActivitylogPlugin::make(),
+                FilamentApexChartsPlugin::make(),
             ]);;
     }
 }

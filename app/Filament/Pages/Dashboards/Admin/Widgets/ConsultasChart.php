@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Filament\Pages\dashboards\admin\widgets;
+namespace App\Filament\Pages\Dashboards\Admin\Widgets;
 
 use App\Models\EstadoConsulta;
 use Carbon\Carbon;
@@ -14,7 +14,7 @@ class ConsultasChart extends ApexChartWidget
      *
      * @var string
      */
-    protected static string $chartId = 'adminConsultasChart';
+    // protected static string $chartId = 'adminConsultasChart';
 
     protected static ?string $pollingInterval = null;
 

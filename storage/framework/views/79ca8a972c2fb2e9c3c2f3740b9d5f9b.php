@@ -46,7 +46,7 @@
 <?php $component = $__componentOriginalb501e8c73315a10eb0eb5fd14fda0d94; ?>
 <?php unset($__componentOriginalb501e8c73315a10eb0eb5fd14fda0d94); ?>
 <?php endif; ?>
-    <?php endif; ?> <!--[if ENDBLOCK]><![endif]-->
+    <?php endif; ?><!--[if ENDBLOCK]><![endif]-->
 
     <!--[if BLOCK]><![endif]--><?php if(filled($heading)): ?>
         <h1
@@ -55,7 +55,7 @@
             <?php echo e($heading); ?>
 
         </h1>
-    <?php endif; ?> <!--[if ENDBLOCK]><![endif]-->
+    <?php endif; ?><!--[if ENDBLOCK]><![endif]-->
 
     <!--[if BLOCK]><![endif]--><?php if(filled($subheading)): ?>
         <p
@@ -64,6 +64,6 @@
             <?php echo e($subheading); ?>
 
         </p>
-    <?php endif; ?> <!--[if ENDBLOCK]><![endif]-->
+    <?php endif; ?><!--[if ENDBLOCK]><![endif]-->
 </header>
 <?php /**PATH /var/www/html/vendor/filament/filament/src/../resources/views/components/header/simple.blade.php ENDPATH**/ ?>

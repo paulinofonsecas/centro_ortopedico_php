@@ -19,8 +19,6 @@ use Filament\Tables;
 use Filament\Tables\Filters\Filter;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Support\Facades\Session
-;
 
 class ConsultaResource extends Resource
 {
@@ -121,7 +119,7 @@ class ConsultaResource extends Resource
 
                                 return $result;
                             }),
-                        
+
                     ]),
                 Forms\Components\Section::make('Consulta')
                     ->collapsible()
@@ -240,12 +238,12 @@ class ConsultaResource extends Resource
             ])
             ->actions([
                 Tables\Actions\ViewAction::make(),
- 
+
                 Tables\Actions\EditAction::make(),
- 
+
                 Tables\Actions\EditAction::make()
                     ->label('Processar'),
- 
+
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
