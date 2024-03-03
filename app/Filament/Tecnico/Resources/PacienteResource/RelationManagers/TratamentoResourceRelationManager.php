@@ -33,13 +33,21 @@ class TratamentoResourceRelationManager extends RelationManager
             ->columns([
                 Tables\Columns\TextColumn::make('hc')
                     ->numeric()
+                    ->searchable()
+                    ->sortable(),
+                Tables\Columns\TextColumn::make('medico.funcionario.user.name')
+                    ->label('Tratameto feito por')
+                    ->searchable()
+                    ->sortable(),
+                Tables\Columns\TextColumn::make('tipoTratamento.nome')
+                    ->label('Tratameto feito')
                     ->sortable(),
             ])
             ->headerActions([
-                // Tables\Actions\Action::make('create')
-                //     ->label('Criar tratamento')
-                //     ->icon('heroicon-o-plus')
-                //     ->url(TratamentoResource::getUrl('create'))
+                Tables\Actions\Action::make('create')
+                    ->label('Criar tratamento')
+                    ->icon('heroicon-o-plus')
+                    ->url(TratamentoResource::getUrl('create'))
             ])
             ->columns([
 
@@ -71,8 +79,7 @@ class TratamentoResourceRelationManager extends RelationManager
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
             ])
-            ->filters([
-            ])
+            ->filters([])
             ->actions([
                 // Tables\Actions\ViewAction::make()
                 //     ->url(fn (Tratamento $record): string => TratamentoResource::getUrl('view', [$record])),
@@ -85,5 +92,4 @@ class TratamentoResourceRelationManager extends RelationManager
     {
         return false;
     }
-
 }
