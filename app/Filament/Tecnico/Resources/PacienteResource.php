@@ -3,7 +3,7 @@
 namespace App\Filament\Tecnico\Resources;
 
 use App\Filament\Tecnico\Resources\PacienteResource\Pages;
-use App\Filament\Tecnico\Resources\PacienteResource\RelationManagers;
+use App\Filament\Tecnico\Resources\PacienteResource\RelationManagers\PacienteIdRelationManager;
 use App\Filament\Tecnico\Resources\PacienteResource\RelationManagers\TratamentoResourceRelationManager;
 use App\Models\Genero;
 use App\Models\Municipio;
@@ -168,9 +168,10 @@ class PacienteResource extends Resource
     {
         return [
             TratamentoResourceRelationManager::class,
+            PacienteIdRelationManager::class,
         ];
     }
-    
+
     public static function getPages(): array
     {
         return [
@@ -179,5 +180,5 @@ class PacienteResource extends Resource
             'edit' => Pages\EditPaciente::route('/{record}/edit'),
             'view' => Pages\ViewPaciente::route('/{record}'),
         ];
-    }    
+    }
 }
