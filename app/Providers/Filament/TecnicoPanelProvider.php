@@ -9,6 +9,7 @@ use App\Filament\Tecnico\Resources\DoacaoResource;
 use App\Filament\Tecnico\Resources\PacienteResource;
 use App\Filament\Tecnico\Resources\UtenteResource;
 use App\Filament\Tecnico\Resources\ItemResource;
+use App\Filament\Tecnico\Resources\TratamentoResource;
 use App\Http\Middleware\CheckTecnicoPanel;
 use Filament\Http\Middleware\DisableBladeIconComponents;
 use Filament\Http\Middleware\DispatchServingFilamentEvent;
@@ -51,6 +52,7 @@ class TecnicoPanelProvider extends PanelProvider
                             ->url('/tecnico')
                             ->isActiveWhen(fn (): bool => request()->fullUrlIs(TecnicoDashboard::getUrl())),
                                 ...PacienteResource::getNavigationItems(),
+                                ...TratamentoResource::getNavigationItems(),
                             ])
                             ->groups([
                                 NavigationGroup::make('Distribução')
