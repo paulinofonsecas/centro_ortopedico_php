@@ -5,7 +5,6 @@ namespace App\Providers\Filament;
 use App\Filament\Login\CustomLoginPage;
 use App\Filament\Medico\Resources\ConsultaResource;
 use App\Filament\Medico\Resources\ConsultorioResource;
-use App\Filament\Medico\Resources\FichaAvaliacaoResource;
 use App\Filament\Medico\Resources\MedicoResource\Widgets\ConsultasDeHoje;
 use App\Filament\Medico\Resources\PacienteResource;
 use App\Filament\Medico\Resources\TratamentoResource;

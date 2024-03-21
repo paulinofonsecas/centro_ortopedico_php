@@ -3,6 +3,7 @@
 namespace App\Filament\Medico\Resources;
 
 use App\Filament\Medico\Resources\ConsultaResource\Pages;
+use App\Filament\Medico\Resources\ConsultaResource\Pages\ProcessarConsulta;
 use App\Models\Consulta;
 use App\Models\EstadoConsulta;
 use App\Models\Gravidade;
@@ -62,6 +63,7 @@ class ConsultaResource extends Resource
                     ])->columns(2),
                 \Filament\Infolists\Components\Section::make('Informações do paciente')
                     ->collapsible()
+                    ->collapsed()
                     ->schema([
                         TextEntry::make('paciente.nome_completo')
                             ->size(TextEntry\TextEntrySize::Large)
@@ -95,6 +97,14 @@ class ConsultaResource extends Resource
                                     ->size(TextEntry\TextEntrySize::Large)
                             ])->columns(2)
                     ])->columns(2),
+
+
+
+                    \Filament\Infolists\Components\Section::make('Ficha de avaliação')
+                    ->collapsible()
+                    ->schema([
+                        TextEntry::make('gravidade')
+                    ]),
             ]);
     }
 
@@ -269,7 +279,7 @@ class ConsultaResource extends Resource
             'create' => Pages\CreateConsulta::route('/create'),
             'edit' => Pages\EditConsulta::route('/{record}/edit'),
             'view' => Pages\ViewConsulta::route('/{record}'),
-            // 'processar' => ProcessarConsulta::getUrl(['{record}','processar']),
+            'processar' => ProcessarConsulta::getUrl(['{record}','processar']),
         ];
     }
 }

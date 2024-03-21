@@ -4,7 +4,6 @@ namespace App\Filament\Medico\Resources\ConsultaResource\Pages;
 
 use App\Filament\Medico\Resources\ConsultaResource;
 use App\Models\Consulta;
-use App\Models\Sintoma;
 use Filament\Resources\Pages\EditRecord;
 use Illuminate\Database\Eloquent\Model;
 
